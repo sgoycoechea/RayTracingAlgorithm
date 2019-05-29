@@ -1,0 +1,2117 @@
+# depslib dependency file v1.0
+1368855200 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\vector3d.cpp
+	"Vector3D.h"
+
+1368831305 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\vector3d.h
+	<cmath>
+	<sstream>
+
+1368816347 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\hud.cpp
+	"HUD.h"
+
+1368816204 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\hud.h
+	<cstdlib>
+	<ctime>
+	"Objeto.h"
+	"Pelota.h"
+
+1368640895 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\objeto.h
+
+1368815444 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\pelota.h
+	"SDL/SDL_opengl.h"
+	"Objeto.h"
+	"Vector3D.h"
+
+1367909691 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\color.h
+
+1368898997 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\canon.cpp
+	"Canon.h"
+
+1368899552 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\canon.h
+	<cmath>
+	<iostream>
+	"SDL/SDL.h"
+	"SDL/SDL_opengl.h"
+	"FreeImage.h"
+	"FreeImage.h"
+	"utils.h"
+	"Objeto.h"
+	"Vector3D.h"
+
+1368898968 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\main.cpp
+	<ctime>
+	<iostream>
+	"SDL/SDL.h"
+	"SDL/SDL_opengl.h"
+	"utils.h"
+	"FreeImage.h"
+	"Mundo.h"
+
+1348445794 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\freeimage.h
+	<wchar.h>
+	<inttypes.h>
+
+1368899033 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\mundo.h
+	<string>
+	"Canon.h"
+	"HUD.h"
+	"Objeto.h"
+	"Panel.h"
+	"Pelota_en_mov.h"
+
+1368893008 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\panel.h
+	<iostream>
+	<list>
+	<set>
+	<string>
+	"SDL/SDL_opengl.h"
+	"tinystr.h"
+	"tinyxml.h"
+	"Objeto.h"
+	"Pelota.h"
+	"Vector3D.h"
+
+1368815994 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\pelota_en_mov.h
+	"Pelota.h"
+	"Vector3D.h"
+
+1368899019 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\mundo.cpp
+	"Mundo.h"
+
+1368894444 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\panel.cpp
+	"Panel.h"
+
+1368640896 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\objeto.cpp
+	"Objeto.h"
+
+1368856836 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\pelota.cpp
+	"Pelota.h"
+
+1368815902 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\pelota_en_mov.cpp
+	"Pelota_en_mov.h"
+
+1368572991 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\tinystr.h
+	<assert.h>
+	<string.h>
+
+1368573014 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\tinyxml.h
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<string>
+	<iostream>
+	<sstream>
+	"tinystr.h"
+
+1368572981 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\tinystr.cpp
+	"tinystr.h"
+
+1368573001 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\tinyxml.cpp
+	<ctype.h>
+	<sstream>
+	<iostream>
+	"tinyxml.h"
+
+1368572960 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\tinyxmlerror.cpp
+	"tinyxml.h"
+
+1368572971 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\tinyxmlparser.cpp
+	<ctype.h>
+	<stddef.h>
+	"tinyxml.h"
+	<windows.h>
+
+1368899009 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\texto.cpp
+	"Texto.h"
+
+1368896860 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\texto.h
+	<string>
+	"SDL/SDL_opengl.h"
+	"utils.h"
+	"Objeto.h"
+	"Vector3D.h"
+
+1368852491 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\utils.cpp
+	"utils.h"
+
+1368852482 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\utils.h
+	<string>
+	"SDL/SDL_opengl.h"
+	"FreeImage.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\sdl-1.2.15\include\sdl\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_audio.h"
+	"SDL_cdrom.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_loadso.h"
+	"SDL_mutex.h"
+	"SDL_rwops.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_video.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\sdl-1.2.15\include\sdl\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\sdl-1.2.15\include\sdl\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1326107388 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\sdl-1.2.15\include\sdl\sdl_config.h
+	"SDL_platform.h"
+	"SDL_config_dreamcast.h"
+	"SDL_config_macos.h"
+	"SDL_config_macosx.h"
+	"SDL_config_symbian.h"
+	"SDL_config_win32.h"
+	"SDL_config_os2.h"
+	"SDL_config_minimal.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\sdl-1.2.15\include\sdl\sdl_platform.h
+
+1326107394 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\sdl-1.2.15\include\sdl\sdl_config_win32.h
+	"SDL_platform.h"
+
+1326107400 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\sdl-1.2.15\include\sdl\begin_code.h
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\sdl-1.2.15\include\sdl\close_code.h
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\sdl-1.2.15\include\sdl\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\sdl-1.2.15\include\sdl\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\sdl-1.2.15\include\sdl\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\sdl-1.2.15\include\sdl\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\sdl-1.2.15\include\sdl\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\sdl-1.2.15\include\sdl\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\sdl-1.2.15\include\sdl\sdl_cdrom.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\sdl-1.2.15\include\sdl\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\sdl-1.2.15\include\sdl\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_active.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_quit.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\sdl-1.2.15\include\sdl\sdl_active.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\sdl-1.2.15\include\sdl\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keysym.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\sdl-1.2.15\include\sdl\sdl_keysym.h
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\sdl-1.2.15\include\sdl\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\sdl-1.2.15\include\sdl\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\sdl-1.2.15\include\sdl\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\sdl-1.2.15\include\sdl\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\sdl-1.2.15\include\sdl\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\sdl-1.2.15\include\sdl\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\sdl-1.2.15\include\sdl\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\sdl-1.2.15\include\sdl\sdl_opengl.h
+	"SDL_config.h"
+	<windows.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<gl.h>
+	<glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<windows.h>
+	<stddef.h>
+
+1348445794 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\claseslogica\freeimage\freeimage.h
+	<wchar.h>
+	<inttypes.h>
+
+1369021825 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\canon.cpp
+	"Canon.h"
+
+1368942703 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\canon.h
+	<cmath>
+	<iostream>
+	"SDL/SDL.h"
+	"SDL/SDL_opengl.h"
+	"FreeImage.h"
+	"FreeImage.h"
+	"utils.h"
+	"Objeto.h"
+	"Vector3D.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_audio.h"
+	"SDL_cdrom.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_loadso.h"
+	"SDL_mutex.h"
+	"SDL_rwops.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_video.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1326107388 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_config.h
+	"SDL_platform.h"
+	"SDL_config_dreamcast.h"
+	"SDL_config_macos.h"
+	"SDL_config_macosx.h"
+	"SDL_config_symbian.h"
+	"SDL_config_win32.h"
+	"SDL_config_os2.h"
+	"SDL_config_minimal.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_platform.h
+
+1326107394 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_config_win32.h
+	"SDL_platform.h"
+
+1326107400 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\sdl-1.2.15\include\sdl\begin_code.h
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\sdl-1.2.15\include\sdl\close_code.h
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_cdrom.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_active.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_quit.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_active.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keysym.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_keysym.h
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325735040 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_opengl.h
+	"SDL_config.h"
+	<windows.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<gl.h>
+	<glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<windows.h>
+	<stddef.h>
+
+1348445794 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\freeimage\freeimage.h
+	<wchar.h>
+	<inttypes.h>
+
+1369124967 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\utils.h
+	<string>
+	"SDL/SDL_opengl.h"
+	"FreeImage.h"
+
+1368942719 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\objeto.h
+	"Vector3D.h"
+
+1369106497 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\vector3d.h
+	<cmath>
+	<sstream>
+
+1369162081 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\main.cpp
+	<cmath>
+	<ctime>
+	<iostream>
+	"SDL/SDL.h"
+	"SDL/SDL_opengl.h"
+	"utils.h"
+	"FreeImage.h"
+	"Mundo.h"
+
+1369175576 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\mundo.h
+	<sstream>
+	<string>
+	"3dsloader.h"
+	"Canon.h"
+	"HUD.h"
+	"Objeto.h"
+	"Panel.h"
+	"Pelota_en_mov.h"
+	"Skybox.h"
+
+1369154651 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\hud.h
+	<cstdlib>
+	<ctime>
+	<iomanip>
+	<sstream>
+	"Objeto.h"
+	"Pelota.h"
+	"Texto.h"
+
+1369162237 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\pelota.h
+	"SDL/SDL_opengl.h"
+	"Objeto.h"
+	"Vector3D.h"
+
+1369162334 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\panel.h
+	<cfloat>
+	<iostream>
+	<list>
+	<set>
+	<string>
+	"SDL/SDL_opengl.h"
+	"tinystr.h"
+	"tinyxml.h"
+	"Objeto.h"
+	"Pelota.h"
+	"Vector3D.h"
+
+1305411898 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\tinystr.h
+	<assert.h>
+	<string.h>
+
+1305411898 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\tinyxml.h
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<string>
+	<iostream>
+	<sstream>
+	"tinystr.h"
+
+1369159161 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\pelota_en_mov.h
+	<list>
+	"Pelota.h"
+	"Vector3D.h"
+
+1369163622 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\mundo.cpp
+	"Mundo.h"
+
+1368942745 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\objeto.cpp
+	"Objeto.h"
+
+1369162804 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\panel.cpp
+	"Panel.h"
+
+1369162240 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\pelota.cpp
+	"Pelota.h"
+
+1369159400 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\pelota_en_mov.cpp
+	"Pelota_en_mov.h"
+
+1305411898 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\tinystr.cpp
+	"tinystr.h"
+
+1305411898 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\tinyxml.cpp
+	<ctype.h>
+	<sstream>
+	<iostream>
+	"tinyxml.h"
+
+1305411898 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\tinyxmlerror.cpp
+	"tinyxml.h"
+
+1305411898 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\tinyxmlparser.cpp
+	<ctype.h>
+	<stddef.h>
+	"tinyxml.h"
+	<windows.h>
+
+1369106668 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\vector3d.cpp
+	"Vector3D.h"
+
+1369022198 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\texto.h
+	<string>
+	"SDL/SDL_opengl.h"
+	"utils.h"
+	"Objeto.h"
+	"Vector3D.h"
+
+1369163495 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\hud.cpp
+	"HUD.h"
+
+1369124964 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\utils.cpp
+	"utils.h"
+
+1369153074 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\texto.cpp
+	"Texto.h"
+
+1369108197 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\3dsloader.h
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	"SDL/SDL.h"
+	<sys/stat.h>
+
+1369108186 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\3dsloader.cpp
+	"3dsloader.h"
+	<sys/stat.h>
+
+1369112750 c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\skybox.h
+	"SDL/SDL.h"
+	"SDL/SDL_opengl.h"
+	"utils.h"
+	"Objeto.h"
+	"Vector3D.h"
+
+1369120147 source:c:\users\santiago\dropbox\fing\semestres\7\asignaturas\introduccionalacomputaciongrafica\obligatorios\1\puzzlebobble\skybox.cpp
+	"Skybox.h"
+
+1428422048 source:c:\documents and settings\capacit\escritorio\1\puzzlebobble\3dsloader.cpp
+	"3dsloader.h"
+	<sys/stat.h>
+
+1369118996 c:\documents and settings\capacit\escritorio\1\puzzlebobble\3dsloader.h
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	"SDL/SDL.h"
+	<sys/stat.h>
+
+1325745840 c:\documents and settings\capacit\escritorio\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_audio.h"
+	"SDL_cdrom.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_loadso.h"
+	"SDL_mutex.h"
+	"SDL_rwops.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_video.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\documents and settings\capacit\escritorio\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\documents and settings\capacit\escritorio\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1326118188 c:\documents and settings\capacit\escritorio\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_config.h
+	"SDL_platform.h"
+	"SDL_config_dreamcast.h"
+	"SDL_config_macos.h"
+	"SDL_config_macosx.h"
+	"SDL_config_symbian.h"
+	"SDL_config_win32.h"
+	"SDL_config_os2.h"
+	"SDL_config_minimal.h"
+
+1325745840 c:\documents and settings\capacit\escritorio\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_platform.h
+
+1326118194 c:\documents and settings\capacit\escritorio\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_config_win32.h
+	"SDL_platform.h"
+
+1326118200 c:\documents and settings\capacit\escritorio\1\puzzlebobble\sdl-1.2.15\include\sdl\begin_code.h
+
+1325745840 c:\documents and settings\capacit\escritorio\1\puzzlebobble\sdl-1.2.15\include\sdl\close_code.h
+
+1325745840 c:\documents and settings\capacit\escritorio\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\documents and settings\capacit\escritorio\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\documents and settings\capacit\escritorio\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\documents and settings\capacit\escritorio\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\documents and settings\capacit\escritorio\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1325745840 c:\documents and settings\capacit\escritorio\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\documents and settings\capacit\escritorio\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_cdrom.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\documents and settings\capacit\escritorio\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\documents and settings\capacit\escritorio\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_active.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_quit.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\documents and settings\capacit\escritorio\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_active.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\documents and settings\capacit\escritorio\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keysym.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\documents and settings\capacit\escritorio\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_keysym.h
+
+1325745840 c:\documents and settings\capacit\escritorio\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\documents and settings\capacit\escritorio\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\documents and settings\capacit\escritorio\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\documents and settings\capacit\escritorio\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1325745840 c:\documents and settings\capacit\escritorio\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\documents and settings\capacit\escritorio\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\documents and settings\capacit\escritorio\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1428422051 source:c:\documents and settings\capacit\escritorio\1\puzzlebobble\canon.cpp
+	"Canon.h"
+
+1428422055 c:\documents and settings\capacit\escritorio\1\puzzlebobble\canon.h
+	<cmath>
+	<iostream>
+	"SDL/SDL.h"
+	"SDL/SDL_opengl.h"
+	"FreeImage.h"
+	"FreeImage.h"
+	"utils.h"
+	"Objeto.h"
+	"Vector3D.h"
+
+1325745840 c:\documents and settings\capacit\escritorio\1\puzzlebobble\sdl-1.2.15\include\sdl\sdl_opengl.h
+	"SDL_config.h"
+	<windows.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<gl.h>
+	<glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<windows.h>
+	<stddef.h>
+
+1348456594 c:\documents and settings\capacit\escritorio\1\puzzlebobble\freeimage\freeimage.h
+	<wchar.h>
+	<inttypes.h>
+
+1369135766 c:\documents and settings\capacit\escritorio\1\puzzlebobble\utils.h
+	<string>
+	"SDL/SDL_opengl.h"
+	"FreeImage.h"
+
+1368953518 c:\documents and settings\capacit\escritorio\1\puzzlebobble\objeto.h
+	"Vector3D.h"
+
+1369117296 c:\documents and settings\capacit\escritorio\1\puzzlebobble\vector3d.h
+	<cmath>
+	<sstream>
+
+1369174294 source:c:\documents and settings\capacit\escritorio\1\puzzlebobble\hud.cpp
+	"HUD.h"
+
+1369165450 c:\documents and settings\capacit\escritorio\1\puzzlebobble\hud.h
+	<cstdlib>
+	<ctime>
+	<iomanip>
+	<sstream>
+	"Objeto.h"
+	"Pelota.h"
+	"Texto.h"
+
+1369173036 c:\documents and settings\capacit\escritorio\1\puzzlebobble\pelota.h
+	"SDL/SDL_opengl.h"
+	"Objeto.h"
+	"Vector3D.h"
+
+1369032998 c:\documents and settings\capacit\escritorio\1\puzzlebobble\texto.h
+	<string>
+	"SDL/SDL_opengl.h"
+	"utils.h"
+	"Objeto.h"
+	"Vector3D.h"
+
+1369174422 source:c:\documents and settings\capacit\escritorio\1\puzzlebobble\mundo.cpp
+	"Mundo.h"
+
+1369186376 c:\documents and settings\capacit\escritorio\1\puzzlebobble\mundo.h
+	<sstream>
+	<string>
+	"3dsloader.h"
+	"Canon.h"
+	"HUD.h"
+	"Objeto.h"
+	"Panel.h"
+	"Pelota_en_mov.h"
+	"Skybox.h"
+
+1369173134 c:\documents and settings\capacit\escritorio\1\puzzlebobble\panel.h
+	<cfloat>
+	<iostream>
+	<list>
+	<set>
+	<string>
+	"SDL/SDL_opengl.h"
+	"tinystr.h"
+	"tinyxml.h"
+	"Objeto.h"
+	"Pelota.h"
+	"Vector3D.h"
+
+1368583790 c:\documents and settings\capacit\escritorio\1\puzzlebobble\tinystr.h
+	<assert.h>
+	<string.h>
+
+1368583814 c:\documents and settings\capacit\escritorio\1\puzzlebobble\tinyxml.h
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<string>
+	<iostream>
+	<sstream>
+	"tinystr.h"
+
+1369169960 c:\documents and settings\capacit\escritorio\1\puzzlebobble\pelota_en_mov.h
+	<list>
+	"Pelota.h"
+	"Vector3D.h"
+
+1369123550 c:\documents and settings\capacit\escritorio\1\puzzlebobble\skybox.h
+	"SDL/SDL.h"
+	"SDL/SDL_opengl.h"
+	"utils.h"
+	"Objeto.h"
+	"Vector3D.h"
+
+1368953544 source:c:\documents and settings\capacit\escritorio\1\puzzlebobble\objeto.cpp
+	"Objeto.h"
+
+1369173604 source:c:\documents and settings\capacit\escritorio\1\puzzlebobble\panel.cpp
+	"Panel.h"
+
+1369173040 source:c:\documents and settings\capacit\escritorio\1\puzzlebobble\pelota.cpp
+	"Pelota.h"
+
+1369170200 source:c:\documents and settings\capacit\escritorio\1\puzzlebobble\pelota_en_mov.cpp
+	"Pelota_en_mov.h"
+
+1369130946 source:c:\documents and settings\capacit\escritorio\1\puzzlebobble\skybox.cpp
+	"Skybox.h"
+
+1369163874 source:c:\documents and settings\capacit\escritorio\1\puzzlebobble\texto.cpp
+	"Texto.h"
+
+1369117468 source:c:\documents and settings\capacit\escritorio\1\puzzlebobble\vector3d.cpp
+	"Vector3D.h"
+
+1369172880 source:c:\documents and settings\capacit\escritorio\1\puzzlebobble\main.cpp
+	<cmath>
+	<ctime>
+	<iostream>
+	"SDL/SDL.h"
+	"SDL/SDL_opengl.h"
+	"utils.h"
+	"FreeImage.h"
+	"Mundo.h"
+
+1368583780 source:c:\documents and settings\capacit\escritorio\1\puzzlebobble\tinystr.cpp
+	"tinystr.h"
+
+1368583800 source:c:\documents and settings\capacit\escritorio\1\puzzlebobble\tinyxml.cpp
+	<ctype.h>
+	<sstream>
+	<iostream>
+	"tinyxml.h"
+
+1368583760 source:c:\documents and settings\capacit\escritorio\1\puzzlebobble\tinyxmlerror.cpp
+	"tinyxml.h"
+
+1368583770 source:c:\documents and settings\capacit\escritorio\1\puzzlebobble\tinyxmlparser.cpp
+	<ctype.h>
+	<stddef.h>
+	"tinyxml.h"
+	<windows.h>
+
+1369135764 source:c:\documents and settings\capacit\escritorio\1\puzzlebobble\utils.cpp
+	"utils.h"
+
+1428422050 source:c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\3dsloader.cpp
+	"3dsloader.h"
+	<sys/stat.h>
+
+1369118996 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\3dsloader.h
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	"SDL/SDL.h"
+	<sys/stat.h>
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\sdl-1.2.15\include\sdl\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_audio.h"
+	"SDL_cdrom.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_loadso.h"
+	"SDL_mutex.h"
+	"SDL_rwops.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_video.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\sdl-1.2.15\include\sdl\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\sdl-1.2.15\include\sdl\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1326121788 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\sdl-1.2.15\include\sdl\sdl_config.h
+	"SDL_platform.h"
+	"SDL_config_dreamcast.h"
+	"SDL_config_macos.h"
+	"SDL_config_macosx.h"
+	"SDL_config_symbian.h"
+	"SDL_config_win32.h"
+	"SDL_config_os2.h"
+	"SDL_config_minimal.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\sdl-1.2.15\include\sdl\sdl_platform.h
+
+1326121794 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\sdl-1.2.15\include\sdl\sdl_config_win32.h
+	"SDL_platform.h"
+
+1326121800 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\sdl-1.2.15\include\sdl\begin_code.h
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\sdl-1.2.15\include\sdl\close_code.h
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\sdl-1.2.15\include\sdl\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\sdl-1.2.15\include\sdl\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\sdl-1.2.15\include\sdl\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\sdl-1.2.15\include\sdl\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\sdl-1.2.15\include\sdl\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\sdl-1.2.15\include\sdl\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\sdl-1.2.15\include\sdl\sdl_cdrom.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\sdl-1.2.15\include\sdl\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\sdl-1.2.15\include\sdl\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_active.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_quit.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\sdl-1.2.15\include\sdl\sdl_active.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\sdl-1.2.15\include\sdl\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keysym.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\sdl-1.2.15\include\sdl\sdl_keysym.h
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\sdl-1.2.15\include\sdl\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\sdl-1.2.15\include\sdl\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\sdl-1.2.15\include\sdl\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\sdl-1.2.15\include\sdl\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\sdl-1.2.15\include\sdl\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\sdl-1.2.15\include\sdl\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\sdl-1.2.15\include\sdl\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1428422052 source:c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\canon.cpp
+	"Canon.h"
+
+1428422056 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\canon.h
+	<cmath>
+	<iostream>
+	"SDL/SDL.h"
+	"SDL/SDL_opengl.h"
+	"FreeImage.h"
+	"FreeImage.h"
+	"utils.h"
+	"Objeto.h"
+	"Vector3D.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\sdl-1.2.15\include\sdl\sdl_opengl.h
+	"SDL_config.h"
+	<windows.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<gl.h>
+	<glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<windows.h>
+	<stddef.h>
+
+1348456594 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\freeimage\freeimage.h
+	<wchar.h>
+	<inttypes.h>
+
+1369135766 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\utils.h
+	<string>
+	"SDL/SDL_opengl.h"
+	"FreeImage.h"
+
+1368953518 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\objeto.h
+	"Vector3D.h"
+
+1369117296 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\vector3d.h
+	<cmath>
+	<sstream>
+
+1369174294 source:c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\hud.cpp
+	"HUD.h"
+
+1369165450 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\hud.h
+	<cstdlib>
+	<ctime>
+	<iomanip>
+	<sstream>
+	"Objeto.h"
+	"Pelota.h"
+	"Texto.h"
+
+1428424300 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\pelota.h
+	"SDL/SDL_opengl.h"
+	"Objeto.h"
+	"Vector3D.h"
+
+1369032998 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\texto.h
+	<string>
+	"SDL/SDL_opengl.h"
+	"utils.h"
+	"Objeto.h"
+	"Vector3D.h"
+
+1428428677 source:c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\main.cpp
+	<iostream>
+	"SDL/SDL.h"
+	"SDL/SDL_opengl.h"
+	"FreeImage.h"
+	<math.h>
+	"FreeImage.h"
+
+1369186376 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\mundo.h
+	<sstream>
+	<string>
+	"3dsloader.h"
+	"Canon.h"
+	"HUD.h"
+	"Objeto.h"
+	"Panel.h"
+	"Pelota_en_mov.h"
+	"Skybox.h"
+
+1369173134 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\panel.h
+	<cfloat>
+	<iostream>
+	<list>
+	<set>
+	<string>
+	"SDL/SDL_opengl.h"
+	"tinystr.h"
+	"tinyxml.h"
+	"Objeto.h"
+	"Pelota.h"
+	"Vector3D.h"
+
+1368583790 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\tinystr.h
+	<assert.h>
+	<string.h>
+
+1368583814 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\tinyxml.h
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<string>
+	<iostream>
+	<sstream>
+	"tinystr.h"
+
+1369169960 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\pelota_en_mov.h
+	<list>
+	"Pelota.h"
+	"Vector3D.h"
+
+1369123550 c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\skybox.h
+	"SDL/SDL.h"
+	"SDL/SDL_opengl.h"
+	"utils.h"
+	"Objeto.h"
+	"Vector3D.h"
+
+1369174422 source:c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\mundo.cpp
+	"Mundo.h"
+
+1368953544 source:c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\objeto.cpp
+	"Objeto.h"
+
+1369173604 source:c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\panel.cpp
+	"Panel.h"
+
+1428424348 source:c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\pelota.cpp
+	"Pelota.h"
+
+1369170200 source:c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\pelota_en_mov.cpp
+	"Pelota_en_mov.h"
+
+1369130946 source:c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\skybox.cpp
+	"Skybox.h"
+
+1369163874 source:c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\texto.cpp
+	"Texto.h"
+
+1368583780 source:c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\tinystr.cpp
+	"tinystr.h"
+
+1368583800 source:c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\tinyxml.cpp
+	<ctype.h>
+	<sstream>
+	<iostream>
+	"tinyxml.h"
+
+1368583760 source:c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\tinyxmlerror.cpp
+	"tinyxml.h"
+
+1368583770 source:c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\tinyxmlparser.cpp
+	<ctype.h>
+	<stddef.h>
+	"tinyxml.h"
+	<windows.h>
+
+1369135764 source:c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\utils.cpp
+	"utils.h"
+
+1369117468 source:c:\users\grafica\desktop\jose\proyectoscpp\puzzlebobble\vector3d.cpp
+	"Vector3D.h"
+
+1428428677 source:c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\main.cpp
+	<iostream>
+	"SDL/SDL.h"
+	"SDL/SDL_opengl.h"
+	"FreeImage.h"
+	<math.h>
+	"FreeImage.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\sdl-1.2.15\include\sdl\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_audio.h"
+	"SDL_cdrom.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_loadso.h"
+	"SDL_mutex.h"
+	"SDL_rwops.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_video.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\sdl-1.2.15\include\sdl\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\sdl-1.2.15\include\sdl\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1326121788 c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\sdl-1.2.15\include\sdl\sdl_config.h
+	"SDL_platform.h"
+	"SDL_config_dreamcast.h"
+	"SDL_config_macos.h"
+	"SDL_config_macosx.h"
+	"SDL_config_symbian.h"
+	"SDL_config_win32.h"
+	"SDL_config_os2.h"
+	"SDL_config_minimal.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\sdl-1.2.15\include\sdl\sdl_platform.h
+
+1326121794 c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\sdl-1.2.15\include\sdl\sdl_config_win32.h
+	"SDL_platform.h"
+
+1326121800 c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\sdl-1.2.15\include\sdl\begin_code.h
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\sdl-1.2.15\include\sdl\close_code.h
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\sdl-1.2.15\include\sdl\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\sdl-1.2.15\include\sdl\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\sdl-1.2.15\include\sdl\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\sdl-1.2.15\include\sdl\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\sdl-1.2.15\include\sdl\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\sdl-1.2.15\include\sdl\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\sdl-1.2.15\include\sdl\sdl_cdrom.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\sdl-1.2.15\include\sdl\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\sdl-1.2.15\include\sdl\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_active.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_quit.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\sdl-1.2.15\include\sdl\sdl_active.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\sdl-1.2.15\include\sdl\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keysym.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\sdl-1.2.15\include\sdl\sdl_keysym.h
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\sdl-1.2.15\include\sdl\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\sdl-1.2.15\include\sdl\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\sdl-1.2.15\include\sdl\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\sdl-1.2.15\include\sdl\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\sdl-1.2.15\include\sdl\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\sdl-1.2.15\include\sdl\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\sdl-1.2.15\include\sdl\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\sdl-1.2.15\include\sdl\sdl_opengl.h
+	"SDL_config.h"
+	<windows.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<gl.h>
+	<glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<windows.h>
+	<stddef.h>
+
+1348456594 c:\users\grafica\desktop\jose\proyectoscpp\opengl_b\freeimage\freeimage.h
+	<wchar.h>
+	<inttypes.h>
+
+1428428677 source:c:\users\admin\desktop\opengl_b\main.cpp
+	<iostream>
+	"SDL/SDL.h"
+	"SDL/SDL_opengl.h"
+	"FreeImage.h"
+	<math.h>
+	"FreeImage.h"
+
+1325745840 c:\users\admin\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_audio.h"
+	"SDL_cdrom.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_loadso.h"
+	"SDL_mutex.h"
+	"SDL_rwops.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_video.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\users\admin\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\users\admin\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1326118188 c:\users\admin\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_config.h
+	"SDL_platform.h"
+	"SDL_config_dreamcast.h"
+	"SDL_config_macos.h"
+	"SDL_config_macosx.h"
+	"SDL_config_symbian.h"
+	"SDL_config_win32.h"
+	"SDL_config_os2.h"
+	"SDL_config_minimal.h"
+
+1325745840 c:\users\admin\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_platform.h
+
+1326118194 c:\users\admin\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_config_win32.h
+	"SDL_platform.h"
+
+1326118200 c:\users\admin\desktop\opengl_b\sdl-1.2.15\include\sdl\begin_code.h
+
+1325745840 c:\users\admin\desktop\opengl_b\sdl-1.2.15\include\sdl\close_code.h
+
+1325745840 c:\users\admin\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\users\admin\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\users\admin\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\users\admin\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\users\admin\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1325745840 c:\users\admin\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\users\admin\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_cdrom.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\users\admin\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\users\admin\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_active.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_quit.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\users\admin\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_active.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\users\admin\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keysym.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\users\admin\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_keysym.h
+
+1325745840 c:\users\admin\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\users\admin\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\users\admin\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\users\admin\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1325745840 c:\users\admin\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\users\admin\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\users\admin\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325745840 c:\users\admin\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_opengl.h
+	"SDL_config.h"
+	<windows.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<gl.h>
+	<glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<windows.h>
+	<stddef.h>
+
+1425431874 c:\users\admin\desktop\opengl_b\freeimage\freeimage.h
+	<wchar.h>
+	<inttypes.h>
+
+1557185710 source:c:\users\jose\desktop\opengl_b\main.cpp
+	<iostream>
+	"SDL/SDL.h"
+	"SDL/SDL_opengl.h"
+	"FreeImage.h"
+	<math.h>
+	"FreeImage.h"
+
+1325749440 c:\users\jose\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_audio.h"
+	"SDL_cdrom.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_loadso.h"
+	"SDL_mutex.h"
+	"SDL_rwops.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_video.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\jose\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\jose\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1326121788 c:\users\jose\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_config.h
+	"SDL_platform.h"
+	"SDL_config_dreamcast.h"
+	"SDL_config_macos.h"
+	"SDL_config_macosx.h"
+	"SDL_config_symbian.h"
+	"SDL_config_win32.h"
+	"SDL_config_os2.h"
+	"SDL_config_minimal.h"
+
+1325749440 c:\users\jose\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_platform.h
+
+1326121794 c:\users\jose\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_config_win32.h
+	"SDL_platform.h"
+
+1326121800 c:\users\jose\desktop\opengl_b\sdl-1.2.15\include\sdl\begin_code.h
+
+1325749440 c:\users\jose\desktop\opengl_b\sdl-1.2.15\include\sdl\close_code.h
+
+1325749440 c:\users\jose\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\jose\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\jose\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\jose\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\jose\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1325749440 c:\users\jose\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\jose\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_cdrom.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\jose\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\jose\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_active.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_quit.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\jose\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_active.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\jose\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keysym.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\jose\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_keysym.h
+
+1325749440 c:\users\jose\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\jose\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\jose\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\jose\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1325749440 c:\users\jose\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\jose\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\jose\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325749440 c:\users\jose\desktop\opengl_b\sdl-1.2.15\include\sdl\sdl_opengl.h
+	"SDL_config.h"
+	<windows.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<gl.h>
+	<glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<windows.h>
+	<stddef.h>
+
+1425435474 c:\users\jose\desktop\opengl_b\freeimage\freeimage.h
+	<wchar.h>
+	<inttypes.h>
+
