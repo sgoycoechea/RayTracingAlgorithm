@@ -31,6 +31,15 @@ int main(int argc, char *argv[]) {
     string date = getDate();
     string path = "fotos/" + date + ".bmp";
 
+    RGBQUAD color;// = new RGBQUAD(Color.Red);
+    color.rgbRed = 100;
+    color.rgbGreen = 100;
+    color.rgbBlue = 0;
+
+    for (int i = 0; i < 100; i++)
+        for (int j = 0; j < 100; j++)
+            FreeImage_SetPixelColor(bitmap, i, j, &color);
+
     FreeImage_Save(FIF_BMP, bitmap, path.c_str(), 0);
 
     return 0;
