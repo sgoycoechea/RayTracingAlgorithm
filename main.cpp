@@ -1,12 +1,26 @@
 #include "FreeImage.h"
-#include <iostream>
+#include "include/Esfera.h"
+#include "include/Point.h"
+#include "include/Rayo.h"
+#include "include/Color.h"
 #include <chrono>
 #include <ctime>
 #include <string>
+#include <list>
+
+#include <iostream>
 #include <fstream>
 
-
 using namespace std;
+
+int writeFile(string txt)
+{
+  std::ofstream outfile;
+  outfile.open("test.txt", std::ios_base::app);
+  outfile << txt;
+  return 0;
+}
+
 
 string getDate(){
     time_t rawtime;
@@ -25,20 +39,63 @@ string getDate(){
     return str.substr(0,16);
 }
 
-int main(int argc, char *argv[]) {
-    FIBITMAP *bitmap = FreeImage_Allocate(640, 240, 32);
+
+
+Color* rayTracing(int i, int j, list<Esfera*> objetos){
+
+    Point* origen = new Point(0, 0, -1000);
+    Point* direccion = new Point(i, j, 1250);
+    direccion->normalizar();
+    Rayo* rayo = new Rayo(origen, direccion);
+
+    Color* color;
+
+    for (Esfera* objeto : objetos) {
+        if ((*objeto).intersectar(rayo) != FLT_MAX){
+            color = new Color(0,150,0);
+        }
+        else{
+            color = new Color(0,0,0);
+        }
+    }
+
+    return color;
+}
+
+int main() {
+
+    int Height = 500;
+    int Width = 500;
+
+    Esfera* esfera = new Esfera(new Point(200,250,220), 50);
+    list<Esfera*> objetos;
+    objetos.push_back(esfera);
+
+	//list<Lightsource> luces;
+
+
+
+    FIBITMAP *bitmap = FreeImage_Allocate(Width, Height, 32);
 
     string date = getDate();
     string path = "fotos/" + date + ".bmp";
 
-    RGBQUAD color;// = new RGBQUAD(Color.Red);
-    color.rgbRed = 100;
-    color.rgbGreen = 100;
-    color.rgbBlue = 0;
+    for (int i = 0; i < Height; i++) {
+        for (int j = 0; j < Width; j++)  {
 
-    for (int i = 0; i < 100; i++)
-        for (int j = 0; j < 100; j++)
-            FreeImage_SetPixelColor(bitmap, i, j, &color);
+        Color* color = rayTracing(i, j, objetos);
+
+
+        // CAMBIAAAAAAAAAAAAAR
+        // CAMBIAAAAAAAAAAAAAR
+        // CAMBIAAAAAAAAAAAAAR
+        RGBQUAD colorQuad;
+        colorQuad.rgbRed = color->getR();
+        colorQuad.rgbGreen = color->getG();
+        colorQuad.rgbBlue = color->getB();
+        FreeImage_SetPixelColor(bitmap, i, j, &colorQuad);
+        }
+    }
 
     FreeImage_Save(FIF_BMP, bitmap, path.c_str(), 0);
 

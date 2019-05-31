@@ -43,15 +43,23 @@
 		</ResourceCompiler>
 		<Linker>
 			<Add option="-lmingw32 -lSDLmain -lSDL -lopengl32 -lglu32 -lFreeImage" />
-			<Add library="SDL-1.2.15\lib\libSDLmain.a" />
-			<Add library="SDL-1.2.15\lib\libSDL.dll.a" />
-			<Add library="FreeImage\FreeImage.lib" />
+			<Add library="SDL-1.2.15/lib/libSDLmain.a" />
+			<Add library="SDL-1.2.15/lib/libSDL.dll.a" />
+			<Add library="FreeImage/FreeImage.lib" />
 			<Add directory="SDL-1.2.15/lib" />
 			<Add directory="FreeImage" />
 		</Linker>
 		<Unit filename="FreeImage.dll" />
 		<Unit filename="SDL.dll" />
+		<Unit filename="include/Color.h" />
+		<Unit filename="include/Esfera.h" />
+		<Unit filename="include/Point.h" />
+		<Unit filename="include/Rayo.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Color.cpp" />
+		<Unit filename="src/Esfera.cpp" />
+		<Unit filename="src/Point.cpp" />
+		<Unit filename="src/Rayo.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

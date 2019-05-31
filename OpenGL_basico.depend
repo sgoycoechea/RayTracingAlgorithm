@@ -2115,3 +2115,69 @@
 	<wchar.h>
 	<inttypes.h>
 
+1559341010 source:c:\users\pepes\desktop\compgraf\oblig 2\raytracing\main.cpp
+	"FreeImage.h"
+	"include/Esfera.h"
+	"include/Point.h"
+	"include/Rayo.h"
+	"include/Color.h"
+	<chrono>
+	<ctime>
+	<string>
+	<list>
+	<iostream>
+	<fstream>
+
+1425435474 c:\users\pepes\desktop\compgraf\oblig 2\raytracing\freeimage\freeimage.h
+	<wchar.h>
+	<inttypes.h>
+
+1559333943 c:\users\pepes\desktop\compgraf\oblig 2\raytracing\scene.h
+	"objects.h"
+	"color.h"
+	<iostream>
+	<list>
+
+1559333653 c:\users\pepes\desktop\compgraf\oblig 2\raytracing\objects.h
+	"color.h"
+	"vect.h"
+	"ray.h"
+	<cmath>
+	<vector>
+	<iostream>
+	<cfloat>
+
+1559282906 c:\users\pepes\desktop\compgraf\oblig 2\raytracing\color.h
+
+1559282906 c:\users\pepes\desktop\compgraf\oblig 2\raytracing\vect.h
+	<cmath>
+
+1559282906 c:\users\pepes\desktop\compgraf\oblig 2\raytracing\ray.h
+	"vect.h"
+
+1559340209 source:c:\users\pepes\desktop\compgraf\oblig 2\raytracing\src\point.cpp
+	"../include/Point.h"
+
+1559340153 c:\users\pepes\desktop\compgraf\oblig 2\raytracing\include\point.h
+	<math.h>
+
+1559340783 source:c:\users\pepes\desktop\compgraf\oblig 2\raytracing\src\rayo.cpp
+	"../include/Rayo.h"
+
+1559337372 c:\users\pepes\desktop\compgraf\oblig 2\raytracing\include\rayo.h
+	"Point.h"
+
+1559339943 source:c:\users\pepes\desktop\compgraf\oblig 2\raytracing\src\esfera.cpp
+	"../include/Esfera.h"
+
+1559339959 c:\users\pepes\desktop\compgraf\oblig 2\raytracing\include\esfera.h
+	"Point.h"
+	"Rayo.h"
+	<math.h>
+	<cfloat>
+
+1559340415 source:c:\users\pepes\desktop\compgraf\oblig 2\raytracing\src\color.cpp
+	"../include/Color.h"
+
+1557268651 c:\users\pepes\desktop\compgraf\oblig 2\raytracing\include\color.h
+
