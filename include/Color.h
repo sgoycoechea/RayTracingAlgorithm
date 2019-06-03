@@ -5,14 +5,15 @@ using namespace std;
 
 class Color{
     private:
-        int r;
-        int g;
-        int b;
+        float r;
+        float g;
+        float b;
     public:
-        Color(int, int, int);
-        int getR();
-        int getG();
-        int getB();
+        Color(float, float, float);
+        float getR();
+        float getG();
+        float getB();
+        void escalar(float);
 };
 
 #endif

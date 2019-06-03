@@ -2,20 +2,32 @@
 
 using namespace std;
 
-Color::Color(int r, int g, int b){
+Color::Color(float r, float g, float b){
     this->r = r;
     this->g = g;
     this->b = b;
 }
 
-int Color::getR() {
+float Color::getR() {
   return r;
 }
 
-int Color::getG() {
+float Color::getG() {
   return g;
 }
 
-int Color::getB() {
+float Color::getB() {
   return b;
+}
+
+void Color::escalar(float factor) {
+  r = r * factor;
+  if (r > 255)
+    r = 255;
+  g = g * factor;
+  if (b > 255)
+    b = 255;
+  b = b * factor;
+  if (g > 255)
+    g = 255;
 }

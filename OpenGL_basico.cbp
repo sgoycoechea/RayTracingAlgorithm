@@ -53,11 +53,13 @@
 		<Unit filename="SDL.dll" />
 		<Unit filename="include/Color.h" />
 		<Unit filename="include/Esfera.h" />
+		<Unit filename="include/Luz.h" />
 		<Unit filename="include/Point.h" />
 		<Unit filename="include/Rayo.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Color.cpp" />
 		<Unit filename="src/Esfera.cpp" />
+		<Unit filename="src/Luz.cpp" />
 		<Unit filename="src/Point.cpp" />
 		<Unit filename="src/Rayo.cpp" />
 		<Extensions>

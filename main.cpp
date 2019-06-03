@@ -3,6 +3,8 @@
 #include "include/Point.h"
 #include "include/Rayo.h"
 #include "include/Color.h"
+#include "include/Luz.h"
+
 #include <chrono>
 #include <ctime>
 #include <string>
@@ -39,41 +41,76 @@ string getDate(){
     return str.substr(0,16);
 }
 
+Color* sombra_RR(Esfera* masCercano, Rayo* rayo, float distancia, Point* normal, list<Luz*> luces, int profundidad){
 
 
-Color* rayTracing(int i, int j, list<Esfera*> objetos){
+    Point* interseccion = (*rayo->getDireccion()) * distancia;
+    Color* res = masCercano->getColor();
 
-    Point* origen = new Point(0, 0, -1000);
-    Point* direccion = new Point(i, j, 1250);
-    direccion->normalizar();
-    Rayo* rayo = new Rayo(origen, direccion);
+    float iluminacion = 0;
 
-    Color* color;
+    for (Luz* luz : luces) {
+        Point* direccionLuz = (*interseccion) - luz->getPosicion();
+
+        // SACAR ESTO SI QUEREMOS QUE LA LUZ BAJE CUANDO SE ALEJA EL OBJETO
+        direccionLuz->normalizar();
+
+        float iluminacionEstaLuz = normal->dotProduct(direccionLuz);
+
+        if (iluminacionEstaLuz > 0)
+            iluminacion += iluminacionEstaLuz;
+    }
+
+    if (iluminacion > 0.2)
+        res->escalar(iluminacion);
+    else
+        res->escalar(0.2);
+
+    return res;
+}
+
+Color* traza_RR(Rayo* rayo, list<Esfera*> objetos, list<Luz*> luces, int profundidad){
+
+    Color* color = new Color(255,255,255);
+
+    Esfera* masCercano = nullptr;
+    float distancia = FLT_MAX;
 
     for (Esfera* objeto : objetos) {
-        if ((*objeto).intersectar(rayo) != FLT_MAX){
-            color = new Color(0,150,0);
-        }
-        else{
-            color = new Color(0,0,0);
+        float distObj = (*objeto).intersectar(rayo);
+        if (distObj < distancia){
+            masCercano = objeto;
+            distancia = distObj;
         }
     }
 
+    if (masCercano != nullptr){
+        Point* interseccion = (*rayo->getDireccion()) * distancia;
+        Point* normal = masCercano->getNormal(interseccion);
+        return sombra_RR(masCercano, rayo, distancia, normal, luces, profundidad);
+    }
     return color;
 }
 
+
+
 int main() {
 
-    int Height = 500;
-    int Width = 500;
+    float Height = 500;
+    float Width = 500;
 
-    Esfera* esfera = new Esfera(new Point(200,250,220), 50);
+    Esfera* esfera1 = new Esfera(new Point(0,0,8), 3, new Color(150,0,0));
+    Esfera* esfera2 = new Esfera(new Point(0,0,4), 1, new Color(0,150,0));
+    Luz* luz1 = new Luz(new Point(0,3,4), new Color(255,255,255), 100);
+    Luz* luz2 = new Luz(new Point(0,-3,4), new Color(255,255,255), 100);
+
     list<Esfera*> objetos;
-    objetos.push_back(esfera);
+    objetos.push_back(esfera1);
+    objetos.push_back(esfera2);
 
-	//list<Lightsource> luces;
-
-
+	list<Luz*> luces;
+    luces.push_back(luz1);
+    luces.push_back(luz2);
 
     FIBITMAP *bitmap = FreeImage_Allocate(Width, Height, 32);
 
@@ -83,16 +120,21 @@ int main() {
     for (int i = 0; i < Height; i++) {
         for (int j = 0; j < Width; j++)  {
 
-        Color* color = rayTracing(i, j, objetos);
+        Point* origen = new Point(0, 0, 0);
+        Point* direccion = new Point((float)(i) / Height - 0.5, (float)(j) / Width - 0.5, 1);
+        direccion->normalizar();
+        Rayo* rayo = new Rayo(origen, direccion);
+
+        Color* color = traza_RR(rayo, objetos, luces, 1);
 
 
         // CAMBIAAAAAAAAAAAAAR
         // CAMBIAAAAAAAAAAAAAR
-        // CAMBIAAAAAAAAAAAAAR
+        // CAMBIAAAAAAAAAAAAA
         RGBQUAD colorQuad;
-        colorQuad.rgbRed = color->getR();
-        colorQuad.rgbGreen = color->getG();
-        colorQuad.rgbBlue = color->getB();
+        colorQuad.rgbRed = (int)color->getR();
+        colorQuad.rgbGreen = (int)color->getG();
+        colorQuad.rgbBlue = (int)color->getB();
         FreeImage_SetPixelColor(bitmap, i, j, &colorQuad);
         }
     }

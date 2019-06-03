@@ -4,9 +4,10 @@
 
 using namespace std;
 
-Esfera::Esfera(Point* centro, double rad){
+Esfera::Esfera(Point* centro, double rad, Color* color){
     this->centro = centro;
     this->rad = rad;
+    this->color = color;
 }
 
 Point* Esfera::getCentro(){
@@ -17,7 +18,15 @@ double Esfera::getRad(){
     return rad;
 }
 
+Color* Esfera::getColor(){
+    return new Color(color->getR(), color->getG(), color->getB());
+}
 
+Point* Esfera::getNormal(Point* punto){
+    return (*centro) - (punto);
+
+
+}
 
 double Esfera::intersectar(Rayo* rayo) {
     double dirX = rayo->getDireccion()->getX();
@@ -54,3 +63,5 @@ double Esfera::intersectar(Rayo* rayo) {
         return raiz2; // La camara esta adentro de la esfera
 
 };
+
+
