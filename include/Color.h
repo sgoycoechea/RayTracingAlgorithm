@@ -13,7 +13,9 @@ class Color{
         float getR();
         float getG();
         float getB();
-        void escalar(float);
+        Color* escalar(float);
+        Color* mezclar(Color*);
+        Color* operator+(Color*);
 };
 
 #endif

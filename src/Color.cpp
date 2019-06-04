@@ -20,14 +20,24 @@ float Color::getB() {
   return b;
 }
 
-void Color::escalar(float factor) {
-  r = r * factor;
-  if (r > 255)
-    r = 255;
-  g = g * factor;
-  if (b > 255)
-    b = 255;
-  b = b * factor;
-  if (g > 255)
-    g = 255;
+Color* Color::escalar(float factor) {
+  float newR = r * factor;
+  if (newR > 255)
+    newR = 255;
+  float newG = g * factor;
+  if (newG > 255)
+    newG = 255;
+  float newB = b * factor;
+  if (newB > 255)
+    newB = 255;
+
+    return new Color(newR, newG, newB);
+}
+
+Color* Color::operator+(Color* color2){
+    return new Color(r + color2->getR(), g + color2->getG(), b + color2->getB());
+}
+
+Color* Color::mezclar(Color* color2) {
+  return new Color(r * color2->getR(), g * color2->getG(), b * color2->getB());
 }

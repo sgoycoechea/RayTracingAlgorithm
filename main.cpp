@@ -41,7 +41,7 @@ string getDate(){
     return str.substr(0,16);
 }
 
-Color* sombra_RR(Esfera* masCercano, Rayo* rayo, float distancia, Point* normal, list<Luz*> luces, int profundidad){
+Color* sombra_RR(Esfera* masCercano, Rayo* rayo, float distancia, Point* normal, list<Esfera*> objetos, list<Luz*> luces, int profundidad){
 
 
     Point* interseccion = (*rayo->getDireccion()) * distancia;
@@ -55,16 +55,29 @@ Color* sombra_RR(Esfera* masCercano, Rayo* rayo, float distancia, Point* normal,
         // SACAR ESTO SI QUEREMOS QUE LA LUZ BAJE CUANDO SE ALEJA EL OBJETO
         direccionLuz->normalizar();
 
+        // VER SI EL RAYO NO TENDRIA QUE ESTAR AL REVES
+        Rayo* rayoLuz = new Rayo(luz->getPosicion(), direccionLuz);
+
+        float cantidadLuz = 1;
+
+        for (Esfera* objeto : objetos) {
+            if (objeto != masCercano){
+                float dist = objeto->intersectar(rayoLuz);
+                if (dist < distancia)
+                    cantidadLuz *= 0.2; // MULTIPLICAR POR COEFICIENTE
+            }
+        }
+
         float iluminacionEstaLuz = normal->dotProduct(direccionLuz);
 
-        if (iluminacionEstaLuz > 0)
-            iluminacion += iluminacionEstaLuz;
+        if (iluminacionEstaLuz * cantidadLuz > 0)
+            iluminacion += iluminacionEstaLuz * cantidadLuz;
     }
 
     if (iluminacion > 0.2)
-        res->escalar(iluminacion);
+        res = res->escalar(iluminacion);
     else
-        res->escalar(0.2);
+        res = res->escalar(0.2);
 
     return res;
 }
@@ -87,7 +100,7 @@ Color* traza_RR(Rayo* rayo, list<Esfera*> objetos, list<Luz*> luces, int profund
     if (masCercano != nullptr){
         Point* interseccion = (*rayo->getDireccion()) * distancia;
         Point* normal = masCercano->getNormal(interseccion);
-        return sombra_RR(masCercano, rayo, distancia, normal, luces, profundidad);
+        return sombra_RR(masCercano, rayo, distancia, normal, objetos, luces, profundidad);
     }
     return color;
 }
@@ -100,9 +113,8 @@ int main() {
     float Width = 500;
 
     Esfera* esfera1 = new Esfera(new Point(0,0,8), 3, new Color(150,0,0));
-    Esfera* esfera2 = new Esfera(new Point(0,0,4), 1, new Color(0,150,0));
-    Luz* luz1 = new Luz(new Point(0,3,4), new Color(255,255,255), 100);
-    Luz* luz2 = new Luz(new Point(0,-3,4), new Color(255,255,255), 100);
+    Esfera* esfera2 = new Esfera(new Point(1,1,4), 0.5, new Color(0,150,0));
+    Luz* luz1 = new Luz(new Point(3,3,3), new Color(255,255,255), 100);
 
     list<Esfera*> objetos;
     objetos.push_back(esfera1);
@@ -110,7 +122,6 @@ int main() {
 
 	list<Luz*> luces;
     luces.push_back(luz1);
-    luces.push_back(luz2);
 
     FIBITMAP *bitmap = FreeImage_Allocate(Width, Height, 32);
 

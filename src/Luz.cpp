@@ -16,4 +16,8 @@ Color* Luz::getColor(){
     return color;
 }
 
+float Luz::getIntensidad(){
+    return intensidad;
+}
+
 
