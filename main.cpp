@@ -1,5 +1,6 @@
 #include "FreeImage.h"
 #include "include/Esfera.h"
+#include "include/Objeto.h"
 #include "include/Point.h"
 #include "include/Rayo.h"
 #include "include/Color.h"
@@ -41,7 +42,7 @@ string getDate(){
     return str.substr(0,16);
 }
 
-Color* sombra_RR(Esfera* masCercano, Rayo* rayo, float distancia, Point* normal, list<Esfera*> objetos, list<Luz*> luces, int profundidad){
+Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal, list<Objeto*> objetos, list<Luz*> luces, int profundidad){
 
 
     Point* interseccion = (*rayo->getDireccion()) * distancia;
@@ -60,7 +61,7 @@ Color* sombra_RR(Esfera* masCercano, Rayo* rayo, float distancia, Point* normal,
 
         float cantidadLuz = 1;
 
-        for (Esfera* objeto : objetos) {
+        for (Objeto* objeto : objetos) {
             if (objeto != masCercano){
                 float dist = objeto->intersectar(rayoLuz);
                 if (dist < distancia)
@@ -82,14 +83,14 @@ Color* sombra_RR(Esfera* masCercano, Rayo* rayo, float distancia, Point* normal,
     return res;
 }
 
-Color* traza_RR(Rayo* rayo, list<Esfera*> objetos, list<Luz*> luces, int profundidad){
+Color* traza_RR(Rayo* rayo, list<Objeto*> objetos, list<Luz*> luces, int profundidad){
 
     Color* color = new Color(255,255,255);
 
-    Esfera* masCercano = nullptr;
+    Objeto* masCercano = nullptr;
     float distancia = FLT_MAX;
 
-    for (Esfera* objeto : objetos) {
+    for (Objeto* objeto : objetos) {
         float distObj = (*objeto).intersectar(rayo);
         if (distObj < distancia){
             masCercano = objeto;
@@ -112,11 +113,11 @@ int main() {
     float Height = 500;
     float Width = 500;
 
-    Esfera* esfera1 = new Esfera(new Point(0,0,8), 3, new Color(150,0,0));
-    Esfera* esfera2 = new Esfera(new Point(1,1,4), 0.5, new Color(0,150,0));
+    Objeto* esfera1 = new Esfera(new Point(0,0,8), 3, new Color(150,0,0));
+    Objeto* esfera2 = new Esfera(new Point(1,1,4), 0.5, new Color(0,150,0));
     Luz* luz1 = new Luz(new Point(3,3,3), new Color(255,255,255), 100);
 
-    list<Esfera*> objetos;
+    list<Objeto*> objetos;
     objetos.push_back(esfera1);
     objetos.push_back(esfera2);
 

@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Esfera::Esfera(Point* centro, double rad, Color* color){
+Esfera::Esfera(Point* centro, double rad, Color* color):Objeto(){
     this->centro = centro;
     this->rad = rad;
     this->color = color;

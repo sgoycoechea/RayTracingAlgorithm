@@ -2181,3 +2181,67 @@
 
 1557268651 c:\users\pepes\desktop\compgraf\oblig 2\raytracing\include\color.h
 
+1559687564 source:c:\users\santiago\desktop\compgraf\src\color.cpp
+	"../include/Color.h"
+
+1559687564 c:\users\santiago\desktop\compgraf\include\color.h
+
+1559688372 source:c:\users\santiago\desktop\compgraf\src\esfera.cpp
+	"../include/Esfera.h"
+	<iostream>
+	<fstream>
+
+1559688288 c:\users\santiago\desktop\compgraf\include\esfera.h
+	"Point.h"
+	"Color.h"
+	"Rayo.h"
+	"Objeto.h"
+	<math.h>
+	<cfloat>
+
+1559687564 c:\users\santiago\desktop\compgraf\include\point.h
+	<math.h>
+
+1559687564 c:\users\santiago\desktop\compgraf\include\rayo.h
+	"Point.h"
+
+1559687564 source:c:\users\santiago\desktop\compgraf\src\luz.cpp
+	"../include/Luz.h"
+
+1559687564 c:\users\santiago\desktop\compgraf\include\luz.h
+	"Point.h"
+	"Color.h"
+
+1559688577 source:c:\users\santiago\desktop\compgraf\src\point.cpp
+	"../include/Point.h"
+
+1559687564 source:c:\users\santiago\desktop\compgraf\src\rayo.cpp
+	"../include/Rayo.h"
+
+1559688497 source:c:\users\santiago\desktop\compgraf\main.cpp
+	"FreeImage.h"
+	"include/Esfera.h"
+	"include/Objeto.h"
+	"include/Point.h"
+	"include/Rayo.h"
+	"include/Color.h"
+	"include/Luz.h"
+	<chrono>
+	<ctime>
+	<string>
+	<list>
+	<iostream>
+	<fstream>
+
+1559687564 c:\users\santiago\desktop\compgraf\freeimage\freeimage.h
+	<wchar.h>
+	<inttypes.h>
+
+1559688106 c:\users\santiago\desktop\compgraf\include\objeto.h
+	"Point.h"
+	"Color.h"
+	"Rayo.h"
+
+1559688413 source:c:\users\santiago\desktop\compgraf\src\objeto.cpp
+	"../include/Objeto.h"
+

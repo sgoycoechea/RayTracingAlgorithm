@@ -54,6 +54,7 @@
 		<Unit filename="include/Color.h" />
 		<Unit filename="include/Esfera.h" />
 		<Unit filename="include/Luz.h" />
+		<Unit filename="include/Objeto.h" />
 		<Unit filename="include/Point.h" />
 		<Unit filename="include/Rayo.h" />
 		<Unit filename="main.cpp" />

@@ -3,6 +3,7 @@
 #include "Point.h"
 #include "Color.h"
 #include "Rayo.h"
+#include "Objeto.h"
 #include <math.h>
 #include <cfloat>
 
@@ -10,7 +11,7 @@
 
 using namespace std;
 
-class Esfera{
+class Esfera: public Objeto{
     private:
         Point* centro;
         Color* color;
@@ -19,8 +20,8 @@ class Esfera{
     public:
         Esfera(Point*, double, Color*);
         Point* getCentro();
-        Color* getColor();
         double getRad();
+        Color* getColor();
         double intersectar(Rayo*);
         Point* getNormal(Point* punto);
 };
