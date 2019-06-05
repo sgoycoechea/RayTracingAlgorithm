@@ -12,10 +12,9 @@ class Luz{
         float intensidad;
 
     public:
-        Luz(Point*, Color*, float);
+        Luz(Point*, Color*);
         Color* getColor();
         Point* getPosicion();
-        float getIntensidad();
 };
 
 #endif

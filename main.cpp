@@ -43,43 +43,54 @@ string getDate(){
 }
 
 Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal, list<Objeto*> objetos, list<Luz*> luces, int profundidad){
-
-
     Point* interseccion = (*rayo->getDireccion()) * distancia;
-    Color* res = masCercano->getColor();
 
-    float iluminacion = 0;
+
+    Color* colorAmbiente = masCercano->getColor()->escalar(0.3);
+    Color* colorDifuso = new Color(0,0,0);
 
     for (Luz* luz : luces) {
         Point* direccionLuz = (*interseccion) - luz->getPosicion();
 
         // SACAR ESTO SI QUEREMOS QUE LA LUZ BAJE CUANDO SE ALEJA EL OBJETO
         direccionLuz->normalizar();
+        normal->normalizar();
 
-        // VER SI EL RAYO NO TENDRIA QUE ESTAR AL REVES
-        Rayo* rayoLuz = new Rayo(luz->getPosicion(), direccionLuz);
+        float prodInterno = normal->dotProduct(direccionLuz);
 
-        float cantidadLuz = 1;
+        if (prodInterno > 0){
 
-        for (Objeto* objeto : objetos) {
-            if (objeto != masCercano){
-                float dist = objeto->intersectar(rayoLuz);
-                if (dist < distancia)
-                    cantidadLuz *= 0.2; // MULTIPLICAR POR COEFICIENTE
+            // VER SI EL RAYO NO TENDRIA QUE ESTAR AL REVES
+            Rayo* rayoLuzObjeto = new Rayo(luz->getPosicion(), direccionLuz);
+
+            // Si el factor es 1 llega toda la luz, si es 0 no llega nada (hay otro objeto opaco en el medio)
+            float factorR = 1;
+            float factorG = 1;
+            float factorB = 1;
+
+            // Chequear si hay objetos en el medio
+            for (Objeto* objeto : objetos) {
+                if (objeto != masCercano){
+                    float dist = objeto->intersectar(rayoLuzObjeto);
+                    if (dist < distancia){
+                        factorR *= 1 - objeto->getOpacidadR();
+                        factorG *= 1 - objeto->getOpacidadG();
+                        factorB *= 1 - objeto->getOpacidadB();
+                    }
+
+                }
             }
+
+            Color* colorEstaLuz = new Color(luz->getColor()->getR() * masCercano->getColor()->getR() * factorR * prodInterno / (pow(distancia,2)),
+                                            luz->getColor()->getG() * masCercano->getColor()->getG() * factorG * prodInterno / (pow(distancia,2)),
+                                            luz->getColor()->getB() * masCercano->getColor()->getB() * factorB * prodInterno / (pow(distancia,2)));
+
+            colorDifuso = (*colorDifuso) + colorEstaLuz;
         }
-
-        float iluminacionEstaLuz = normal->dotProduct(direccionLuz);
-
-        if (iluminacionEstaLuz * cantidadLuz > 0)
-            iluminacion += iluminacionEstaLuz * cantidadLuz;
     }
 
-    if (iluminacion > 0.2)
-        res = res->escalar(iluminacion);
-    else
-        res = res->escalar(0.2);
-
+    Color* res = (*colorAmbiente) + colorDifuso;
+    res->truncar();
     return res;
 }
 
@@ -113,9 +124,9 @@ int main() {
     float Height = 500;
     float Width = 500;
 
-    Objeto* esfera1 = new Esfera(new Point(0,0,8), 3, new Color(150,0,0));
-    Objeto* esfera2 = new Esfera(new Point(1,1,4), 0.5, new Color(0,150,0));
-    Luz* luz1 = new Luz(new Point(3,3,3), new Color(255,255,255), 100);
+    Objeto* esfera1 = new Esfera(new Point(0,0,8), 3, new Color(150,150,150), 1,1,1);
+    Objeto* esfera2 = new Esfera(new Point(1,0.5,4), 0.5, new Color(150,150,0), 1,1,1);
+    Luz* luz1 = new Luz(new Point(3,3,3), new Color(100,100,100));
 
     list<Objeto*> objetos;
     objetos.push_back(esfera1);

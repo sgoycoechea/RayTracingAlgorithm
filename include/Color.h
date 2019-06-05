@@ -1,5 +1,6 @@
 #ifndef COLOR_H
 #define COLOR_H
+#include <math.h>
 
 using namespace std;
 
@@ -16,6 +17,7 @@ class Color{
         Color* escalar(float);
         Color* mezclar(Color*);
         Color* operator+(Color*);
+        void truncar();
 };
 
 #endif

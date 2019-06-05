@@ -4,10 +4,13 @@
 
 using namespace std;
 
-Esfera::Esfera(Point* centro, double rad, Color* color):Objeto(){
+Esfera::Esfera(Point* centro, double rad, Color* color, float opacidadR, float opacidadG, float opacidadB):Objeto(){
     this->centro = centro;
     this->rad = rad;
     this->color = color;
+    this->opacidadR = opacidadR;
+    this->opacidadG = opacidadG;
+    this->opacidadB = opacidadB;
 }
 
 Point* Esfera::getCentro(){
@@ -20,6 +23,18 @@ double Esfera::getRad(){
 
 Color* Esfera::getColor(){
     return new Color(color->getR(), color->getG(), color->getB());
+}
+
+float Esfera::getOpacidadR(){
+    return opacidadR;
+}
+
+float Esfera::getOpacidadG(){
+    return opacidadG;
+}
+
+float Esfera::getOpacidadB(){
+    return opacidadB;
 }
 
 Point* Esfera::getNormal(Point* punto){

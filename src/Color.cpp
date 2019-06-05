@@ -20,6 +20,21 @@ float Color::getB() {
   return b;
 }
 
+void Color::truncar() {
+  float maximo = r;
+  if (g > maximo)
+    maximo = g;
+  if (b > maximo)
+    maximo = b;
+
+  if (maximo > 255){
+    float factor = 255 / maximo;
+    r *= factor;
+    g *= factor;
+    b *= factor;
+  }
+}
+
 Color* Color::escalar(float factor) {
   float newR = r * factor;
   if (newR > 255)

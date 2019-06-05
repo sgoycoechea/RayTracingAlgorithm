@@ -33,20 +33,14 @@
 			<Add option="-Wextra" />
 			<Add option="-Wall" />
 			<Add option="-g" />
-			<Add directory="SDL-1.2.15/include" />
 			<Add directory="FreeImage" />
 		</Compiler>
 		<ResourceCompiler>
 			<Add directory="FreeImage" />
-			<Add directory="SDL-1.2.15/lib" />
-			<Add directory="SDL-1.2.15/include" />
 		</ResourceCompiler>
 		<Linker>
-			<Add option="-lmingw32 -lSDLmain -lSDL -lopengl32 -lglu32 -lFreeImage" />
-			<Add library="SDL-1.2.15/lib/libSDLmain.a" />
-			<Add library="SDL-1.2.15/lib/libSDL.dll.a" />
+			<Add option="-lmingw32 -lopengl32 -lglu32 -lFreeImage" />
 			<Add library="FreeImage/FreeImage.lib" />
-			<Add directory="SDL-1.2.15/lib" />
 			<Add directory="FreeImage" />
 		</Linker>
 		<Unit filename="FreeImage.dll" />

@@ -2,10 +2,9 @@
 
 using namespace std;
 
-Luz::Luz(Point* posicion, Color* color, float intensidad){
+Luz::Luz(Point* posicion, Color* color){
     this->color = color;
     this->posicion = posicion;
-    this->intensidad = intensidad;
 }
 
 Point* Luz::getPosicion(){
@@ -15,9 +14,4 @@ Point* Luz::getPosicion(){
 Color* Luz::getColor(){
     return color;
 }
-
-float Luz::getIntensidad(){
-    return intensidad;
-}
-
 
