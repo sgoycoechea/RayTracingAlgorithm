@@ -42,21 +42,45 @@ string getDate(){
     return str.substr(0,16);
 }
 
+
+Point* simetrizar(Point* camaraDir, Point* camaraPos, Point* interseccion, Point* normal, float distancia){
+    float angNormalCamara = acos(camaraDir->dotProduct(normal));
+    float catetoOpuesto = sin(angNormalCamara) * distancia;
+    Point* puntoSimetria = (*interseccion) + (*normal) * catetoOpuesto;
+    Point* direccionCamaraNormal = (*puntoSimetria) - camaraPos;
+    direccionCamaraNormal = (*direccionCamaraNormal) * 2;
+    Point* puntoReflejado = (*camaraPos) + direccionCamaraNormal;
+    Point* direccionReflejado = (* puntoReflejado) - interseccion;
+    direccionReflejado->normalizar();
+
+    return direccionReflejado;
+}
+
 Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal, list<Objeto*> objetos, list<Luz*> luces, int profundidad){
     Point* interseccion = (*rayo->getDireccion()) * distancia;
-
-
     Color* colorAmbiente = masCercano->getColor()->escalar(0.3);
     Color* colorDifuso = new Color(0,0,0);
+    Color* colorEspecular = new Color(0,0,0);
+
+    normal->normalizar();
+    rayo->getDireccion()->normalizar();
+
+    Point* rayoReflejado = simetrizar(rayo->getDireccion(), rayo->getOrigen(), interseccion, normal, distancia);
+
+    const float factorEspecular = 1.5;
 
     for (Luz* luz : luces) {
         Point* direccionLuz = (*interseccion) - luz->getPosicion();
 
         // SACAR ESTO SI QUEREMOS QUE LA LUZ BAJE CUANDO SE ALEJA EL OBJETO
         direccionLuz->normalizar();
-        normal->normalizar();
 
         float prodInterno = normal->dotProduct(direccionLuz);
+
+        direccionLuz = (*direccionLuz) * -1;
+
+        float prodInternoReflejado = pow(rayoReflejado->dotProduct(direccionLuz), factorEspecular);
+        direccionLuz = (*direccionLuz) * -1;
 
         if (prodInterno > 0){
 
@@ -81,15 +105,26 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
                 }
             }
 
-            Color* colorEstaLuz = new Color(luz->getColor()->getR() * masCercano->getColor()->getR() * factorR * prodInterno / (pow(distancia,2)),
-                                            luz->getColor()->getG() * masCercano->getColor()->getG() * factorG * prodInterno / (pow(distancia,2)),
-                                            luz->getColor()->getB() * masCercano->getColor()->getB() * factorB * prodInterno / (pow(distancia,2)));
 
-            colorDifuso = (*colorDifuso) + colorEstaLuz;
+            Point* vectorLuzInterseccion = (*luz->getPosicion()) - interseccion;
+            float distanciaLuz = vectorLuzInterseccion->magnitude();
+
+            // ARREGLAR: DIVIDIR POR LA DISTANCIA DE LA LUZ EN VEZ DE LA CAMARA
+            Color* colorDifusoEstaLuz = new Color(luz->getColor()->getR() * masCercano->getColor()->getR() * factorR * prodInterno / (pow(distanciaLuz,2)),
+                                            luz->getColor()->getG() * masCercano->getColor()->getG() * factorG * prodInterno / (pow(distanciaLuz,2)),
+                                            luz->getColor()->getB() * masCercano->getColor()->getB() * factorB * prodInterno / (pow(distanciaLuz,2)));
+
+            Color* colorEspecularEstaLuz = new Color(luz->getColor()->getR() * prodInternoReflejado * factorR / (pow(distanciaLuz,2)),
+                                                  luz->getColor()->getG() * prodInternoReflejado * factorG / (pow(distanciaLuz,2)),
+                                                  luz->getColor()->getB() * prodInternoReflejado * factorB / (pow(distanciaLuz,2)));
+
+            colorDifuso = (*colorDifuso) + colorDifusoEstaLuz;
+            //colorEspecular = (*colorEspecular) + colorEspecularEstaLuz;
         }
     }
 
     Color* res = (*colorAmbiente) + colorDifuso;
+    res = (*res) + colorEspecular;
     res->truncar();
     return res;
 }
@@ -124,9 +159,9 @@ int main() {
     float Height = 500;
     float Width = 500;
 
-    Objeto* esfera1 = new Esfera(new Point(0,0,8), 3, new Color(150,150,150), 1,1,1);
-    Objeto* esfera2 = new Esfera(new Point(1,0.5,4), 0.5, new Color(150,150,0), 1,1,1);
-    Luz* luz1 = new Luz(new Point(3,3,3), new Color(100,100,100));
+    Objeto* esfera1 = new Esfera(new Point(0,0,8), 3, new Color(255,0,0), 1,1,1);
+    Objeto* esfera2 = new Esfera(new Point(1,0.5,4), 0.5, new Color(0,255,0), 1,1,1);
+    Luz* luz1 = new Luz(new Point(3,2,3), new Color(50,50,50));
 
     list<Objeto*> objetos;
     objetos.push_back(esfera1);
