@@ -26,16 +26,12 @@ double Esfera::intersectar(Rayo* rayo) {
     double a = pow(dirX,2) + pow(dirY,2) + pow(dirZ,2);
     double b = 2 * ( dirX * (oriX - centro->getX()) + dirY * (oriY - centro->getY()) + dirZ * (oriZ - centro->getZ()) );
     double c = pow(oriX - centro->getX(), 2) + pow(oriY - centro->getY(), 2) + pow(oriZ - centro->getZ(), 2) - pow(rad, 2);
-    double delta = b*b - 4 * c;
+    double delta = b*b - 4 * a * c;
 
 
     if (delta < 0){
         return FLT_MAX; // No hay interseccion
     }
-
-    //std::ofstream outfile;
-    //outfile.open("test.txt", std::ios_base::app);
-    //outfile << "bbbbbb";
 
     double raiz1 = (-b - sqrt(delta)) / (2 * a);
     double raiz2 = (-b + sqrt(delta)) / (2 * a);

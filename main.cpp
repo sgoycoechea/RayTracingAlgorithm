@@ -1,5 +1,6 @@
 #include "FreeImage.h"
 #include "include/Esfera.h"
+#include "include/Cilindro.h"
 #include "include/Objeto.h"
 #include "include/Point.h"
 #include "include/Rayo.h"
@@ -89,6 +90,8 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
             Point* vectorLuzInterseccion = (*luz->getPosicion()) - interseccion;
             float distanciaLuz = vectorLuzInterseccion->magnitude();
 
+
+            // VER SI ESTA BIEN MULTIPLICAR POR factorR,G,B Y VER SI NO HAY QUE MULTIPLICAR POR masCercano->getOpacidadR()
             Color* colorDifusoEstaLuz = new Color(luz->getColor()->getR() * masCercano->getColor()->getR() * factorR * prodInterno / (pow(distanciaLuz,2)),
                                             luz->getColor()->getG() * masCercano->getColor()->getG() * factorG * prodInterno / (pow(distanciaLuz,2)),
                                             luz->getColor()->getB() * masCercano->getColor()->getB() * factorB * prodInterno / (pow(distanciaLuz,2)));
@@ -154,16 +157,23 @@ int main() {
     float Height = 500;
     float Width = 500;
 
-    Objeto* esfera1 = new Esfera(new Point(0,0,8), 3, new Color(30,0,0), 1,1,1);
-    Objeto* esfera2 = new Esfera(new Point(1,0.5,4), 0.5, new Color(0,20,0), 1,1,1);
-    Luz* luz1 = new Luz(new Point(1,1,0), new Color(200,200,200));
+    Objeto* objeto1 = new Cilindro(new Point(0,-1.5,8), new Point(0,1,0), 1, 3, new Color(15,0,0), 1,1,1);
+    //Objeto* objeto1 = new Esfera(new Point(1,0.5,4), 0.5, new Color(0,20,0), 1,1,1);
+    //Objeto* objeto2 = new Esfera(new Point(1,0.5,4), 0.5, new Color(0,20,0), 1,1,1);
+    Luz* luz1 = new Luz(new Point(0,0,5), new Color(50,50,50));
+    Luz* luz2 = new Luz(new Point(0,0,15), new Color(200,200,200));
+    Luz* luz3 = new Luz(new Point(0,-5,10), new Color(200,200,200));
+    Luz* luz4 = new Luz(new Point(0,5,10), new Color(200,200,200));
 
     list<Objeto*> objetos;
-    objetos.push_back(esfera1);
-    objetos.push_back(esfera2);
+    objetos.push_back(objeto1);
+    //objetos.push_back(objeto2);
 
 	list<Luz*> luces;
     luces.push_back(luz1);
+    //luces.push_back(luz2);
+    //luces.push_back(luz3);
+    //luces.push_back(luz4);
 
     FIBITMAP *bitmap = FreeImage_Allocate(Width, Height, 32);
 
