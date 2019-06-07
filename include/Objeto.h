@@ -8,13 +8,20 @@
 using namespace std;
 
 class Objeto {
+    private:
+        float opacidadR;
+        float opacidadG;
+        float opacidadB;
+        Color* color;
+
     public:
+      Objeto(float, float, float, Color*);
       virtual double intersectar(Rayo*) = 0;
       virtual Point* getNormal(Point* punto) = 0;
-      virtual Color* getColor() = 0;
-      virtual float getOpacidadR() = 0;
-      virtual float getOpacidadG() = 0;
-      virtual float getOpacidadB() = 0;
+      virtual Color* getColor();
+      virtual float getOpacidadR();
+      virtual float getOpacidadG();
+      virtual float getOpacidadB();
 };
 
 #endif

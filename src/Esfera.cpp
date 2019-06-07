@@ -4,43 +4,14 @@
 
 using namespace std;
 
-Esfera::Esfera(Point* centro, double rad, Color* color, float opacidadR, float opacidadG, float opacidadB):Objeto(){
+Esfera::Esfera(Point* centro, double rad, Color* color, float opacidadR, float opacidadG, float opacidadB):Objeto(opacidadR, opacidadG, opacidadB, color){
     this->centro = centro;
     this->rad = rad;
-    this->color = color;
-    this->opacidadR = opacidadR;
-    this->opacidadG = opacidadG;
-    this->opacidadB = opacidadB;
-}
 
-Point* Esfera::getCentro(){
-    return centro;
-}
-
-double Esfera::getRad(){
-    return rad;
-}
-
-Color* Esfera::getColor(){
-    return new Color(color->getR(), color->getG(), color->getB());
-}
-
-float Esfera::getOpacidadR(){
-    return opacidadR;
-}
-
-float Esfera::getOpacidadG(){
-    return opacidadG;
-}
-
-float Esfera::getOpacidadB(){
-    return opacidadB;
 }
 
 Point* Esfera::getNormal(Point* punto){
     return (*centro) - (punto);
-
-
 }
 
 double Esfera::intersectar(Rayo* rayo) {
@@ -76,7 +47,6 @@ double Esfera::intersectar(Rayo* rayo) {
         return raiz1; // La esfera esta toda adelante de la camara
     else
         return raiz2; // La camara esta adentro de la esfera
-
 };
 
 

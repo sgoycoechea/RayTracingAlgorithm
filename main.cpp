@@ -42,8 +42,7 @@ string getDate(){
     return str.substr(0,16);
 }
 
-
-Point* simetrizar(Point* rayoLuz, Point* normal){
+Point* reflejar(Point* rayoLuz, Point* normal){
     float factor = 2 * normal->dotProduct(rayoLuz);
     Point* reflejado = (*normal) * factor;
     reflejado = (*reflejado) - rayoLuz;
@@ -56,31 +55,20 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
     Color* colorDifuso = new Color(0,0,0);
     Color* colorEspecular = new Color(0,0,0);
 
-    normal->normalizar();
-    rayo->getDireccion()->normalizar();
-
-
-
-
     const float factorEspecular = 25;
 
     for (Luz* luz : luces) {
         Point* direccionLuz = (*interseccion) - luz->getPosicion();
-
-        // SACAR ESTO SI QUEREMOS QUE LA LUZ BAJE CUANDO SE ALEJA EL OBJETO
         direccionLuz->normalizar();
 
         float prodInterno = normal->dotProduct(direccionLuz);
 
-        Point* luzReflejada = simetrizar((*direccionLuz) * -1, normal);
+        Point* luzReflejada = reflejar((*direccionLuz) * -1, normal);
         float prodInternoReflejado = pow(luzReflejada->dotProduct((*rayo->getDireccion()) * -1)  , factorEspecular);
-
 
         if (prodInterno > 0){
 
-            // VER SI EL RAYO NO TENDRIA QUE ESTAR AL REVES
             Rayo* rayoLuzObjeto = new Rayo(luz->getPosicion(), direccionLuz);
-
             // Si el factor es 1 llega toda la luz, si es 0 no llega nada (hay otro objeto opaco en el medio)
             float factorR = 1;
             float factorG = 1;
@@ -98,22 +86,19 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
                 }
             }
 
-
             Point* vectorLuzInterseccion = (*luz->getPosicion()) - interseccion;
             float distanciaLuz = vectorLuzInterseccion->magnitude();
 
-            // ARREGLAR: DIVIDIR POR LA DISTANCIA DE LA LUZ EN VEZ DE LA CAMARA
             Color* colorDifusoEstaLuz = new Color(luz->getColor()->getR() * masCercano->getColor()->getR() * factorR * prodInterno / (pow(distanciaLuz,2)),
                                             luz->getColor()->getG() * masCercano->getColor()->getG() * factorG * prodInterno / (pow(distanciaLuz,2)),
                                             luz->getColor()->getB() * masCercano->getColor()->getB() * factorB * prodInterno / (pow(distanciaLuz,2)));
 
-
             Color* colorEspecularEstaLuz = new Color(0,0,0);
-            if (prodInternoReflejado > 0)
-
+            if (prodInternoReflejado > 0){
                 colorEspecularEstaLuz = new Color(luz->getColor()->getR() * prodInternoReflejado * factorR,
                                                   luz->getColor()->getG() * prodInternoReflejado * factorG,
                                                   luz->getColor()->getB() * prodInternoReflejado* factorB);
+            }
 
             colorDifuso = (*colorDifuso) + colorDifusoEstaLuz;
             colorEspecular = (*colorEspecular) + colorEspecularEstaLuz;
@@ -143,7 +128,7 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
 Color* traza_RR(Rayo* rayo, list<Objeto*> objetos, list<Luz*> luces, int profundidad){
 
     Color* color = new Color(0,0,0);
-
+    rayo->getDireccion()->normalizar();
     Objeto* masCercano = nullptr;
     float distancia = FLT_MAX;
 
@@ -158,12 +143,11 @@ Color* traza_RR(Rayo* rayo, list<Objeto*> objetos, list<Luz*> luces, int profund
     if (masCercano != nullptr){
         Point* interseccion = (*rayo->getDireccion()) * distancia;
         Point* normal = masCercano->getNormal(interseccion);
+        normal->normalizar();
         return sombra_RR(masCercano, rayo, distancia, normal, objetos, luces, profundidad);
     }
     return color;
 }
-
-
 
 int main() {
 
