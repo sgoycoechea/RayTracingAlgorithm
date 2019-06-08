@@ -65,12 +65,12 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
 
         float prodInterno = normal->dotProduct(direccionLuz);
 
-        Point* luzReflejada = reflejar((*direccionLuz) * -1, normal);
-        float prodInternoReflejado = pow(luzReflejada->dotProduct((*rayo->getDireccion()) * -1)  , factorEspecular);
-
         if (prodInterno > 0){
 
+            Point* vectorLuzObjeto = (*luz->getPosicion()) - interseccion;
             Rayo* rayoLuzObjeto = new Rayo(luz->getPosicion(), direccionLuz);
+            float distanciaLuz = vectorLuzObjeto->magnitude();
+
             // Si el factor es 1 llega toda la luz, si es 0 no llega nada (hay otro objeto opaco en el medio)
             float factorR = 1;
             float factorG = 1;
@@ -80,7 +80,7 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
             for (Objeto* objeto : objetos) {
                 if (objeto != masCercano){
                     float dist = objeto->intersectar(rayoLuzObjeto);
-                    if (dist < distancia){
+                    if (dist < distanciaLuz){
                         factorR *= 1 - objeto->getOpacidadR();
                         factorG *= 1 - objeto->getOpacidadG();
                         factorB *= 1 - objeto->getOpacidadB();
@@ -88,15 +88,16 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
                 }
             }
 
-            Point* vectorLuzInterseccion = (*luz->getPosicion()) - interseccion;
-            float distanciaLuz = vectorLuzInterseccion->magnitude();
-
-
             // VER SI ESTA BIEN MULTIPLICAR POR factorR,G,B Y VER SI NO HAY QUE MULTIPLICAR POR masCercano->getOpacidadR()
+
+            // Luz difusa
             Color* colorDifusoEstaLuz = new Color(luz->getColor()->getR() * masCercano->getColor()->getR() * factorR * prodInterno / (pow(distanciaLuz,2)),
                                             luz->getColor()->getG() * masCercano->getColor()->getG() * factorG * prodInterno / (pow(distanciaLuz,2)),
                                             luz->getColor()->getB() * masCercano->getColor()->getB() * factorB * prodInterno / (pow(distanciaLuz,2)));
 
+            // Luz especular
+            Point* luzReflejada = reflejar((*direccionLuz) * -1, normal);
+            float prodInternoReflejado = pow(luzReflejada->dotProduct((*rayo->getDireccion()) * -1)  , factorEspecular);
             Color* colorEspecularEstaLuz = new Color(0,0,0);
             if (prodInternoReflejado > 0){
                 colorEspecularEstaLuz = new Color(luz->getColor()->getR() * prodInternoReflejado * factorR,
@@ -108,20 +109,6 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
             colorEspecular = (*colorEspecular) + colorEspecularEstaLuz;
         }
     }
-
-
-    /* DEBUG: USAR CON LA PELOTA EN (0,0,8) Y RADIO 3
-    if(interseccion->getZ() - 5 < 0.000001 && 5 - interseccion->getZ() < 0.000001){
-        //writeFile("\nRES: " + to_string(interseccion->getX()) + " " + to_string(interseccion->getY()) + " " + to_string(interseccion->getZ()));
-        //writeFile("\nLuz1: " + to_string(prodInterno));
-        //writeFile("\nLuz2: " + to_string(prodInternoReflejado));
-        //writeFile("\n\nDirLuz: " + to_string(direccionLuz->getX()) + " " + to_string(direccionLuz->getY()) + " " + to_string(direccionLuz->getZ()));
-        //writeFile("\n\nDirRef: " + to_string(luzReflejada->getX()) + " " + to_string(luzReflejada->getY()) + " " + to_string(luzReflejada->getZ()));
-        writeFile("\n\nAmbiente: " + to_string(colorAmbiente->getR()) + " " + to_string(colorAmbiente->getG()) + " " + to_string(colorAmbiente->getB()));
-        writeFile("\nDifuso: " + to_string(colorDifuso->getR()) + " " + to_string(colorDifuso->getG()) + " " + to_string(colorDifuso->getB()));
-        writeFile("\nEspec: " + to_string(colorEspecular->getR()) + " " + to_string(colorEspecular->getG()) + " " + to_string(colorEspecular->getB()));
-    }
-    */
 
     Color* res = (*colorAmbiente) + colorDifuso;
     res = (*res) + colorEspecular;
@@ -212,7 +199,7 @@ list<Objeto*> inicializarObjetos(){
 list<Luz*> inicializarLuces(){
     list<Luz*> luces;
 
-    Luz* luz1 = new Luz(new Point(0,0,0), new Color(100,100,100));
+    Luz* luz1 = new Luz(new Point(2,2,1), new Color(200,200,200));
     Luz* luz2 = new Luz(new Point(0,1,2), new Color(200,200,200));
 
     luces.push_back(luz1);
@@ -230,8 +217,6 @@ int main() {
     Point* camara = new Point(0,0,0);
     Point* direccionCamara = new Point(0,0,1);
     Point* camaraUp = new Point(0,1,0);
-
-
 
     FIBITMAP *bitmap = FreeImage_Allocate(Width, Height, 32);
     string date = getDate();
