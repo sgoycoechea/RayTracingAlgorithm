@@ -153,59 +153,84 @@ Color* traza_RR(Rayo* rayo, list<Objeto*> objetos, list<Luz*> luces, int profund
     return color;
 }
 
-int main() {
+Point* productoVectorial(Point* vector1, Point* vector2){
+    double x = vector1->getY() * vector2->getZ() - vector1->getZ() * vector2->getY();
+    double y = - (vector1->getX() * vector2->getZ() - vector1->getZ() * vector2->getX());
+    double z = vector1->getX() * vector2->getY() - vector1->getY() * vector2->getX();
 
-    float Height = 500;
-    float Width = 500;
+    return new Point(x,y,z);
+}
 
-    Objeto* objeto1 = new Cilindro(new Point(1,-3,7), new Point(0,1,0), 0.7, 2, new Color(0,0,50), 1,1,1);
-    Objeto* objeto2 = new Esfera(new Point(-1,-2.5,7), 0.5, new Color(0,20,0), 1,1,1);
 
+list<Objeto*> inicializarObjetos(){
+    list<Objeto*> objetos;
+
+    Objeto* cilindro = new Cilindro(new Point(1,-3,7), new Point(0,1,0), 0.7, 2, new Color(0,0,50), 1,1,1);
+    Objeto* esfera = new Esfera(new Point(-1,-2.5,7), 0.5, new Color(0,20,0), 1,1,1);
     Objeto* paredFondo = new Plano(new Point(0,0,10), new Point(0,0,-1), new Color(250,250,250), 1,1,1);
     Objeto* piso = new Plano(new Point(0,-3,0), new Point(0,1,0), new Color(250,250,250), 1,1,1);
     Objeto* techo = new Plano(new Point(0,3,0), new Point(0,-1,0), new Color(150,150,150), 1,1,1);
-
     Objeto* paredIzq = new Plano(new Point(-3,0,0), new Point(1,0,0), new Color(200,0,0), 1,1,1);
     Objeto* paredDer = new Plano(new Point(3,0,0), new Point(-1,0,0), new Color(0,200,0), 1,1,1);
 
-
-    Luz* luz1 = new Luz(new Point(0,0,0), new Color(100,100,100));
-    Luz* luz2 = new Luz(new Point(0,1,2), new Color(200,200,200));
-
-
-    list<Objeto*> objetos;
-    objetos.push_back(objeto1);
-    objetos.push_back(objeto2);
+    objetos.push_back(cilindro);
+    objetos.push_back(esfera);
     objetos.push_back(paredFondo);
     objetos.push_back(piso);
     objetos.push_back(techo);
     objetos.push_back(paredIzq);
     objetos.push_back(paredDer);
 
-	list<Luz*> luces;
+    return objetos;
+}
+
+list<Luz*>  inicializarLuces(){
+    list<Luz*> luces;
+
+    Luz* luz1 = new Luz(new Point(0,0,0), new Color(100,100,100));
+    Luz* luz2 = new Luz(new Point(0,1,2), new Color(200,200,200));
+
     luces.push_back(luz1);
     //luces.push_back(luz2);
 
+    return luces;
+}
+
+int main() {
+    // Tamaño de la imagen en pixeles
+    float Height = 500;
+    float Width = 500;
+
+    // Settings camera: posicion, direccion y up
+    Point* camara = new Point(0,0,0);
+    Point* direccionCamara = new Point(0,0,1);
+    Point* camaraUp = new Point(0,1,0);
+
+
 
     FIBITMAP *bitmap = FreeImage_Allocate(Width, Height, 32);
-
     string date = getDate();
     string path = "fotos/" + date + ".bmp";
+
+    list<Luz*> luces = inicializarLuces();
+    list<Objeto*> objetos = inicializarObjetos();
+
+    Point* direccionLateral = (*productoVectorial(direccionCamara, camaraUp)) * -1;
+    direccionCamara->normalizar();
+    camaraUp->normalizar();
+    direccionLateral->normalizar();
 
     for (int i = 0; i < Height; i++) {
         for (int j = 0; j < Width; j++)  {
 
-        Point* origen = new Point(0, 0, 0);
-        Point* direccion = new Point((float)(i) / Height - 0.5, (float)(j) / Width - 0.5, 1);
-        direccion->normalizar();
-        Rayo* rayo = new Rayo(origen, direccion);
+        Point* direccionRayo = (*camara) + direccionCamara;
+        direccionRayo = (*direccionRayo) + ((*direccionLateral) * (i / Height - 0.5)); // Mover horizontalmente
+        direccionRayo = (*direccionRayo) + ((*camaraUp) * (j / Width - 0.5)); // Mover verticalmente
+        direccionRayo->normalizar();
+        Rayo* rayo = new Rayo(camara, direccionRayo);
 
         Color* color = traza_RR(rayo, objetos, luces, 1);
 
-
-        // CAMBIAAAAAAAAAAAAAR
-        // CAMBIAAAAAAAAAAAAAR
-        // CAMBIAAAAAAAAAAAAA
         RGBQUAD colorQuad;
         colorQuad.rgbRed = (int)color->getR();
         colorQuad.rgbGreen = (int)color->getG();
