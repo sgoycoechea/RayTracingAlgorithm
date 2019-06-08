@@ -157,10 +157,10 @@ int main() {
     float Height = 500;
     float Width = 500;
 
-    Objeto* objeto1 = new Cilindro(new Point(0,-1.5,8), new Point(0,1,0), 1, 3, new Color(15,0,0), 1,1,1);
+    Objeto* objeto1 = new Cilindro(new Point(0,-1.5,5), new Point(1,1,1), 1, 3, new Color(50,0,0), 1,1,1);
     //Objeto* objeto1 = new Esfera(new Point(1,0.5,4), 0.5, new Color(0,20,0), 1,1,1);
     //Objeto* objeto2 = new Esfera(new Point(1,0.5,4), 0.5, new Color(0,20,0), 1,1,1);
-    Luz* luz1 = new Luz(new Point(0,0,5), new Color(50,50,50));
+    Luz* luz1 = new Luz(new Point(0,0,0), new Color(100,100,100));
     Luz* luz2 = new Luz(new Point(0,0,15), new Color(200,200,200));
     Luz* luz3 = new Luz(new Point(0,-5,10), new Color(200,200,200));
     Luz* luz4 = new Luz(new Point(0,5,10), new Color(200,200,200));

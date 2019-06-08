@@ -17,6 +17,8 @@ class Cilindro: public Objeto{
         Point* direccion;
         double rad;
         double altura;
+        double intersectarCuerpo(Rayo*);
+        double intersectarTapa(Rayo*, Point*);
     public:
         Cilindro(Point*, Point*, double, double, Color*, float, float, float);
         double intersectar(Rayo*);

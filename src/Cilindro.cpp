@@ -13,6 +13,21 @@ Cilindro::Cilindro(Point* centroBase, Point* direccion, double rad, double altur
 }
 
 Point* Cilindro::getNormal(Point* punto){
+
+    // Ver si está en las tapas
+    Point* centroTapa2 = (*centroBase) + ((*direccion) * altura);
+    Point* vec1 = (*punto) - centroBase;
+    Point* vec2 = (*punto) - centroTapa2;
+
+    if (vec1->dotProduct(direccion) < 0.001 && vec1->dotProduct(direccion) > -0.001){
+        return direccion;
+    }
+
+    if (vec2->dotProduct(direccion) < 0.001 && vec2->dotProduct(direccion) > -0.001){
+        return (*direccion) * -1;
+    }
+
+
     Point* centroPunto =  (*centroBase) - punto;
     // Restar altura del punto con respecto al cilindro
     Point* ret = (*centroPunto) - ((*direccion) * (centroPunto->dotProduct(direccion)));
@@ -21,7 +36,7 @@ Point* Cilindro::getNormal(Point* punto){
     return ret;
 }
 
-double Cilindro::intersectar(Rayo* rayo) {
+double Cilindro::intersectarCuerpo(Rayo* rayo){
     Point* oriMenosCentro = (*rayo->getOrigen()) - centroBase;
     double direccionesDot = rayo->getDireccion()->dotProduct(direccion);
 
@@ -59,4 +74,43 @@ double Cilindro::intersectar(Rayo* rayo) {
     }
 
     return FLT_MAX; // No hay interseccion (habia interseccion con el cilindro infinito, pero no con el acotado por la altura)
+
+}
+
+double Cilindro::intersectarTapa(Rayo* rayo, Point* centroTapa){
+    double directions_dot_prod = direccion->dotProduct(rayo->getDireccion());
+
+    if (directions_dot_prod == 0) {
+        return FLT_MAX; // No hay interseccion, el plano del circulo y el rayo son paralelos
+    }
+
+    double ret = direccion->dotProduct((*centroTapa) - rayo->getOrigen()) / directions_dot_prod;
+
+    if (ret < 0.01) { // Plano esta atras del rayo
+        return FLT_MAX;
+    }
+
+    Point* interseccion = (*rayo->getOrigen()) + ((*rayo->getDireccion()) * ret);
+
+    Point* centroInterseccion = (*interseccion) - centroTapa;
+    double distAlCentro = sqrt(centroInterseccion->dotProduct(centroInterseccion));
+
+
+    if (distAlCentro < rad)
+        return ret;
+
+    // Intersecta con el plano pero no con el circulo
+    return FLT_MAX;
+}
+
+double Cilindro::intersectar(Rayo* rayo) {
+
+    Point* centroTapa2 = (*centroBase) + ((*direccion) * altura);
+
+    double cuerpo = intersectarCuerpo(rayo);
+    double tapa1 = intersectarTapa(rayo, centroBase);
+    double tapa2 = intersectarTapa(rayo, centroTapa2) ;
+    double tapaMasCerca = tapa1 < tapa2 ? tapa1 : tapa2;
+
+    return cuerpo < tapaMasCerca ? cuerpo : tapaMasCerca;
 };
