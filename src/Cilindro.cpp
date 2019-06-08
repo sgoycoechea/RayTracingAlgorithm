@@ -78,13 +78,13 @@ double Cilindro::intersectarCuerpo(Rayo* rayo){
 }
 
 double Cilindro::intersectarTapa(Rayo* rayo, Point* centroTapa){
-    double directions_dot_prod = direccion->dotProduct(rayo->getDireccion());
+    double prodInterno = direccion->dotProduct(rayo->getDireccion());
 
-    if (directions_dot_prod == 0) {
+    if (prodInterno == 0) {
         return FLT_MAX; // No hay interseccion, el plano del circulo y el rayo son paralelos
     }
 
-    double ret = direccion->dotProduct((*centroTapa) - rayo->getOrigen()) / directions_dot_prod;
+    double ret = direccion->dotProduct((*centroTapa) - rayo->getOrigen()) / prodInterno;
 
     if (ret < 0.01) { // Plano esta atras del rayo
         return FLT_MAX;
