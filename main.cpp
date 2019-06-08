@@ -129,6 +129,21 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
     return res;
 }
 
+bool estaAntesEnLista(Objeto* objeto, Objeto* masCercano, list<Objeto*> objetos){
+
+    for (Objeto* obj : objetos) {
+        if (obj == objeto){
+            return true;
+        }
+        if (obj == masCercano){
+            return false;
+        }
+    }
+
+
+    return false;
+}
+
 Color* traza_RR(Rayo* rayo, list<Objeto*> objetos, list<Luz*> luces, int profundidad){
 
     Color* color = new Color(0,0,0);
@@ -139,8 +154,18 @@ Color* traza_RR(Rayo* rayo, list<Objeto*> objetos, list<Luz*> luces, int profund
     for (Objeto* objeto : objetos) {
         float distObj = (*objeto).intersectar(rayo);
         if (distObj < distancia){
-            masCercano = objeto;
-            distancia = distObj;
+            if (distObj + 0.01 < distancia){
+                masCercano = objeto;
+                distancia = distObj;
+            }
+            else{
+
+               if (estaAntesEnLista(objeto, masCercano, objetos)){
+
+                   masCercano = objeto;
+                   distancia = distObj;
+               }
+            }
         }
     }
 
@@ -184,7 +209,7 @@ list<Objeto*> inicializarObjetos(){
     return objetos;
 }
 
-list<Luz*>  inicializarLuces(){
+list<Luz*> inicializarLuces(){
     list<Luz*> luces;
 
     Luz* luz1 = new Luz(new Point(0,0,0), new Color(100,100,100));
@@ -223,7 +248,7 @@ int main() {
     for (int i = 0; i < Height; i++) {
         for (int j = 0; j < Width; j++)  {
 
-        Point* direccionRayo = (*camara) + direccionCamara;
+        Point* direccionRayo = direccionCamara;
         direccionRayo = (*direccionRayo) + ((*direccionLateral) * (i / Height - 0.5)); // Mover horizontalmente
         direccionRayo = (*direccionRayo) + ((*camaraUp) * (j / Width - 0.5)); // Mover verticalmente
         direccionRayo->normalizar();
