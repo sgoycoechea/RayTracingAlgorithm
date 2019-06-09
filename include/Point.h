@@ -16,6 +16,7 @@ class Point{
         float getY();
         float getZ();
         float dotProduct(Point*);
+        Point* productoVectorial(Point*);
         double magnitude();
         Point* operator-(Point*);
         Point* operator+(Point*);

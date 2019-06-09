@@ -2,6 +2,7 @@
 #include "include/Esfera.h"
 #include "include/Cilindro.h"
 #include "include/Plano.h"
+#include "include/Triangulo.h"
 #include "include/Objeto.h"
 #include "include/Point.h"
 #include "include/Rayo.h"
@@ -165,14 +166,6 @@ Color* traza_RR(Rayo* rayo, list<Objeto*> objetos, list<Luz*> luces, int profund
     return color;
 }
 
-Point* productoVectorial(Point* vector1, Point* vector2){
-    double x = vector1->getY() * vector2->getZ() - vector1->getZ() * vector2->getY();
-    double y = - (vector1->getX() * vector2->getZ() - vector1->getZ() * vector2->getX());
-    double z = vector1->getX() * vector2->getY() - vector1->getY() * vector2->getX();
-
-    return new Point(x,y,z);
-}
-
 
 list<Objeto*> inicializarObjetos(){
     list<Objeto*> objetos;
@@ -184,6 +177,7 @@ list<Objeto*> inicializarObjetos(){
     Objeto* techo = new Plano(new Point(0,3,0), new Point(0,-1,0), new Color(150,150,150), 1,1,1);
     Objeto* paredIzq = new Plano(new Point(-3,0,0), new Point(1,0,0), new Color(200,0,0), 1,1,1);
     Objeto* paredDer = new Plano(new Point(3,0,0), new Point(-1,0,0), new Color(0,200,0), 1,1,1);
+    Objeto* triangulo = new Triangulo(new Point(1,1,9), new Point(-1,1,8), new Point(0,-1,8), new Color(50,30,30), 1,1,1);
 
     objetos.push_back(cilindro);
     objetos.push_back(esfera);
@@ -192,6 +186,7 @@ list<Objeto*> inicializarObjetos(){
     objetos.push_back(techo);
     objetos.push_back(paredIzq);
     objetos.push_back(paredDer);
+    objetos.push_back(triangulo);
 
     return objetos;
 }
@@ -225,7 +220,7 @@ int main() {
     list<Luz*> luces = inicializarLuces();
     list<Objeto*> objetos = inicializarObjetos();
 
-    Point* direccionLateral = (*productoVectorial(direccionCamara, camaraUp)) * -1;
+    Point* direccionLateral = (*direccionCamara->productoVectorial(camaraUp)) * -1;
     direccionCamara->normalizar();
     camaraUp->normalizar();
     direccionLateral->normalizar();

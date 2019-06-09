@@ -31,6 +31,14 @@ void Point::normalizar(){
     z = z / mag;
 }
 
+Point* Point::productoVectorial(Point* vector2){
+    double resX = y * vector2->getZ() - z * vector2->getY();
+    double resY = - (x * vector2->getZ() - z * vector2->getX());
+    double resZ = x * vector2->getY() - y * vector2->getX();
+
+    return new Point(resX,resY,resZ);
+}
+
 float Point::dotProduct(Point* vector2){
     return (x * vector2->getX()) + (y * vector2->getY()) + (z * vector2->getZ());
 }

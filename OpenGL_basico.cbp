@@ -53,6 +53,7 @@
 		<Unit filename="include/Plano.h" />
 		<Unit filename="include/Point.h" />
 		<Unit filename="include/Rayo.h" />
+		<Unit filename="include/Triangulo.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Cilindro.cpp" />
 		<Unit filename="src/Color.cpp" />
@@ -62,6 +63,7 @@
 		<Unit filename="src/Plano.cpp" />
 		<Unit filename="src/Point.cpp" />
 		<Unit filename="src/Rayo.cpp" />
+		<Unit filename="src/Triangulo.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
