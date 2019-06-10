@@ -71,8 +71,8 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
     Color* colorDifuso = new Color(0,0,0);
     Color* colorEspecular = new Color(0,0,0);
     Color* colorRefraccion = new Color(0,0,0);
-
-    const float factorEspecular = 25;
+    Color* colorReflexion = new Color(0,0,0);\
+    const float factorN = 25;
 
     for (Luz* luz : luces) {
         Point* direccionLuz = (*interseccion) - luz->getPosicion();
@@ -87,18 +87,16 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
             float distanciaLuz = vectorLuzObjeto->magnitude();
 
             // Si el factor es 1 llega toda la luz, si es 0 no llega nada (hay otro objeto opaco en el medio)
-            float factorR = 1;
-            float factorG = 1;
-            float factorB = 1;
+            float factorDifuso = masCercano->getCoefDifuso();
+            float factorEspecular = masCercano->getCoefEspecular();
 
             // Chequear si hay objetos en el medio
             for (Objeto* objeto : objetos) {
                 if (objeto != masCercano){
                     float dist = objeto->intersectar(rayoLuzObjeto);
                     if (dist < distanciaLuz){
-                        factorR *= 1 - objeto->getOpacidadR();
-                        factorG *= 1 - objeto->getOpacidadG();
-                        factorB *= 1 - objeto->getOpacidadB();
+                        factorDifuso *= objeto->getCoefTransmision();
+                        factorEspecular *= objeto->getCoefTransmision();
                     }
                 }
             }
@@ -106,29 +104,46 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
             // VER SI ESTA BIEN MULTIPLICAR POR factorR,G,B Y VER SI NO HAY QUE MULTIPLICAR POR masCercano->getOpacidadR()
 
             // Luz difusa
-            Color* colorDifusoEstaLuz = new Color(luz->getColor()->getR() * masCercano->getColor()->getR() * factorR * prodInterno / (pow(distanciaLuz,2)),
-                                            luz->getColor()->getG() * masCercano->getColor()->getG() * factorG * prodInterno / (pow(distanciaLuz,2)),
-                                            luz->getColor()->getB() * masCercano->getColor()->getB() * factorB * prodInterno / (pow(distanciaLuz,2)));
+            Color* colorDifusoEstaLuz = new Color(luz->getColor()->getR() * masCercano->getColor()->getR() * factorDifuso * prodInterno / (pow(distanciaLuz,2)),
+                                            luz->getColor()->getG() * masCercano->getColor()->getG() * factorDifuso * prodInterno / (pow(distanciaLuz,2)),
+                                            luz->getColor()->getB() * masCercano->getColor()->getB() * factorDifuso * prodInterno / (pow(distanciaLuz,2)));
 
             // Luz especular
             Point* luzReflejada = reflejar((*direccionLuz) * -1, normal);
-            float prodInternoReflejado = pow(luzReflejada->dotProduct((*rayo->getDireccion()) * -1)  , factorEspecular);
+            float prodInternoReflejado = pow(luzReflejada->dotProduct((*rayo->getDireccion()) * -1)  , factorN);
             Color* colorEspecularEstaLuz = new Color(0,0,0);
             if (prodInternoReflejado > 0){
-                colorEspecularEstaLuz = new Color(luz->getColor()->getR() * prodInternoReflejado * factorR,
-                                                  luz->getColor()->getG() * prodInternoReflejado * factorG,
-                                                  luz->getColor()->getB() * prodInternoReflejado* factorB);
+                colorEspecularEstaLuz = new Color(luz->getColor()->getR() * prodInternoReflejado * factorEspecular,
+                                                  luz->getColor()->getG() * prodInternoReflejado * factorEspecular,
+                                                  luz->getColor()->getB() * prodInternoReflejado* factorEspecular);
             }
 
             colorDifuso = (*colorDifuso) + colorDifusoEstaLuz;
             colorEspecular = (*colorEspecular) + colorEspecularEstaLuz;
         }
     }
+    if (profundidad < 0){
 
-    if( masCercano->getOpacidadR() < 1 || masCercano->getOpacidadG()<1 || masCercano->getOpacidadB()<1 ){
-        if (profundidad < 2){
-            int n1 = 1;
-            int n2 = 2;
+        if (masCercano->getCoefEspecular() > 0){
+
+            Point* direcReflejada = reflejar(rayo->getDireccion(), normal);
+            Point* interseccion = (*rayo->getDireccion()) * (distancia - 0.0001 );
+
+            Rayo* rayo_r = new Rayo(interseccion, direcReflejada);
+            Color* color_r = traza_RR (rayo_r, objetos, luces, profundidad + 1);
+
+            colorReflexion = color_r ->escalar(masCercano->getCoefEspecular()) ;
+
+
+        }
+
+
+
+        if( masCercano->getIndiceRefraccion() > 0 ){
+
+            float n1=1;
+            float n2= masCercano->getIndiceRefraccion();
+
 
             if (!reflexionInternaTotal(rayo, normal, n1, n2)){
                 float ang1 = acos(normal->dotProduct(rayo->getDireccion()));
@@ -137,22 +152,31 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
                 Point* A = *M * sin(ang2);
                 Point* B = *normal * -cos(ang2);
                 Point* direcRefractada = *A + B;
-                Point* interseccion = (*rayo->getDireccion()) * distancia;
+                Point* interseccion = (*rayo->getDireccion()) * (distancia);
 
                 Rayo* rayo_t = new Rayo(interseccion, direcRefractada);
                 Color* color_t = traza_RR (rayo_t, objetos, luces, profundidad + 1);
 
-                //escalar color_t por el coeficiente de transmisión y añadir a color;
-                float coefTransmision = 0.5;
-                colorRefraccion = color_t ->escalar(coefTransmision) ;
+                colorRefraccion = color_t ->escalar(masCercano->getCoefTransmision()) ;
+
+            }else{
+
+                Point* direcReflejado = reflejar(rayo->getDireccion(), normal);
+                Point* nuevaInterseccion = (*rayo->getDireccion()) * (distancia + 0.1); //YA ESTA ARRIBA HAY Q PONERLO GLOBAL como interseccion
+
+                Rayo* rayo_Reflejado = new Rayo(nuevaInterseccion, direcReflejado); //es interseccion lo que hay q poner?
+                Color* color_t = traza_RR (rayo_Reflejado, objetos, luces, profundidad + 1);
+                colorRefraccion = color_t ->escalar(masCercano->getCoefTransmision()) ;
+
             }
+
         }
     }
-
 
     Color* res = (*colorAmbiente) + colorDifuso;
     res = *res + colorEspecular;
     res = *res + colorRefraccion;
+    res = *res + colorReflexion;
     res->truncar();
     return res;
 }
@@ -199,7 +223,7 @@ Color* traza_RR(Rayo* rayo, list<Objeto*> objetos, list<Luz*> luces, int profund
     }
 
     if (masCercano != nullptr){
-        Point* interseccion = (*rayo->getDireccion()) * distancia;
+        Point* interseccion = (*rayo->getDireccion()) * (distancia - 0.01);
         Point* normal = masCercano->getNormal(interseccion);
         normal->normalizar();
         return sombra_RR(masCercano, rayo, distancia, normal, objetos, luces, profundidad);
@@ -211,14 +235,15 @@ Color* traza_RR(Rayo* rayo, list<Objeto*> objetos, list<Luz*> luces, int profund
 list<Objeto*> inicializarObjetos(){
     list<Objeto*> objetos;
 
-    Objeto* cilindro = new Cilindro(new Point(1,-3,7), new Point(0,1,0), 0.7, 2, new Color(0,0,50), 1,1,1);
-    Objeto* esfera = new Esfera(new Point(-1,-2.5,7), 0.5, new Color(0,20,0), 0.5, 0.5, 0.5);
-    Objeto* paredFondo = new Plano(new Point(0,0,10), new Point(0,0,-1), new Color(250,250,250), 1,1,1);
-    Objeto* piso = new Plano(new Point(0,-3,0), new Point(0,1,0), new Color(250,250,250), 1,1,1);
-    Objeto* techo = new Plano(new Point(0,3,0), new Point(0,-1,0), new Color(150,150,150), 1,1,1);
-    Objeto* paredIzq = new Plano(new Point(-3,0,0), new Point(1,0,0), new Color(200,0,0), 1,1,1);
-    Objeto* paredDer = new Plano(new Point(3,0,0), new Point(-1,0,0), new Color(0,200,0), 1,1,1);
-    Objeto* triangulo = new Triangulo(new Point(1,1,9), new Point(-1,1,8), new Point(0,-1,8), new Color(50,30,30), 1,1,1);
+    Objeto* cilindro = new Cilindro(new Point(1,-3,7), new Point(0,1,0), 0.9, 2, new Color(0,0,50), 0, 0, 1, 1);
+    Objeto* esfera = new Esfera(new Point(-1,-2.5,7), 0.5, new Color(0,20,0), 0.3, 0, 0.7, 1);
+    Objeto* paredFondo = new Plano(new Point(0,0,10), new Point(0,0,-1), new Color(250,250,250), 0, 0, 1, 1);
+    Objeto* piso = new Plano(new Point(0,-3,0), new Point(0,1,0), new Color(250,250,250), 0, 0, 1, 1);
+    Objeto* techo = new Plano(new Point(0,3,0), new Point(0,-1,0), new Color(150,150,150),0, 0, 1, 1);
+    Objeto* paredIzq = new Plano(new Point(-3,0,0), new Point(1,0,0), new Color(200,0,0), 0, 0, 1, 1);
+    Objeto* paredDer = new Plano(new Point(3,0,0), new Point(-1,0,0), new Color(0,200,0), 0, 0, 1, 1);
+    Objeto* triangulo = new Triangulo(new Point(1,1,9), new Point(-1,1,8), new Point(0,-1,8), new Color(50,30,30),0, 0, 1, 1);
+    // Objeto* esfera2 = new Esfera(new Point(1, -2.5,7), 0.8, new Color(0,0,0), 1, 1, 1);
 
     objetos.push_back(cilindro);
     objetos.push_back(esfera);
@@ -228,6 +253,7 @@ list<Objeto*> inicializarObjetos(){
     objetos.push_back(paredIzq);
     objetos.push_back(paredDer);
     objetos.push_back(triangulo);
+  //  objetos.push_back(esfera2);
 
     return objetos;
 }

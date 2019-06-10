@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Cilindro::Cilindro(Point* centroBase, Point* direccion, double rad, double altura, Color* color, float opacidadR, float opacidadG, float opacidadB):Objeto(opacidadR, opacidadG, opacidadB, color){
+Cilindro::Cilindro(Point* centroBase, Point* direccion, double rad, double altura, Color* color, float coefTransmision, float coefEspecular, float coefDifuso, float indiceRefraccion):Objeto(color, coefTransmision, coefEspecular, coefDifuso, indiceRefraccion){
     this->centroBase = centroBase;
     direccion->normalizar();
     this->direccion = direccion;

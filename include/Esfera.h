@@ -16,7 +16,7 @@ class Esfera: public Objeto{
         Point* centro;
         double rad;
     public:
-        Esfera(Point*, double, Color*, float, float, float);
+        Esfera(Point*, double, Color*, float, float, float, float);
         double intersectar(Rayo*);
         Point* getNormal(Point* punto);
 };

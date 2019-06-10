@@ -16,7 +16,7 @@ class Plano: public Objeto{
         Point* punto;
         Point* normal;
     public:
-        Plano(Point*, Point*, Color*, float, float, float);
+        Plano(Point*, Point*, Color*,float, float, float, float);
         double intersectar(Rayo*);
         Point* getNormal(Point* punto);
 };

@@ -19,7 +19,7 @@ class Triangulo: public Objeto{
         float areaTriangulo(Point*, Point*, Point*);
         bool puntoEnTriangulo(Point*, Point*, Point*, Point*);
     public:
-        Triangulo(Point*, Point*, Point*, Color*, float, float, float);
+        Triangulo(Point*, Point*, Point*, Color*, float, float, float, float);
         double intersectar(Rayo*);
         Point* getNormal(Point* punto);
 };

@@ -4,9 +4,10 @@
 
 using namespace std;
 
-Esfera::Esfera(Point* centro, double rad, Color* color, float opacidadR, float opacidadG, float opacidadB):Objeto(opacidadR, opacidadG, opacidadB, color){
+Esfera::Esfera(Point* centro, double rad, Color* color, float coefTransmision, float coefEspecular, float coefDifuso, float indiceRefraccion):Objeto(color, coefTransmision, coefEspecular, coefDifuso, indiceRefraccion){
     this->centro = centro;
     this->rad = rad;
+
 
 }
 

@@ -9,19 +9,21 @@ using namespace std;
 
 class Objeto {
     private:
-        float opacidadR;
-        float opacidadG;
-        float opacidadB;
         Color* color;
+        float coefTransmision;
+        float coefEspecular;
+        float coefDifuso;
+        float indiceRefraccion;
 
     public:
-      Objeto(float, float, float, Color*);
+      Objeto(Color*,float, float, float, float);
       virtual double intersectar(Rayo*) = 0;
       virtual Point* getNormal(Point* punto) = 0;
       virtual Color* getColor();
-      virtual float getOpacidadR();
-      virtual float getOpacidadG();
-      virtual float getOpacidadB();
+      virtual float getCoefTransmision();
+      virtual float getCoefEspecular();
+      virtual float getCoefDifuso();
+      virtual float getIndiceRefraccion();
 };
 
 #endif

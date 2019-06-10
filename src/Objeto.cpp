@@ -4,26 +4,32 @@
 
 using namespace std;
 
-Objeto::Objeto(float opacidadR, float opacidadG, float opacidadB, Color* color){
+Objeto::Objeto(Color* color, float coefTransmision, float coefEspecular, float coefDifuso, float indiceRefraccion){
     this->color = color;
-    this->opacidadR = opacidadR;
-    this->opacidadG = opacidadG;
-    this->opacidadB = opacidadB;
-    this->color = color;
+    this->coefDifuso = coefDifuso;
+    this->coefEspecular = coefEspecular;
+    this->coefTransmision = coefTransmision;
+    this->indiceRefraccion = indiceRefraccion;
+
 }
 
 Color* Objeto::getColor(){
     return new Color(color->getR(), color->getG(), color->getB());
 }
 
-float Objeto::getOpacidadR(){
-    return opacidadR;
+float Objeto::getCoefDifuso(){
+    return coefDifuso;
 }
 
-float Objeto::getOpacidadG(){
-    return opacidadG;
+
+float Objeto::getCoefEspecular(){
+    return coefEspecular;
 }
 
-float Objeto::getOpacidadB(){
-    return opacidadB;
+float Objeto::getCoefTransmision(){
+    return coefTransmision;
+}
+
+float Objeto::getIndiceRefraccion(){
+    return indiceRefraccion;
 }
