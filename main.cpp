@@ -9,6 +9,8 @@
 #include "include/Color.h"
 #include "include/Luz.h"
 
+
+
 #include <chrono>
 #include <ctime>
 #include <string>
@@ -52,11 +54,23 @@ Point* reflejar(Point* rayoLuz, Point* normal){
     return reflejado;
 }
 
+bool reflexionInternaTotal(Rayo* rayo, Point* normal, float n1, float n2){
+    if (n1 > n2){
+        float prodInterno = normal->dotProduct(rayo->getDireccion());
+        float ang = acos(prodInterno);
+        return ang > asin(n2/n1);
+    } else return false;
+}
+
+Color* traza_RR(Rayo* rayo, list<Objeto*> objetos, list<Luz*> luces, int profundidad);
+
+
 Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal, list<Objeto*> objetos, list<Luz*> luces, int profundidad){
     Point* interseccion = (*rayo->getDireccion()) * distancia;
     Color* colorAmbiente = masCercano->getColor()->escalar(0.1);
     Color* colorDifuso = new Color(0,0,0);
     Color* colorEspecular = new Color(0,0,0);
+    Color* colorRefraccion = new Color(0,0,0);
 
     const float factorEspecular = 25;
 
@@ -111,11 +125,38 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
         }
     }
 
+    if( masCercano->getOpacidadR() < 1 || masCercano->getOpacidadG()<1 || masCercano->getOpacidadB()<1 ){
+        if (profundidad < 2){
+            int n1 = 1;
+            int n2 = 2;
+
+            if (!reflexionInternaTotal(rayo, normal, n1, n2)){
+                float ang1 = acos(normal->dotProduct(rayo->getDireccion()));
+                float ang2 = asin( sin(ang1)* n1 /n2);
+                Point* M = *(*rayo->getDireccion() + *normal * cos(ang1)) / sin(ang1);
+                Point* A = *M * sin(ang2);
+                Point* B = *normal * -cos(ang2);
+                Point* direcRefractada = *A + B;
+                Point* interseccion = (*rayo->getDireccion()) * distancia;
+
+                Rayo* rayo_t = new Rayo(interseccion, direcRefractada);
+                Color* color_t = traza_RR (rayo_t, objetos, luces, profundidad + 1);
+
+                //escalar color_t por el coeficiente de transmisión y añadir a color;
+                float coefTransmision = 0.5;
+                colorRefraccion = color_t ->escalar(coefTransmision) ;
+            }
+        }
+    }
+
+
     Color* res = (*colorAmbiente) + colorDifuso;
-    res = (*res) + colorEspecular;
+    res = *res + colorEspecular;
+    res = *res + colorRefraccion;
     res->truncar();
     return res;
 }
+
 
 bool estaAntesEnLista(Objeto* objeto, Objeto* masCercano, list<Objeto*> objetos){
 
@@ -171,7 +212,7 @@ list<Objeto*> inicializarObjetos(){
     list<Objeto*> objetos;
 
     Objeto* cilindro = new Cilindro(new Point(1,-3,7), new Point(0,1,0), 0.7, 2, new Color(0,0,50), 1,1,1);
-    Objeto* esfera = new Esfera(new Point(-1,-2.5,7), 0.5, new Color(0,20,0), 1,1,1);
+    Objeto* esfera = new Esfera(new Point(-1,-2.5,7), 0.5, new Color(0,20,0), 0.5, 0.5, 0.5);
     Objeto* paredFondo = new Plano(new Point(0,0,10), new Point(0,0,-1), new Color(250,250,250), 1,1,1);
     Objeto* piso = new Plano(new Point(0,-3,0), new Point(0,1,0), new Color(250,250,250), 1,1,1);
     Objeto* techo = new Plano(new Point(0,3,0), new Point(0,-1,0), new Color(150,150,150), 1,1,1);
