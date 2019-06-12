@@ -97,7 +97,7 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
             for (Objeto* objeto : objetos) {
                 if (objeto != masCercano){
                     float dist = objeto->intersectar(rayoLuzObjeto);
-                    if (dist < distanciaLuz){
+                    if (dist + 0.001 < distanciaLuz){
                         factorDifuso *= objeto->getCoefTransmision(); //no es 1 - ... ?? xq ahora cuando la transmision = 1 no se escala el factor
                         factorEspecular *= objeto->getCoefTransmision();
                     }
