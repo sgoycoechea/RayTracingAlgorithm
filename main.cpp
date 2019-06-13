@@ -8,7 +8,7 @@
 #include "include/Rayo.h"
 #include "include/Color.h"
 #include "include/Luz.h"
-
+#include "tinyxml2/tinyxml2.h"
 
 
 #include <chrono>
@@ -23,6 +23,7 @@
 #include <fstream>
 
 using namespace std;
+using namespace tinyxml2;
 
 int writeFile(string txt)
 {
@@ -314,6 +315,8 @@ int main() {
     // Tamaño de la imagen en pixeles
     float Height = 500;
     float Width = 500;
+
+    XMLDocument doc;
 
     // Settings camera: posicion, direccion y up
     Point* camara = new Point(0,0,0);

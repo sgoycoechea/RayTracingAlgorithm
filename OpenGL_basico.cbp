@@ -64,6 +64,8 @@
 		<Unit filename="src/Point.cpp" />
 		<Unit filename="src/Rayo.cpp" />
 		<Unit filename="src/Triangulo.cpp" />
+		<Unit filename="tinyxml2/tinyxml2.cpp" />
+		<Unit filename="tinyxml2/tinyxml2.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

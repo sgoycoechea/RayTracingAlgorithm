@@ -2219,7 +2219,7 @@
 1559687564 source:c:\users\santiago\desktop\compgraf\src\rayo.cpp
 	"../include/Rayo.h"
 
-1560385077 source:c:\users\santiago\desktop\compgraf\main.cpp
+1560427748 source:c:\users\santiago\desktop\compgraf\main.cpp
 	"FreeImage.h"
 	"include/Esfera.h"
 	"include/Cilindro.h"
@@ -2230,6 +2230,7 @@
 	"include/Rayo.h"
 	"include/Color.h"
 	"include/Luz.h"
+	"tinyxml2/tinyxml2.h"
 	<chrono>
 	<ctime>
 	<string>
@@ -2291,4 +2292,30 @@
 	"Objeto.h"
 	<math.h>
 	<cfloat>
+
+1522839196 c:\users\santiago\desktop\compgraf\pugixml-1.9\src\pugixml.hpp
+	"pugiconfig.hpp"
+	<stddef.h>
+	<exception>
+	<iterator>
+	<iosfwd>
+	<string>
+
+1522839196 c:\users\santiago\desktop\compgraf\pugixml-1.9\src\pugiconfig.hpp
+
+1560427510 c:\users\santiago\desktop\compgraf\tinyxml2\tinyxml2.h
+	<ctype.h>
+	<limits.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stddef.h>
+	<cctype>
+	<climits>
+	<cstdio>
+	<cstdlib>
+	<cstring>
+	<stdint.h>
+	<android/log.h>
+	<assert.h>
 
