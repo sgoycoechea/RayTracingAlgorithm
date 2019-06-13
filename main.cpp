@@ -197,7 +197,7 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
             }else{
 /*
                 Point* direcReflejado = reflejar(rayo->getDireccion(), normal);
-                Point* nuevaInterseccion = (*rayo->getDireccion()) * (distancia + 0.1); //YA ESTA ARRIBA HAY Q PONERLO GLOBAL como interseccion
+                Point* nuevaInterseccion = rayo->getOrigen() + (*rayo->getDireccion()) * (distancia + 0.1); //YA ESTA ARRIBA HAY Q PONERLO GLOBAL como interseccion
 
                 Rayo* rayo_Reflejado = new Rayo(nuevaInterseccion, direcReflejado); //es interseccion lo que hay q poner?
                 Color* color_t = traza_RR (rayo_Reflejado, objetos, luces, objetosAtravezados, profundidad + 1);
