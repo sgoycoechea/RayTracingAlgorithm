@@ -69,7 +69,7 @@ Color* traza_RR(Rayo* rayo, list<Objeto*> objetos, list<Luz*> luces, vector<Obje
 
 
 Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal, list<Objeto*> objetos, list<Luz*> luces, vector<Objeto*> objetosAtravezados,int profundidad){
-    Point* interseccion = (*rayo->getDireccion()) * distancia;
+    Point* interseccion = (*rayo->getOrigen()) + ((*rayo->getDireccion()) * distancia);
     Color* colorAmbiente = masCercano->getColor()->escalar(0.1);
     Color* colorDifuso = new Color(0,0,0);
     Color* colorEspecular = new Color(0,0,0);
@@ -130,7 +130,7 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
         if (masCercano->getCoefEspecular() > 0){
 
             Point* direcReflejada = reflejar(*rayo->getDireccion() * -1, normal);
-            Point* interseccion = (*rayo->getDireccion()) * (distancia - 0.0001 );
+            Point* interseccion = (*rayo->getOrigen()) + ((*rayo->getDireccion()) * (distancia - 0.01));
 
             Rayo* rayo_r = new Rayo(interseccion, direcReflejada);
             Color* color_r = traza_RR (rayo_r, objetos, luces, objetosAtravezados, profundidad + 1);
@@ -187,7 +187,7 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
                 Point* direcRefractada =  *(*normal * factorAux) - (*rayo->getDireccion() * nr);
                 //---------------------------------------
 
-                Point* interseccion = (*rayo->getDireccion()) * (distancia + 0.001);
+                Point* interseccion = (*rayo->getOrigen()) + ((*rayo->getDireccion()) * (distancia + 0.01));
 
                 Rayo* rayo_t = new Rayo(interseccion, direcRefractada);
                 Color* color_t = traza_RR (rayo_t, objetos, luces, objetosAtravezados, profundidad + 1);
