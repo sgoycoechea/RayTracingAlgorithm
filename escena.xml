@@ -19,15 +19,21 @@
   <objetos>
   
     <esferas>
-        <!-- 
-        <esfera centroX="0" centroY="-2" centroZ="9" radio="2" colorR="200" colorG="100" colorB="20" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="0"> </esfera>
-        -->
+        
+       <!--<esfera centroX="0" centroY="-2" centroZ="9" radio="2" colorR="200" colorG="100" colorB="20" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="0"> </esfera>
+     
+        <esfera centroX="-1" centroY="-2" centroZ="7" radio="1" colorR="20" colorG="100" colorB="20" coefTransmision="1" coefEspecular="0" coefDifuso="0.2" indiceRefraccion="1.1"> </esfera>
+       
+        <esfera centroX="-1" centroY="-2" centroZ="9" radio="1" colorR="100" colorG="100" colorB="0" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="1.5"> </esfera>
+          -->
+
     </esferas>
     
     <cilindros>
-        <!-- 
-        <cilindro centroBaseX="-1" centroBaseY="-2" centroBaseZ="7" direccionX="0" direccionY="1" direccionZ="0" radio="1" altura="2" colorR="0" colorG="100" colorB="20" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="0"></cilindro>
-        -->
+        
+       <!-- <cilindro centroBaseX="-1" centroBaseY="-2" centroBaseZ="7" direccionX="0" direccionY="1" direccionZ="0" radio="0.9" altura="2" colorR="0" colorG="100" colorB="20" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="0"></cilindro>
+-->
+
     </cilindros>
     
     <planos>

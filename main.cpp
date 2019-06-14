@@ -57,7 +57,7 @@ Point* reflejar(Point* rayoLuz, Point* normal){
     reflejado = (*reflejado) - rayoLuz;
     return reflejado;
 }
-
+/*
 bool reflexionInternaTotal(Rayo* rayo, Point* normal, float n1, float n2){
     if (n1 > n2){
         float prodInterno = normal->dotProduct(rayo->getDireccion());
@@ -65,7 +65,7 @@ bool reflexionInternaTotal(Rayo* rayo, Point* normal, float n1, float n2){
         return ang > asin(n2/n1);
     } else return false;
 }
-
+*/
 Color* traza_RR(Rayo* rayo, list<Objeto*> objetos, list<Luz*> luces, vector<Objeto*> objetosAtravezados, int profundidad);
 
 
@@ -126,12 +126,12 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
             colorEspecular = (*colorEspecular) + colorEspecularEstaLuz;
         }
     }
-    if (profundidad < 5){
+    if (profundidad < 8){
 
         if (masCercano->getCoefEspecular() > 0){
 
             Point* direcReflejada = reflejar(*rayo->getDireccion() * -1, normal);
-            Point* interseccion = (*rayo->getOrigen()) + ((*rayo->getDireccion()) * (distancia - 0.01));
+            Point* interseccion = (*rayo->getOrigen()) + ((*rayo->getDireccion()) * (distancia - 0.0001));
 
             Rayo* rayo_r = new Rayo(interseccion, direcReflejada);
             Color* color_r = traza_RR (rayo_r, objetos, luces, objetosAtravezados, profundidad + 1);
@@ -141,6 +141,10 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
 
         if( masCercano->getCoefTransmision() > 0 ){
 
+            normal->normalizar();
+            rayo->getDireccion()->normalizar();
+
+            Point* interseccion = *(rayo->getOrigen()) + (*(rayo->getDireccion()) * (distancia + 0.0001));
             float n1, n2;
 /*
             Busco en el stack si ya esta el objeto con el que intersecté
@@ -174,7 +178,7 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
                     //n2 = tope del stack
                     n2 = objetosAtravezados.back()->getIndiceRefraccion();
 
-               // normal = *normal * -1;
+                normal = *normal * -1;
 
             }else{
                 if (objetosAtravezados.empty())
@@ -189,12 +193,27 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
             }
 
 
-            if (!reflexionInternaTotal(rayo, normal, n1, n2)){
+            Point* N = normal;
+            Point* I = rayo->getDireccion();
+
+            //float ang1 = acos(N->dotProduct(I)); //es -I??
+            //float ang2 = asin(sin(ang1) * n1 / n2);
+
+            float ang1 = acos ( N->dotProduct(*I * -1));
+            float ang2 = asin( n1*sin(ang1)/n2 );
+
+            float angCritico = asin(n1/n2);
+
+
+            // if (!reflexionInternaTotal(rayo, normal, n1, n2)){
+            if(!(n1>n2 && ang1> angCritico)){
+
+                //inmensia.com
+                float n = n1 / n2;
+                Point* direcRefractada = *(*I /n) + *N * ( (ang1/n) - sqrt(1 + (pow(ang1,2) - 1) / pow(n, 2) ));
 
              //ECUACIONES VIEJAS
-                normal->normalizar();
-                rayo->getDireccion()->normalizar();
-
+/*
                 float ang1 = acos(normal->dotProduct(rayo->getDireccion()) );
                 float ang2 = asin( sin(ang1)* n1 / n2);
                 Point* M = (*(*rayo->getDireccion() + (*normal * cos(ang1)))) / sin(ang1);
@@ -202,51 +221,21 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
                 Point* B = *normal * -cos(ang2);
 
                 Point* direcRefractada = *A + B;
-
-              //ECUACIONES NUEVAS
-                /*
-                rayo->getDireccion()->normalizar();
-                normal->normalizar();
-                float nr = n1/n2;
-                float raiz = sqrt(1 - ( pow(nr,2) * (1 - pow((normal->dotProduct(rayo->getDireccion())),2)) ) );
-                float factorAux = nr * (normal->dotProduct(rayo->getDireccion())) - raiz;
-
-                Point* direcRefractada =  *(*normal * factorAux) - (*rayo->getDireccion() * nr);
 */
 
 
-                //ECUACIONES MAS NUEVAS
- /*               normal->normalizar();
-                rayo->getDireccion()->normalizar();
-
-                float ang1 = acos(normal->dotProduct(*(rayo->getDireccion()) * -1));
-                float ang2 = asin(n1 / n2 * sin(ang1));
-
-                Point* tHorizontal = *(*rayo->getDireccion() + (*normal * cos(ang1))) * (n1 / n2);
-                Point* tVertical = *normal * - sqrt( 1 - pow(tHorizontal->magnitude(),2) );
-
-                Point* direcRefractada = *tHorizontal + tVertical;
-*/
-
-                //---------------------------------------
-
-                Point* interseccion = (*rayo->getOrigen()) + ((*rayo->getDireccion()) * (distancia + 0.00001));
 
                 Rayo* rayo_t = new Rayo(interseccion, direcRefractada);
                 Color* color_t = traza_RR (rayo_t, objetos, luces, objetosAtravezados, profundidad + 1);
-
-                colorRefraccion = color_t ->escalar(masCercano->getCoefTransmision()) ;
+                colorRefraccion = color_t->escalar(masCercano->getCoefTransmision()) ;
 
             }else{
-/*
                 Point* direcReflejado = reflejar(*rayo->getDireccion() * -1, normal);
-                Point* nuevaInterseccion = (*rayo->getOrigen()) + ((*rayo->getDireccion()) * (distancia + 0.00001));
 
-                Rayo* rayo_Reflejado = new Rayo(nuevaInterseccion, direcReflejado); //es interseccion lo que hay q poner?
+                Rayo* rayo_Reflejado = new Rayo(interseccion, direcReflejado); //es interseccion lo que hay q poner?
                 Color* color_t = traza_RR (rayo_Reflejado, objetos, luces, objetosAtravezados, profundidad + 1);
+                colorRefraccion = color_t->escalar(masCercano->getCoefTransmision()) ;
 
-                colorRefraccion = color_t ->escalar(masCercano->getCoefTransmision()) ;
-*/
             }
 
         }
@@ -260,23 +249,7 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
     res->truncar();
     return res;
 }
-/*
 
-bool estaAntesEnLista(Objeto* objeto, Objeto* masCercano, list<Objeto*> objetos){
-
-    for (Objeto* obj : objetos) {
-        if (obj == objeto){
-            return true;
-        }
-        if (obj == masCercano){
-            return false;
-        }
-    }
-
-
-    return false;
-}
-*/
 Color* traza_RR(Rayo* rayo, list<Objeto*> objetos, list<Luz*> luces, vector<Objeto*> objetosAtravezados, int profundidad){
 
     Color* color = new Color(0,0,0);
@@ -287,24 +260,10 @@ Color* traza_RR(Rayo* rayo, list<Objeto*> objetos, list<Luz*> luces, vector<Obje
     for (Objeto* objeto : objetos) {
         float distObj = (*objeto).intersectar(rayo);
         if (distObj < distancia + 0.001){
-             distancia = distObj;
-             masCercano = objeto;
+            distancia = distObj;
+            masCercano = objeto;
             color = (*objeto).getColor();
         }
-/*
-            if (distObj + 0.00001 < distancia){
-                masCercano = objeto;
-                distancia = distObj;
-            }
-            else{
-
-               if (estaAntesEnLista(objeto, masCercano, objetos)){
-
-                   masCercano = objeto;
-                   distancia = distObj;
-               }
-            }
-        } */
     }
 
     if (masCercano != nullptr){
@@ -312,7 +271,7 @@ Color* traza_RR(Rayo* rayo, list<Objeto*> objetos, list<Luz*> luces, vector<Obje
         Point* normal = masCercano->getNormal(interseccion);
         normal->normalizar();
         return sombra_RR(masCercano, rayo, distancia, normal, objetos, luces, objetosAtravezados, profundidad);
-   }
+    }
     return color;
 }
 
@@ -327,20 +286,20 @@ list<Objeto*> inicializarObjetos(){
     for(tinyxml2::XMLElement* child = doc.FirstChildElement("file")->FirstChildElement("objetos")->FirstChildElement("esferas")->FirstChildElement("esfera"); child != 0; child = child->NextSiblingElement())
     {
 
-        int x = stoi(child->ToElement()->Attribute("centroX"));
-        int y = stoi(child->ToElement()->Attribute("centroY"));
-        int z = stoi(child->ToElement()->Attribute("centroZ"));
+        float x = stoi(child->ToElement()->Attribute("centroX"));
+        float y = stoi(child->ToElement()->Attribute("centroY"));
+        float z = stoi(child->ToElement()->Attribute("centroZ"));
 
-        int r = stoi(child->ToElement()->Attribute("colorR"));
-        int g = stoi(child->ToElement()->Attribute("colorG"));
-        int b = stoi(child->ToElement()->Attribute("colorB"));
+        float r = stoi(child->ToElement()->Attribute("colorR"));
+        float g = stoi(child->ToElement()->Attribute("colorG"));
+        float b = stoi(child->ToElement()->Attribute("colorB"));
 
-        int rad = stoi(child->ToElement()->Attribute("radio"));
+        float rad = stoi(child->ToElement()->Attribute("radio"));
 
-        int coefTransmision = stoi(child->ToElement()->Attribute("coefTransmision"));
-        int coefEspecular = stoi(child->ToElement()->Attribute("coefEspecular"));
-        int coefDifuso = stoi(child->ToElement()->Attribute("coefDifuso"));
-        int indiceRefraccion = stoi(child->ToElement()->Attribute("indiceRefraccion"));
+        float coefTransmision = stoi(child->ToElement()->Attribute("coefTransmision"));
+        float coefEspecular = stoi(child->ToElement()->Attribute("coefEspecular"));
+        float coefDifuso = stoi(child->ToElement()->Attribute("coefDifuso"));
+        float indiceRefraccion = stoi(child->ToElement()->Attribute("indiceRefraccion"));
 
         Objeto* esfera = new Esfera(new Point(x,y,z), rad, new Color(r,g,b), coefTransmision, coefEspecular, coefDifuso, indiceRefraccion);
         objetos.push_back(esfera);
@@ -403,12 +362,15 @@ list<Objeto*> inicializarObjetos(){
     // Objeto* triangulo = new Triangulo(new Point(1,1,9), new Point(-1,1,8), new Point(0,-1,8), new Color(50,30,30),0, 0, 1, 1);
     // Objeto* triangulo2 = new Triangulo(new Point(-3,0,4), new Point(-1,-2,6), new Point(1,2,8), new Color(50,50,50),1, 0, 0.1, 1);
 
-    // Objeto* esfera1 = new Esfera(new Point(-0.5, -1, 8), 0.8, new Color(100, 10, 10), 0 , 0, 1, 1.2);
-    // Objeto* esfera2 = new Esfera(new Point(0.1, -1, 5), 0.5, new Color(10, 10, 10), 1, 0 , 0.1, 1.2);
-    // Objeto* esfera3 = new Esfera(new Point(0.2, -1, 9), 1, new Color(50, 0, 50), 0, 0 , 1, 1.3);
+     Objeto* esfera1 = new Esfera(new Point(-0.5, -1, 6), 0.8, new Color(100, 100, 0), 0 , 1, 0, 1.6);
+     Objeto* esfera2 = new Esfera(new Point(-0.3, -0.3, 7), 0.7, new Color(100, 0, 0), 0.9, 0 , 0.1, 1.6);
+     Objeto* esfera3 = new Esfera(new Point(1.2, -0.7, 7), 0.4, new Color(50, 0, 50), 0, 1 , 0, 1.3);
 
+     Objeto* cilindro = new Cilindro(new Point(0.3,-1,7), new Point(0,1,0), 0.4, 0.9, new Color(0,50,0), 0, 0, 1, 1.6);
+    objetos.push_back(cilindro);
     //objetos.push_back(esfera1);
-    //objetos.push_back(esfera2);
+    objetos.push_back(esfera2);
+     objetos.push_back(esfera3);
 
     return objetos;
 }
