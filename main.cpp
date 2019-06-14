@@ -320,33 +320,95 @@ Color* traza_RR(Rayo* rayo, list<Objeto*> objetos, list<Luz*> luces, vector<Obje
 list<Objeto*> inicializarObjetos(){
     list<Objeto*> objetos;
 
-    Objeto* cilindro = new Cilindro(new Point(1,-3,7), new Point(0,1,0), 0.9, 2, new Color(0,0,50), 0, 0, 1, 1);
-    Objeto* esfera = new Esfera(new Point(-1,-2.5,7), 0.5, new Color(20,100,20), 0, 0, 1, 1.5);
-    Objeto* paredFondo = new Plano(new Point(0,0,10), new Point(0,0,-1), new Color(250,250,250), 0, 0, 1, 1);
-    Objeto* piso = new Plano(new Point(0,-3,0), new Point(0,1,0), new Color(250,250,250), 0, 0, 1, 1);
-    Objeto* techo = new Plano(new Point(0,3,0), new Point(0,-1,0), new Color(150,150,150),0, 0, 1, 1);
-    Objeto* paredIzq = new Plano(new Point(-3,0,0), new Point(1,0,0), new Color(200,0,0), 0, 0, 1, 1);
-    Objeto* paredDer = new Plano(new Point(3,0,0), new Point(-1,0,0), new Color(0,200,0), 0, 0, 1, 1);
-    Objeto* triangulo = new Triangulo(new Point(1,1,9), new Point(-1,1,8), new Point(0,-1,8), new Color(50,30,30),0, 0, 1, 1);
+    tinyxml2::XMLDocument doc;
+    doc.LoadFile("escena.xml");
 
-    Objeto* esfera1 = new Esfera(new Point(-0.5, -1, 8), 0.8, new Color(100, 10, 10), 0 , 0, 1, 1.2);
-    Objeto* esfera2 = new Esfera(new Point(0.1, -1, 5), 0.5, new Color(10, 10, 10), 1, 0 , 0.1, 1.2);
-   // Objeto* esfera3 = new Esfera(new Point(0.2, -1, 9), 1, new Color(50, 0, 50), 0, 0 , 1, 1.3);
-    Objeto* triangulo2 = new Triangulo(new Point(-3,0,4), new Point(-1,-2,6), new Point(1,2,8), new Color(50,50,50),1, 0, 0.1, 1);
+    // Esferas
+    for(tinyxml2::XMLElement* child = doc.FirstChildElement("file")->FirstChildElement("objetos")->FirstChildElement("esferas")->FirstChildElement("esfera"); child != 0; child = child->NextSiblingElement())
+    {
 
-    //objetos.push_back(cilindro);
-    //objetos.push_back(esfera);
-    objetos.push_back(esfera1);
-    objetos.push_back(esfera2);
-    //objetos.push_back(esfera3);
-    objetos.push_back(paredFondo);
-    objetos.push_back(piso);
-    objetos.push_back(techo);
-    objetos.push_back(paredIzq);
-    objetos.push_back(paredDer);
-    //objetos.push_back(triangulo);
-    //objetos.push_back(triangulo2);
+        int x = stoi(child->ToElement()->Attribute("centroX"));
+        int y = stoi(child->ToElement()->Attribute("centroY"));
+        int z = stoi(child->ToElement()->Attribute("centroZ"));
 
+        int r = stoi(child->ToElement()->Attribute("colorR"));
+        int g = stoi(child->ToElement()->Attribute("colorG"));
+        int b = stoi(child->ToElement()->Attribute("colorB"));
+
+        int rad = stoi(child->ToElement()->Attribute("radio"));
+
+        int coefTransmision = stoi(child->ToElement()->Attribute("coefTransmision"));
+        int coefEspecular = stoi(child->ToElement()->Attribute("coefEspecular"));
+        int coefDifuso = stoi(child->ToElement()->Attribute("coefDifuso"));
+        int indiceRefraccion = stoi(child->ToElement()->Attribute("indiceRefraccion"));
+
+        Objeto* esfera = new Esfera(new Point(x,y,z), rad, new Color(r,g,b), coefTransmision, coefEspecular, coefDifuso, indiceRefraccion);
+        objetos.push_back(esfera);
+    }
+
+    // Cilindros
+
+    for(tinyxml2::XMLElement* child = doc.FirstChildElement("file")->FirstChildElement("objetos")->FirstChildElement("cilindros")->FirstChildElement("cilindro"); child != 0; child = child->NextSiblingElement())
+    {
+
+        int centroX = stoi(child->ToElement()->Attribute("centroBaseX"));
+        int centroY = stoi(child->ToElement()->Attribute("centroBaseY"));
+        int centroZ = stoi(child->ToElement()->Attribute("centroBaseZ"));
+
+        int dirX = stoi(child->ToElement()->Attribute("direccionX"));
+        int dirY = stoi(child->ToElement()->Attribute("direccionY"));
+        int dirZ = stoi(child->ToElement()->Attribute("direccionZ"));
+
+        int rad = stoi(child->ToElement()->Attribute("radio"));
+        int alt = stoi(child->ToElement()->Attribute("altura"));
+
+        int r = stoi(child->ToElement()->Attribute("colorR"));
+        int g = stoi(child->ToElement()->Attribute("colorG"));
+        int b = stoi(child->ToElement()->Attribute("colorB"));
+
+        int coefTransmision = stoi(child->ToElement()->Attribute("coefTransmision"));
+        int coefEspecular = stoi(child->ToElement()->Attribute("coefEspecular"));
+        int coefDifuso = stoi(child->ToElement()->Attribute("coefDifuso"));
+        int indiceRefraccion = stoi(child->ToElement()->Attribute("indiceRefraccion"));
+
+        Objeto* cilindro = new Cilindro(new Point(centroX,centroY,centroZ), new Point(dirX,dirY,dirZ), rad, alt, new Color(r,g,b), coefTransmision, coefEspecular, coefDifuso, indiceRefraccion);
+        objetos.push_back(cilindro);
+    }
+
+    // Planos
+    for(tinyxml2::XMLElement* child = doc.FirstChildElement("file")->FirstChildElement("objetos")->FirstChildElement("planos")->FirstChildElement("plano"); child != 0; child = child->NextSiblingElement())
+    {
+        int puntoX = stoi(child->ToElement()->Attribute("puntoX"));
+        int puntoY = stoi(child->ToElement()->Attribute("puntoY"));
+        int puntoZ = stoi(child->ToElement()->Attribute("puntoZ"));
+
+        int normalX = stoi(child->ToElement()->Attribute("normalX"));
+        int normalY = stoi(child->ToElement()->Attribute("normalY"));
+        int normalZ = stoi(child->ToElement()->Attribute("normalZ"));
+
+        int r = stoi(child->ToElement()->Attribute("colorR"));
+        int g = stoi(child->ToElement()->Attribute("colorG"));
+        int b = stoi(child->ToElement()->Attribute("colorB"));
+
+        int coefTransmision = stoi(child->ToElement()->Attribute("coefTransmision"));
+        int coefEspecular = stoi(child->ToElement()->Attribute("coefEspecular"));
+        int coefDifuso = stoi(child->ToElement()->Attribute("coefDifuso"));
+        int indiceRefraccion = stoi(child->ToElement()->Attribute("indiceRefraccion"));
+
+        Objeto* plano = new Plano(new Point(puntoX,puntoY,puntoZ), new Point(normalX,normalY,normalZ), new Color(r,g,b), coefTransmision, coefEspecular, coefDifuso, indiceRefraccion);
+        objetos.push_back(plano);
+    }
+
+
+    // Objeto* triangulo = new Triangulo(new Point(1,1,9), new Point(-1,1,8), new Point(0,-1,8), new Color(50,30,30),0, 0, 1, 1);
+    // Objeto* triangulo2 = new Triangulo(new Point(-3,0,4), new Point(-1,-2,6), new Point(1,2,8), new Color(50,50,50),1, 0, 0.1, 1);
+
+    // Objeto* esfera1 = new Esfera(new Point(-0.5, -1, 8), 0.8, new Color(100, 10, 10), 0 , 0, 1, 1.2);
+    // Objeto* esfera2 = new Esfera(new Point(0.1, -1, 5), 0.5, new Color(10, 10, 10), 1, 0 , 0.1, 1.2);
+    // Objeto* esfera3 = new Esfera(new Point(0.2, -1, 9), 1, new Color(50, 0, 50), 0, 0 , 1, 1.3);
+
+    //objetos.push_back(esfera1);
+    //objetos.push_back(esfera2);
 
     return objetos;
 }
@@ -360,15 +422,15 @@ list<Luz*> inicializarLuces(){
     for(tinyxml2::XMLElement* child = doc.FirstChildElement("file")->FirstChildElement("luces")->FirstChildElement("luz"); child != 0; child = child->NextSiblingElement())
     {
         tinyxml2::XMLElement* posicionElement = child->FirstChildElement("posicion");
-        tinyxml2::XMLElement* direccionElement = child->FirstChildElement("color");
+        tinyxml2::XMLElement* colorElement = child->FirstChildElement("color");
 
         int x = stoi(posicionElement->ToElement()->Attribute("x"));
         int y = stoi(posicionElement->ToElement()->Attribute("y"));
         int z = stoi(posicionElement->ToElement()->Attribute("z"));
 
-        int r = stoi(direccionElement->ToElement()->Attribute("r"));
-        int g = stoi(direccionElement->ToElement()->Attribute("g"));
-        int b = stoi(direccionElement->ToElement()->Attribute("b"));
+        int r = stoi(colorElement->ToElement()->Attribute("r"));
+        int g = stoi(colorElement->ToElement()->Attribute("g"));
+        int b = stoi(colorElement->ToElement()->Attribute("b"));
 
         Luz* luz = new Luz(new Point(x,y,z), new Color(r,g,b));
         luces.push_back(luz);
