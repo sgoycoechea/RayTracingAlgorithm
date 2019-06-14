@@ -330,26 +330,47 @@ list<Objeto*> inicializarObjetos(){
 list<Luz*> inicializarLuces(){
     list<Luz*> luces;
 
-    Luz* luz1 = new Luz(new Point(2,2,1), new Color(200,200,200));
-    Luz* luz2 = new Luz(new Point(0,1,2), new Color(200,200,200));
+    tinyxml2::XMLDocument doc;
+    doc.LoadFile("escena.xml");
 
-    luces.push_back(luz1);
-    //luces.push_back(luz2);
+    for(tinyxml2::XMLElement* child = doc.FirstChildElement("file")->FirstChildElement("luces")->FirstChildElement("luz"); child != 0; child = child->NextSiblingElement())
+    {
+        tinyxml2::XMLElement* posicionElement = child->FirstChildElement("posicion");
+        tinyxml2::XMLElement* direccionElement = child->FirstChildElement("color");
+
+        int x = stoi(posicionElement->ToElement()->Attribute("x"));
+        int y = stoi(posicionElement->ToElement()->Attribute("y"));
+        int z = stoi(posicionElement->ToElement()->Attribute("z"));
+
+        int r = stoi(direccionElement->ToElement()->Attribute("r"));
+        int g = stoi(direccionElement->ToElement()->Attribute("g"));
+        int b = stoi(direccionElement->ToElement()->Attribute("b"));
+
+        Luz* luz = new Luz(new Point(x,y,z), new Color(r,g,b));
+        luces.push_back(luz);
+    }
 
     return luces;
 }
 
+
 int main() {
-    // Tama�o de la imagen en pixeles
-    float Height = 500;
-    float Width = 500;
+    tinyxml2::XMLDocument doc;
+    doc.LoadFile("escena.xml");
 
-    XMLDocument doc;
+    // Tamaño de la imagen en pixeles
+    tinyxml2::XMLElement* resolucionElement = doc.FirstChildElement("file")->FirstChildElement("resolucion");
+    float Height = stoi(resolucionElement->ToElement()->Attribute("x"));
+    float Width = stoi(resolucionElement->ToElement()->Attribute("y"));
 
-    // Settings camera: posicion, direccion y up
-    Point* camara = new Point(0,0,0);
-    Point* direccionCamara = new Point(0,0,1);
-    Point* camaraUp = new Point(0,1,0);
+    // Inicializar camara
+    tinyxml2::XMLElement* child = doc.FirstChildElement("file")->FirstChildElement("camara");
+    tinyxml2::XMLElement* posElement = child->FirstChildElement("posicion");
+    tinyxml2::XMLElement* dirElement = child->FirstChildElement("direccion");
+    tinyxml2::XMLElement* upElement = child->FirstChildElement("up");
+    Point* camaraPos = new Point(stoi(posElement->ToElement()->Attribute("x")), stoi(posElement->ToElement()->Attribute("y")), stoi(posElement->ToElement()->Attribute("z")));
+    Point* camaraDir = new Point(stoi(dirElement->ToElement()->Attribute("x")), stoi(dirElement->ToElement()->Attribute("y")), stoi(dirElement->ToElement()->Attribute("z")));
+    Point* camaraUp = new Point(stoi(upElement->ToElement()->Attribute("x")), stoi(upElement->ToElement()->Attribute("y")), stoi(upElement->ToElement()->Attribute("z")));
 
     FIBITMAP *bitmap = FreeImage_Allocate(Width, Height, 32);
     string date = getDate();
@@ -359,19 +380,20 @@ int main() {
     list<Objeto*> objetos = inicializarObjetos();
     vector<Objeto*> objetosAtravezados;
 
-    Point* direccionLateral = (*direccionCamara->productoVectorial(camaraUp)) * -1;
-    direccionCamara->normalizar();
+    Point* direccionLateral = (*camaraDir->productoVectorial(camaraUp)) * -1;
+    camaraDir->normalizar();
     camaraUp->normalizar();
     direccionLateral->normalizar();
+
 
     for (int i = 0; i < Height; i++) {
         for (int j = 0; j < Width; j++)  {
 
-        Point* direccionRayo = direccionCamara;
+        Point* direccionRayo = camaraDir;
         direccionRayo = (*direccionRayo) + ((*direccionLateral) * (i / Height - 0.5)); // Mover horizontalmente
         direccionRayo = (*direccionRayo) + ((*camaraUp) * (j / Width - 0.5)); // Mover verticalmente
         direccionRayo->normalizar();
-        Rayo* rayo = new Rayo(camara, direccionRayo);
+        Rayo* rayo = new Rayo(camaraPos, direccionRayo);
 
         Color* color = traza_RR(rayo, objetos, luces, objetosAtravezados, 0);
 

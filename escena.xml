@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<file>
+
+  <resolucion x="1000" y="1000"></resolucion>
+  
+  <camara>
+    <posicion x="0" y="0" z="0"></posicion>
+    <direccion x="0" y="0" z="1"></direccion>
+    <up x="0" y="1" z="0"></up>
+  </camara>
+  
+  <luces>
+    <luz>
+      <posicion x="2" y="2" z="1"></posicion>
+      <color r="200" g="200" b="200"></color>
+    </luz>
+  </luces>
+  
+  <objetos>
+    <esferas>
+    </esferas>
+    <planos>
+    </planos>
+    <cilindros>
+    </cilindros>
+    <triangulos>
+    </triangulos>
+  </objetos>
+  
+</file>
