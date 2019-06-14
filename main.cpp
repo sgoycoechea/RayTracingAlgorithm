@@ -126,7 +126,7 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
             colorEspecular = (*colorEspecular) + colorEspecularEstaLuz;
         }
     }
-    if (profundidad < 4){
+    if (profundidad < 5){
 
         if (masCercano->getCoefEspecular() > 0){
 
@@ -141,30 +141,53 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
 
         if( masCercano->getCoefTransmision() > 0 ){
 
-            if ( find(objetosAtravezados.begin(), objetosAtravezados.end(), masCercano) != objetosAtravezados.end() )
-
-                // LA CONDICION ESTA COMO EL CULO - el tope SIEMPRE ES N1, ELIMINAR NO ES EL DE ARRIBA DEL TODO SINO EL OBJETO Q ME CHOCO
-                //  objetosAtravezados.back() = masCercano
-
-                objetosAtravezados.pop_back(); //esto es un bolaso tmb hay q sacar el objeto que me choco
-
-            else
-                objetosAtravezados.push_back(masCercano);
-
             float n1, n2;
-            /*n1 = 1;
-            n2 = 1.5;
-            */
+/*
+            Busco en el stack si ya esta el objeto con el que intersecté
 
-            if (!objetosAtravezados.empty()){ //esto hay q verlo bien
-                n1 = 1;
-                n2 = masCercano->getIndiceRefraccion();
+                Si no está
+                     n1 = 1 si el stack esta vacio, sino el que esta en la cima del stack
+                     n2 = el indice del objeto intersectado
+                     inserto
+
+                Si está
+                     n1 = al que está en la cima
+                     saco del stack el objeto intersectado
+                     n2 = 1 si el stack esta vacio, sino el que esta en la cima del stack
+                     N = -N
+*/
+
+
+            vector<Objeto*>::iterator itr = find(objetosAtravezados.begin(), objetosAtravezados.end(), masCercano);
+
+            if (itr != objetosAtravezados.end()){
+            //if (find(objetosAtravezados.begin(), objetosAtravezados.end(), masCercano) != objetosAtravezados.end()) {
+
+                //n1 = tope del stack
+                n1 = objetosAtravezados.back()->getIndiceRefraccion();
+                //saco del stack objeto intersectado
+                objetosAtravezados.erase(itr);
+
+                if (objetosAtravezados.empty())
+                    n2 = 1;
+                else
+                    //n2 = tope del stack
+                    n2 = objetosAtravezados.back()->getIndiceRefraccion();
+
+               // normal = *normal * -1;
+
             }else{
-                n1 = masCercano->getIndiceRefraccion();
-                n2 = 1;
+                if (objetosAtravezados.empty())
+                    n1 = 1;
+                else
+                    //n1 = tope del stack
+                    n1 = objetosAtravezados.back()->getIndiceRefraccion();
 
-                //n1 = objetosAtravezados.back()->getIndiceRefraccion();
+                n2 = masCercano->getIndiceRefraccion();
+
+                objetosAtravezados.push_back(masCercano);
             }
+
 
             if (!reflexionInternaTotal(rayo, normal, n1, n2)){
 
@@ -207,7 +230,7 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
 
                 //---------------------------------------
 
-                Point* interseccion = (*rayo->getOrigen()) + ((*rayo->getDireccion()) * (distancia + 0.001));
+                Point* interseccion = (*rayo->getOrigen()) + ((*rayo->getDireccion()) * (distancia + 0.00001));
 
                 Rayo* rayo_t = new Rayo(interseccion, direcRefractada);
                 Color* color_t = traza_RR (rayo_t, objetos, luces, objetosAtravezados, profundidad + 1);
@@ -217,10 +240,11 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
             }else{
 /*
                 Point* direcReflejado = reflejar(*rayo->getDireccion() * -1, normal);
-                Point* nuevaInterseccion = (*rayo->getOrigen()) + ((*rayo->getDireccion()) * (distancia - 0.001));
+                Point* nuevaInterseccion = (*rayo->getOrigen()) + ((*rayo->getDireccion()) * (distancia + 0.00001));
 
                 Rayo* rayo_Reflejado = new Rayo(nuevaInterseccion, direcReflejado); //es interseccion lo que hay q poner?
                 Color* color_t = traza_RR (rayo_Reflejado, objetos, luces, objetosAtravezados, profundidad + 1);
+
                 colorRefraccion = color_t ->escalar(masCercano->getCoefTransmision()) ;
 */
             }
@@ -236,7 +260,7 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
     res->truncar();
     return res;
 }
-
+/*
 
 bool estaAntesEnLista(Objeto* objeto, Objeto* masCercano, list<Objeto*> objetos){
 
@@ -252,7 +276,7 @@ bool estaAntesEnLista(Objeto* objeto, Objeto* masCercano, list<Objeto*> objetos)
 
     return false;
 }
-
+*/
 Color* traza_RR(Rayo* rayo, list<Objeto*> objetos, list<Luz*> luces, vector<Objeto*> objetosAtravezados, int profundidad){
 
     Color* color = new Color(0,0,0);
@@ -305,9 +329,9 @@ list<Objeto*> inicializarObjetos(){
     Objeto* paredDer = new Plano(new Point(3,0,0), new Point(-1,0,0), new Color(0,200,0), 0, 0, 1, 1);
     Objeto* triangulo = new Triangulo(new Point(1,1,9), new Point(-1,1,8), new Point(0,-1,8), new Color(50,30,30),0, 0, 1, 1);
 
-    Objeto* esfera1 = new Esfera(new Point(-0.5, -1, 8), 0.8, new Color(100, 100, 0), 0 , 0, 1, 1.5);
-    Objeto* esfera2 = new Esfera(new Point(0.1, -1, 5), 0.5, new Color(50, 0, 50), 1, 0 , 0, 1.1);
-    //Objeto* esfera3 = new Esfera(new Point(0.9, -1, 5), 0.5, new Color(50, 0, 50), 0, 0 , 1, 1.3);
+    Objeto* esfera1 = new Esfera(new Point(-0.5, -1, 8), 0.8, new Color(100, 10, 10), 0 , 0, 1, 1.2);
+    Objeto* esfera2 = new Esfera(new Point(0.1, -1, 5), 0.5, new Color(10, 10, 10), 1, 0 , 0.1, 1.2);
+   // Objeto* esfera3 = new Esfera(new Point(0.2, -1, 9), 1, new Color(50, 0, 50), 0, 0 , 1, 1.3);
     Objeto* triangulo2 = new Triangulo(new Point(-3,0,4), new Point(-1,-2,6), new Point(1,2,8), new Color(50,50,50),1, 0, 0.1, 1);
 
     //objetos.push_back(cilindro);
@@ -317,9 +341,9 @@ list<Objeto*> inicializarObjetos(){
     //objetos.push_back(esfera3);
     objetos.push_back(paredFondo);
     objetos.push_back(piso);
-    //objetos.push_back(techo);
-    //objetos.push_back(paredIzq);
-    //objetos.push_back(paredDer);
+    objetos.push_back(techo);
+    objetos.push_back(paredIzq);
+    objetos.push_back(paredDer);
     //objetos.push_back(triangulo);
     //objetos.push_back(triangulo2);
 
