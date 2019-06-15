@@ -4,13 +4,13 @@
 
 using namespace std;
 
-Objeto::Objeto(Color color, float coefTransmision, float coefEspecular, float coefDifuso, float indiceRefraccion){
+Objeto::Objeto(Color color, float coefTransmision, float coefEspecular, float coefDifuso, float coefAmbiente, float indiceRefraccion){
     this->color = color;
     this->coefDifuso = coefDifuso;
     this->coefEspecular = coefEspecular;
     this->coefTransmision = coefTransmision;
     this->indiceRefraccion = indiceRefraccion;
-
+    this->coefAmbiente = coefAmbiente;
 }
 
 Color Objeto::getColor(){
@@ -21,6 +21,9 @@ float Objeto::getCoefDifuso(){
     return coefDifuso;
 }
 
+float Objeto::getCoefAmbiente(){
+    return coefAmbiente;
+}
 
 float Objeto::getCoefEspecular(){
     return coefEspecular;

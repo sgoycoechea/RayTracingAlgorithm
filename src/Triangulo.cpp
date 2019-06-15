@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Triangulo::Triangulo(Point punto1, Point punto2, Point punto3, Color color, float coefTransmision, float coefEspecular, float coefDifuso, float indiceRefraccion):Objeto(color, coefTransmision, coefEspecular, coefDifuso, indiceRefraccion){
+Triangulo::Triangulo(Point punto1, Point punto2, Point punto3, Color color, float coefTransmision, float coefEspecular, float coefDifuso, float coefAmbiente, float indiceRefraccion):Objeto(color, coefTransmision, coefEspecular, coefDifuso, coefAmbiente, indiceRefraccion){
     this->punto1 = punto1;
     this->punto2 = punto2;
     this->punto3 = punto3;

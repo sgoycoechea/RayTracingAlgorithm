@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Plano::Plano(Point punto, Point normal, Color color, float coefTransmision, float coefEspecular, float coefDifuso, float indiceRefraccion):Objeto(color, coefTransmision, coefEspecular, coefDifuso, indiceRefraccion){
+Plano::Plano(Point punto, Point normal, Color color, float coefTransmision, float coefEspecular, float coefDifuso, float coefAmbiente, float indiceRefraccion):Objeto(color, coefTransmision, coefEspecular, coefDifuso, coefAmbiente, indiceRefraccion){
     this->punto = punto;
     normal.normalizar();
     this->normal = normal;

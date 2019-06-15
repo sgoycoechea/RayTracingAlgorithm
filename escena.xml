@@ -24,57 +24,58 @@
   <objetos>
   
     <esferas>
-        <esfera centroX="1.4" centroY="-0.9" centroZ="8" radio="0.6" colorR="0" colorG="0" colorB="0" coefTransmision="0" coefEspecular="1" coefDifuso="0" indiceRefraccion="0"> </esfera>
-        <esfera centroX="-1" centroY="-0.5" centroZ="8" radio="1" colorR="20" colorG="0" colorB="0" coefTransmision="0.9" coefEspecular="0" coefDifuso="0.3" indiceRefraccion="1"> </esfera>
+        <esfera centroX="1.4" centroY="-0.9" centroZ="8" radio="0.6" colorR="0" colorG="0" colorB="0" coefTransmision="0" coefEspecular="1" coefDifuso="0" coefAmbiente="0.1" indiceRefraccion="0"> </esfera>
+        <esfera centroX="-1" centroY="-0.5" centroZ="8" radio="1" colorR="150" colorG="0" colorB="0" coefTransmision="0.9" coefEspecular="0" coefDifuso="0" coefAmbiente="0.1" indiceRefraccion="1.1"> </esfera>
+        
     </esferas>
     
     <cilindros>
-       <cilindro centroBaseX="-0.3" centroBaseY="-1.5" centroBaseZ="8" direccionX="0" direccionY="1" direccionZ="0" radio="0.6" altura="1.2" colorR="0" colorG="60" colorB="0" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="0"></cilindro>
+       <cilindro centroBaseX="-0.3" centroBaseY="-1.5" centroBaseZ="8" direccionX="0" direccionY="1" direccionZ="0" radio="0.6" altura="1.2" colorR="0" colorG="60" colorB="0" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="0"></cilindro>
     </cilindros>
     
     <triangulos>
     
        <!-- Cara frontal -->
-       <triangulo puntoA1="-2.2" puntoA2="-3" puntoA3="7" puntoB1="0" puntoB2="-3" puntoB3="7" puntoC1="-2.2" puntoC2="-1.5" puntoC3="7" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="0"></triangulo>
-       <triangulo puntoA1="0" puntoA2="-3" puntoA3="7" puntoB1="0" puntoB2="-1.5" puntoB3="7" puntoC1="-2.2" puntoC2="-1.5" puntoC3="7" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="0"></triangulo>
-       <triangulo puntoA1="0" puntoA2="-3" puntoA3="7" puntoB1="2" puntoB2="-3" puntoB3="7" puntoC1="0" puntoC2="-1.5" puntoC3="7" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="0"></triangulo>
-       <triangulo puntoA1="2" puntoA2="-3" puntoA3="7" puntoB1="2" puntoB2="-1.5" puntoB3="7" puntoC1="0" puntoC2="-1.5" puntoC3="7" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="0"></triangulo>
+       <triangulo puntoA1="-2.2" puntoA2="-3" puntoA3="7" puntoB1="0" puntoB2="-3" puntoB3="7" puntoC1="-2.2" puntoC2="-1.5" puntoC3="7" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="0"></triangulo>
+       <triangulo puntoA1="0" puntoA2="-3" puntoA3="7" puntoB1="0" puntoB2="-1.5" puntoB3="7" puntoC1="-2.2" puntoC2="-1.5" puntoC3="7" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="0"></triangulo>
+       <triangulo puntoA1="0" puntoA2="-3" puntoA3="7" puntoB1="2" puntoB2="-3" puntoB3="7" puntoC1="0" puntoC2="-1.5" puntoC3="7" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="0"></triangulo>
+       <triangulo puntoA1="2" puntoA2="-3" puntoA3="7" puntoB1="2" puntoB2="-1.5" puntoB3="7" puntoC1="0" puntoC2="-1.5" puntoC3="7" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="0"></triangulo>
        
        <!-- Cara trasera -->
-       <triangulo puntoA1="-2.2" puntoA2="-1.5" puntoA3="9" puntoB1="0" puntoB2="-3" puntoB3="9" puntoC1="-2.2" puntoC2="-3" puntoC3="9" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="0"></triangulo>
-       <triangulo puntoA1="-2.2" puntoA2="-1.5" puntoA3="9" puntoB1="0" puntoB2="-1.5" puntoB3="9" puntoC1="0" puntoC2="-3" puntoC3="9" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="0"></triangulo>
-       <triangulo puntoA1="0" puntoA2="-1.5" puntoA3="9" puntoB1="2" puntoB2="-3" puntoB3="9" puntoC1="0" puntoC2="-3" puntoC3="9" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="0"></triangulo>
-       <triangulo puntoA1="0" puntoA2="-1.5" puntoA3="9" puntoB1="2" puntoB2="-1.5" puntoB3="9" puntoC1="2" puntoC2="-3" puntoC3="9" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="0"></triangulo>
+       <triangulo puntoA1="-2.2" puntoA2="-1.5" puntoA3="9" puntoB1="0" puntoB2="-3" puntoB3="9" puntoC1="-2.2" puntoC2="-3" puntoC3="9" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="0"></triangulo>
+       <triangulo puntoA1="-2.2" puntoA2="-1.5" puntoA3="9" puntoB1="0" puntoB2="-1.5" puntoB3="9" puntoC1="0" puntoC2="-3" puntoC3="9" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="0"></triangulo>
+       <triangulo puntoA1="0" puntoA2="-1.5" puntoA3="9" puntoB1="2" puntoB2="-3" puntoB3="9" puntoC1="0" puntoC2="-3" puntoC3="9" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="0"></triangulo>
+       <triangulo puntoA1="0" puntoA2="-1.5" puntoA3="9" puntoB1="2" puntoB2="-1.5" puntoB3="9" puntoC1="2" puntoC2="-3" puntoC3="9" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="0"></triangulo>
        
        <!-- Cara derecha -->
-       <triangulo puntoA1="2" puntoA2="-3" puntoA3="7" puntoB1="2" puntoB2="-3" puntoB3="9" puntoC1="2" puntoC2="-1.5" puntoC3="7" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="0"></triangulo>
-       <triangulo puntoA1="2" puntoA2="-3" puntoA3="9" puntoB1="2" puntoB2="-1.5" puntoB3="9" puntoC1="2" puntoC2="-1.5" puntoC3="7" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="0"></triangulo>
+       <triangulo puntoA1="2" puntoA2="-3" puntoA3="7" puntoB1="2" puntoB2="-3" puntoB3="9" puntoC1="2" puntoC2="-1.5" puntoC3="7" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="0"></triangulo>
+       <triangulo puntoA1="2" puntoA2="-3" puntoA3="9" puntoB1="2" puntoB2="-1.5" puntoB3="9" puntoC1="2" puntoC2="-1.5" puntoC3="7" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="0"></triangulo>
        
        <!-- Cara izquierda -->
-       <triangulo puntoA1="-2.2" puntoA2="-1.5" puntoA3="7" puntoB1="-2.2" puntoB2="-3" puntoB3="9" puntoC1="-2.2" puntoC2="-3" puntoC3="7" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="0"></triangulo>
-       <triangulo puntoA1="-2.2" puntoA2="-1.5" puntoA3="7" puntoB1="-2.2" puntoB2="-1.5" puntoB3="9" puntoC1="-2.2" puntoC2="-3" puntoC3="9" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="0"></triangulo>
+       <triangulo puntoA1="-2.2" puntoA2="-1.5" puntoA3="7" puntoB1="-2.2" puntoB2="-3" puntoB3="9" puntoC1="-2.2" puntoC2="-3" puntoC3="7" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="0"></triangulo>
+       <triangulo puntoA1="-2.2" puntoA2="-1.5" puntoA3="7" puntoB1="-2.2" puntoB2="-1.5" puntoB3="9" puntoC1="-2.2" puntoC2="-3" puntoC3="9" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="0"></triangulo>
        
        <!-- Cara superior -->
-       <triangulo puntoA1="-2.2" puntoA2="-1.5" puntoA3="7" puntoB1="0" puntoB2="-1.5" puntoB3="9" puntoC1="-2.2" puntoC2="-1.5" puntoC3="9" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="0"></triangulo>
-       <triangulo puntoA1="-2.2" puntoA2="-1.5" puntoA3="7" puntoB1="0" puntoB2="-1.5" puntoB3="7" puntoC1="0" puntoC2="-1.5" puntoC3="9" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="0"></triangulo>
-       <triangulo puntoA1="0" puntoA2="-1.5" puntoA3="7" puntoB1="2" puntoB2="-1.5" puntoB3="9" puntoC1="0" puntoC2="-1.5" puntoC3="9" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="0"></triangulo>
-       <triangulo puntoA1="0" puntoA2="-1.5" puntoA3="7" puntoB1="2" puntoB2="-1.5" puntoB3="7" puntoC1="2" puntoC2="-1.5" puntoC3="9" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="0"></triangulo>
+       <triangulo puntoA1="-2.2" puntoA2="-1.5" puntoA3="7" puntoB1="0" puntoB2="-1.5" puntoB3="9" puntoC1="-2.2" puntoC2="-1.5" puntoC3="9" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="0"></triangulo>
+       <triangulo puntoA1="-2.2" puntoA2="-1.5" puntoA3="7" puntoB1="0" puntoB2="-1.5" puntoB3="7" puntoC1="0" puntoC2="-1.5" puntoC3="9" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="0"></triangulo>
+       <triangulo puntoA1="0" puntoA2="-1.5" puntoA3="7" puntoB1="2" puntoB2="-1.5" puntoB3="9" puntoC1="0" puntoC2="-1.5" puntoC3="9" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="0"></triangulo>
+       <triangulo puntoA1="0" puntoA2="-1.5" puntoA3="7" puntoB1="2" puntoB2="-1.5" puntoB3="7" puntoC1="2" puntoC2="-1.5" puntoC3="9" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="0"></triangulo>
        
        <!-- Cara inferior -->
-       <triangulo puntoA1="-2.2" puntoA2="-3" puntoA3="9" puntoB1="0" puntoB2="-3" puntoB3="9" puntoC1="-2.2" puntoC2="-3" puntoC3="7" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="0"></triangulo>
-       <triangulo puntoA1="0" puntoA2="-3" puntoA3="9" puntoB1="0" puntoB2="-3" puntoB3="7" puntoC1="-2.2" puntoC2="-3" puntoC3="7" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="0"></triangulo>
-       <triangulo puntoA1="0" puntoA2="-3" puntoA3="9" puntoB1="2" puntoB2="-3" puntoB3="9" puntoC1="0" puntoC2="-3" puntoC3="7" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="0"></triangulo>
-       <triangulo puntoA1="2" puntoA2="-3" puntoA3="9" puntoB1="2" puntoB2="-3" puntoB3="7" puntoC1="0" puntoC2="-3" puntoC3="7" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="0"></triangulo>
+       <triangulo puntoA1="-2.2" puntoA2="-3" puntoA3="9" puntoB1="0" puntoB2="-3" puntoB3="9" puntoC1="-2.2" puntoC2="-3" puntoC3="7" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="0"></triangulo>
+       <triangulo puntoA1="0" puntoA2="-3" puntoA3="9" puntoB1="0" puntoB2="-3" puntoB3="7" puntoC1="-2.2" puntoC2="-3" puntoC3="7" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="0"></triangulo>
+       <triangulo puntoA1="0" puntoA2="-3" puntoA3="9" puntoB1="2" puntoB2="-3" puntoB3="9" puntoC1="0" puntoC2="-3" puntoC3="7" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="0"></triangulo>
+       <triangulo puntoA1="2" puntoA2="-3" puntoA3="9" puntoB1="2" puntoB2="-3" puntoB3="7" puntoC1="0" puntoC2="-3" puntoC3="7" colorR="50" colorG="50" colorB="50" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="0"></triangulo>
        
     </triangulos>
     
     <planos>
     
-        <plano puntoX="0" puntoY="0" puntoZ="10" normalX="0" normalY="0" normalZ="-1" colorR="30" colorG="30" colorB="30" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="1"> </plano>
-        <plano puntoX="0" puntoY="3" puntoZ="0" normalX="0" normalY="-1" normalZ="0" colorR="30" colorG="30" colorB="30" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="1"> </plano>
-        <plano puntoX="-3" puntoY="0" puntoZ="0" normalX="1" normalY="0" normalZ="0" colorR="30" colorG="0" colorB="0" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="1"> </plano>
-        <plano puntoX="3" puntoY="0" puntoZ="0" normalX="-1" normalY="0" normalZ="0" colorR="0" colorG="30" colorB="0" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="1"> </plano>
-        <plano puntoX="0" puntoY="-3" puntoZ="0" normalX="0" normalY="1" normalZ="0" colorR="30" colorG="30" colorB="30" coefTransmision="0" coefEspecular="0" coefDifuso="1" indiceRefraccion="1"> </plano>
+        <plano puntoX="0" puntoY="0" puntoZ="10" normalX="0" normalY="0" normalZ="-1" colorR="30" colorG="30" colorB="30" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="1"> </plano>
+        <plano puntoX="0" puntoY="3" puntoZ="0" normalX="0" normalY="-1" normalZ="0" colorR="30" colorG="30" colorB="30" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="1"> </plano>
+        <plano puntoX="-3" puntoY="0" puntoZ="0" normalX="1" normalY="0" normalZ="0" colorR="30" colorG="0" colorB="0" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="1"> </plano>
+        <plano puntoX="3" puntoY="0" puntoZ="0" normalX="-1" normalY="0" normalZ="0" colorR="0" colorG="30" colorB="0" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="1"> </plano>
+        <plano puntoX="0" puntoY="-3" puntoZ="0" normalX="0" normalY="1" normalZ="0" colorR="30" colorG="30" colorB="30" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="1"> </plano>
         
     </planos>
     

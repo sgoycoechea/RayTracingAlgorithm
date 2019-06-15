@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Esfera::Esfera(Point centro, double rad, Color color, float coefTransmision, float coefEspecular, float coefDifuso, float indiceRefraccion):Objeto(color, coefTransmision, coefEspecular, coefDifuso, indiceRefraccion){
+Esfera::Esfera(Point centro, double rad, Color color, float coefTransmision, float coefEspecular, float coefDifuso, float coefAmbiente, float indiceRefraccion):Objeto(color, coefTransmision, coefEspecular, coefDifuso, coefAmbiente, indiceRefraccion){
     this->centro = centro;
     this->rad = rad;
 

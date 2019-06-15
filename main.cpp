@@ -71,7 +71,8 @@ vector<Color> traza_RR(Rayo* rayo, list<Objeto*> objetos, list<Luz*> luces, vect
 
 Color sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point normal, list<Objeto*> objetos, list<Luz*> luces, vector<Objeto*> objetosAtravezados,int profundidad){
     Point interseccion = rayo->getOrigen() + (rayo->getDireccion() * distancia);
-    Color colorAmbiente = masCercano->getColor().escalar(0.1);
+
+    Color colorAmbiente = masCercano->getColor().escalar(masCercano->getCoefAmbiente());
     Color colorDifuso = Color(0,0,0);
     Color colorEspecular = Color(0,0,0);
     Color colorRefraccion = Color(0,0,0);
@@ -127,7 +128,7 @@ Color sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point normal, l
         }
     }
 
-    if (profundidad < 2){
+    if (profundidad < 5){
 
         if (masCercano->getCoefEspecular() > 0){
 
@@ -351,18 +352,17 @@ list<Objeto*> inicializarObjetos(){
         float coefTransmision = stof(child->ToElement()->Attribute("coefTransmision"));
         float coefEspecular = stof(child->ToElement()->Attribute("coefEspecular"));
         float coefDifuso = stof(child->ToElement()->Attribute("coefDifuso"));
+        float coefAmbiente = stof(child->ToElement()->Attribute("coefAmbiente"));
         float indiceRefraccion = stof(child->ToElement()->Attribute("indiceRefraccion"));
 
-        Objeto* esfera = new Esfera(Point(x,y,z), rad, Color(r,g,b), coefTransmision, coefEspecular, coefDifuso, indiceRefraccion);
+        Objeto* esfera = new Esfera(Point(x,y,z), rad, Color(r,g,b), coefTransmision, coefEspecular, coefDifuso, coefAmbiente, indiceRefraccion);
         objetos.push_back(esfera);
     }
 
     // Cilindros
 
     for(tinyxml2::XMLElement* child = doc.FirstChildElement("file")->FirstChildElement("objetos")->FirstChildElement("cilindros")->FirstChildElement("cilindro"); child != 0; child = child->NextSiblingElement())
-
     {
-
         float centroX = stof(child->ToElement()->Attribute("centroBaseX"));
         float centroY = stof(child->ToElement()->Attribute("centroBaseY"));
         float centroZ = stof(child->ToElement()->Attribute("centroBaseZ"));
@@ -381,9 +381,10 @@ list<Objeto*> inicializarObjetos(){
         float coefTransmision = stof(child->ToElement()->Attribute("coefTransmision"));
         float coefEspecular = stof(child->ToElement()->Attribute("coefEspecular"));
         float coefDifuso = stof(child->ToElement()->Attribute("coefDifuso"));
+        float coefAmbiente = stof(child->ToElement()->Attribute("coefAmbiente"));
         float indiceRefraccion = stof(child->ToElement()->Attribute("indiceRefraccion"));
 
-        Objeto* cilindro = new Cilindro(Point(centroX,centroY,centroZ), Point(dirX,dirY,dirZ), rad, alt, Color(r,g,b), coefTransmision, coefEspecular, coefDifuso, indiceRefraccion);
+        Objeto* cilindro = new Cilindro(Point(centroX,centroY,centroZ), Point(dirX,dirY,dirZ), rad, alt, Color(r,g,b), coefTransmision, coefEspecular, coefDifuso, coefAmbiente, indiceRefraccion);
         objetos.push_back(cilindro);
     }
 
@@ -405,9 +406,10 @@ list<Objeto*> inicializarObjetos(){
         float coefTransmision = stof(child->ToElement()->Attribute("coefTransmision"));
         float coefEspecular = stof(child->ToElement()->Attribute("coefEspecular"));
         float coefDifuso = stof(child->ToElement()->Attribute("coefDifuso"));
+        float coefAmbiente = stof(child->ToElement()->Attribute("coefAmbiente"));
         float indiceRefraccion = stof(child->ToElement()->Attribute("indiceRefraccion"));
 
-        Objeto* plano = new Plano(Point(puntoX,puntoY,puntoZ), Point(normalX,normalY,normalZ), Color(r,g,b), coefTransmision, coefEspecular, coefDifuso, indiceRefraccion);
+        Objeto* plano = new Plano(Point(puntoX,puntoY,puntoZ), Point(normalX,normalY,normalZ), Color(r,g,b), coefTransmision, coefEspecular, coefDifuso, coefAmbiente, indiceRefraccion);
         objetos.push_back(plano);
     }
 
@@ -433,9 +435,10 @@ list<Objeto*> inicializarObjetos(){
         float coefTransmision = stof(child->ToElement()->Attribute("coefTransmision"));
         float coefEspecular = stof(child->ToElement()->Attribute("coefEspecular"));
         float coefDifuso = stof(child->ToElement()->Attribute("coefDifuso"));
+        float coefAmbiente = stof(child->ToElement()->Attribute("coefAmbiente"));
         float indiceRefraccion = stof(child->ToElement()->Attribute("indiceRefraccion"));
 
-        Objeto* triangulo = new Triangulo(Point(puntoA1,puntoA2,puntoA3), Point(puntoB1,puntoB2,puntoB3), Point(puntoC1,puntoC2,puntoC3), Color(r,g,b), coefTransmision, coefEspecular, coefDifuso, indiceRefraccion);
+        Objeto* triangulo = new Triangulo(Point(puntoA1,puntoA2,puntoA3), Point(puntoB1,puntoB2,puntoB3), Point(puntoC1,puntoC2,puntoC3), Color(r,g,b), coefTransmision, coefEspecular, coefDifuso, coefAmbiente, indiceRefraccion);
         objetos.push_back(triangulo);
     }
 

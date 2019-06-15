@@ -2187,12 +2187,12 @@
 1560618873 c:\users\santiago\desktop\compgraf\include\color.h
 	<math.h>
 
-1560619246 source:c:\users\santiago\desktop\compgraf\src\esfera.cpp
+1560621484 source:c:\users\santiago\desktop\compgraf\src\esfera.cpp
 	"../include/Esfera.h"
 	<iostream>
 	<fstream>
 
-1560618974 c:\users\santiago\desktop\compgraf\include\esfera.h
+1560621474 c:\users\santiago\desktop\compgraf\include\esfera.h
 	"Point.h"
 	"Color.h"
 	"Rayo.h"
@@ -2219,7 +2219,7 @@
 1560618967 source:c:\users\santiago\desktop\compgraf\src\rayo.cpp
 	"../include/Rayo.h"
 
-1560619391 source:c:\users\santiago\desktop\compgraf\main.cpp
+1560623044 source:c:\users\santiago\desktop\compgraf\main.cpp
 	"FreeImage.h"
 	"include/Esfera.h"
 	"include/Cilindro.h"
@@ -2244,22 +2244,22 @@
 	<wchar.h>
 	<inttypes.h>
 
-1560618976 c:\users\santiago\desktop\compgraf\include\objeto.h
+1560621401 c:\users\santiago\desktop\compgraf\include\objeto.h
 	"Point.h"
 	"Color.h"
 	"Rayo.h"
 
-1560618732 source:c:\users\santiago\desktop\compgraf\src\objeto.cpp
+1560622876 source:c:\users\santiago\desktop\compgraf\src\objeto.cpp
 	"../include/Esfera.h"
 	<iostream>
 	<fstream>
 
-1560619222 source:c:\users\santiago\desktop\compgraf\src\cilindro.cpp
+1560621467 source:c:\users\santiago\desktop\compgraf\src\cilindro.cpp
 	"../include/Cilindro.h"
 	<iostream>
 	<fstream>
 
-1560618966 c:\users\santiago\desktop\compgraf\include\cilindro.h
+1560621447 c:\users\santiago\desktop\compgraf\include\cilindro.h
 	"Point.h"
 	"Color.h"
 	"Rayo.h"
@@ -2267,12 +2267,12 @@
 	<math.h>
 	<cfloat>
 
-1560619254 source:c:\users\santiago\desktop\compgraf\src\plano.cpp
+1560621502 source:c:\users\santiago\desktop\compgraf\src\plano.cpp
 	"../include/Plano.h"
 	<iostream>
 	<fstream>
 
-1560618975 c:\users\santiago\desktop\compgraf\include\plano.h
+1560621493 c:\users\santiago\desktop\compgraf\include\plano.h
 	"Point.h"
 	"Color.h"
 	"Rayo.h"
@@ -2280,12 +2280,12 @@
 	<math.h>
 	<cfloat>
 
-1560619241 source:c:\users\santiago\desktop\compgraf\src\triangulo.cpp
+1560622681 source:c:\users\santiago\desktop\compgraf\src\triangulo.cpp
 	"../include/Triangulo.h"
 	<iostream>
 	<fstream>
 
-1560618965 c:\users\santiago\desktop\compgraf\include\triangulo.h
+1560622636 c:\users\santiago\desktop\compgraf\include\triangulo.h
 	"Point.h"
 	"Color.h"
 	"Rayo.h"

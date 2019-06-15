@@ -20,7 +20,7 @@ class Cilindro: public Objeto{
         double intersectarCuerpo(Rayo*);
         double intersectarTapa(Rayo*, Point);
     public:
-        Cilindro(Point, Point, double, double, Color, float, float, float, float);
+        Cilindro(Point, Point, double, double, Color, float, float, float, float, float);
         double intersectar(Rayo*);
         Point getNormal(Point punto);
 };
