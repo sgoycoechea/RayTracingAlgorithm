@@ -197,6 +197,9 @@ Color sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point normal, l
 
             Point N = normal;
             Point I = rayo->getDireccion();
+            N.normalizar();
+            I.normalizar();
+
 
             //float ang1 = acos(N.dotProduct(I)); //es -I??
             //float ang2 = asin(sin(ang1) * n1 / n2);

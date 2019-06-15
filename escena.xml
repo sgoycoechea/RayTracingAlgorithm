@@ -25,7 +25,7 @@
   
     <esferas>
         <esfera centroX="1.4" centroY="-0.9" centroZ="8" radio="0.6" colorR="0" colorG="0" colorB="0" coefTransmision="0" coefEspecular="1" coefDifuso="0" coefAmbiente="0.1" indiceRefraccion="0"> </esfera>
-        <esfera centroX="-1" centroY="-0.5" centroZ="8" radio="1" colorR="150" colorG="0" colorB="0" coefTransmision="0.9" coefEspecular="0" coefDifuso="0" coefAmbiente="0.1" indiceRefraccion="1.1"> </esfera>
+        <esfera centroX="-1" centroY="-0.5" centroZ="8" radio="1" colorR="150" colorG="0" colorB="0" coefTransmision="0.9" coefEspecular="0" coefDifuso="0" coefAmbiente="0.1" indiceRefraccion="1.4"> </esfera>
         
     </esferas>
     
