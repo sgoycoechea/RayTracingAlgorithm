@@ -248,7 +248,7 @@ vector<Color> traza_RR(Rayo* rayo, list<Objeto*> objetos, list<Luz*> luces, vect
 
     for (Objeto* objeto : objetos) {
         float distObj = (*objeto).intersectar(rayo);
-        if (distObj < distancia + 0.001){
+        if (distObj < distancia - 0.001){
             distancia = distObj;
             masCercano = objeto;
             color = (*objeto).getColor();
