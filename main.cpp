@@ -253,10 +253,7 @@ Color sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point normal, l
 
     }
 
-    Color res = colorAmbiente + colorDifuso;
-    res = res + colorEspecular;
-    res = res + colorRefraccion;
-    res = res + colorReflexion;
+    Color res = colorAmbiente + colorDifuso + colorEspecular + colorReflexion + colorRefraccion;
     res.truncar();
     return res;
 }
