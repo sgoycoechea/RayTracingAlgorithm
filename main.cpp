@@ -215,19 +215,21 @@ Color sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point normal, l
             if(!(n1>n2 && ang1> angCritico)){
 
                 //inmensia.com
-                float n = n1 / n2;
-                Point direcRefractada = I /n + N * ( (ang1/n) - sqrt(1 + (pow(ang1,2) - 1) / pow(n, 2) ));
-                direcRefractada.normalizar();
+              //  float n = n1 / n2;
+             //   Point direcRefractada = I /n + N * ( (ang1/n) - sqrt(1 + (pow(ang1,2) - 1) / pow(n, 2) ));
+              //  direcRefractada.normalizar();
              //ECUACIONES VIEJAS
-/*
-                float ang1 = acos(normal.dotProduct(rayo->getDireccion()) );
-                float ang2 = asin( sin(ang1)* n1 / n2);
-                Point M = (*(*rayo->getDireccion() + (*normal * cos(ang1)))) / sin(ang1);
-                Point A = *M * sin(ang2);
-                Point B = *normal * -cos(ang2);
 
-                Point direcRefractada = *A + B;
-*/
+                //float ang1 = acos(normal.dotProduct(rayo->getDireccion()) );
+                float ang2 = asin( sin(ang1)* n1 / n2);
+                Point M = ((rayo->getDireccion() + (normal * cos(ang1)))) / sin(ang1);
+                Point A = M * sin(ang2);
+                Point B = normal * cos(ang2);
+
+                Point direcRefractada = A + B;
+                direcRefractada.normalizar();
+
+
 
 
 
