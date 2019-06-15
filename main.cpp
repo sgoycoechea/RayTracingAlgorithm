@@ -66,7 +66,7 @@ bool reflexionInternaTotal(Rayo* rayo, Point* normal, float n1, float n2){
     } else return false;
 }
 */
-Color* traza_RR(Rayo* rayo, list<Objeto*> objetos, list<Luz*> luces, vector<Objeto*> objetosAtravezados, int profundidad);
+vector<Color*> traza_RR(Rayo* rayo, list<Objeto*> objetos, list<Luz*> luces, vector<Objeto*> objetosAtravezados, int profundidad);
 
 
 Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal, list<Objeto*> objetos, list<Luz*> luces, vector<Objeto*> objetosAtravezados,int profundidad){
@@ -126,7 +126,7 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
             colorEspecular = (*colorEspecular) + colorEspecularEstaLuz;
         }
     }
-    if (profundidad < 8){
+    if (profundidad < 0){
 
         if (masCercano->getCoefEspecular() > 0){
 
@@ -134,7 +134,7 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
             Point* interseccion = (*rayo->getOrigen()) + ((*rayo->getDireccion()) * (distancia - 0.0001));
 
             Rayo* rayo_r = new Rayo(interseccion, direcReflejada);
-            Color* color_r = traza_RR (rayo_r, objetos, luces, objetosAtravezados, profundidad + 1);
+            Color* color_r = (traza_RR (rayo_r, objetos, luces, objetosAtravezados, profundidad + 1)).back();
 
             colorReflexion = color_r->escalar(masCercano->getCoefEspecular()) ;
         }
@@ -226,14 +226,14 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
 
 
                 Rayo* rayo_t = new Rayo(interseccion, direcRefractada);
-                Color* color_t = traza_RR (rayo_t, objetos, luces, objetosAtravezados, profundidad + 1);
+                Color* color_t = (traza_RR (rayo_t, objetos, luces, objetosAtravezados, profundidad + 1)).back();
                 colorRefraccion = color_t->escalar(masCercano->getCoefTransmision()) ;
 
             }else{
                 Point* direcReflejado = reflejar(*rayo->getDireccion() * -1, normal);
 
                 Rayo* rayo_Reflejado = new Rayo(interseccion, direcReflejado); //es interseccion lo que hay q poner?
-                Color* color_t = traza_RR (rayo_Reflejado, objetos, luces, objetosAtravezados, profundidad + 1);
+                Color* color_t = (traza_RR (rayo_Reflejado, objetos, luces, objetosAtravezados, profundidad + 1)).back();
                 colorRefraccion = color_t->escalar(masCercano->getCoefTransmision()) ;
 
             }
@@ -250,9 +250,13 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
     return res;
 }
 
-Color* traza_RR(Rayo* rayo, list<Objeto*> objetos, list<Luz*> luces, vector<Objeto*> objetosAtravezados, int profundidad){
+vector<Color*> traza_RR(Rayo* rayo, list<Objeto*> objetos, list<Luz*> luces, vector<Objeto*> objetosAtravezados, int profundidad){
 
     Color* color = new Color(0,0,0);
+    float coefT = 0;
+    float coefR = 0;
+    Color* colorT = new Color(250,250,250);
+    Color* colorR = new Color(250,250,250);
     rayo->getDireccion()->normalizar();
     Objeto* masCercano = nullptr;
     float distancia = FLT_MAX;
@@ -263,16 +267,59 @@ Color* traza_RR(Rayo* rayo, list<Objeto*> objetos, list<Luz*> luces, vector<Obje
             distancia = distObj;
             masCercano = objeto;
             color = (*objeto).getColor();
+
+            coefT = (*objeto).getCoefTransmision();
+            coefR = (*objeto).getCoefEspecular();
+
         }
     }
+    colorT = colorT->escalar(coefT);
+    colorR = colorR->escalar(coefR);
 
     if (masCercano != nullptr){
         Point* interseccion = (*rayo->getDireccion()) * (distancia + 0.0001);
         Point* normal = masCercano->getNormal(interseccion);
         normal->normalizar();
-        return sombra_RR(masCercano, rayo, distancia, normal, objetos, luces, objetosAtravezados, profundidad);
+        color = sombra_RR(masCercano, rayo, distancia, normal, objetos, luces, objetosAtravezados, profundidad);
     }
-    return color;
+    vector<Color*> colores;
+    colores.push_back(colorT);
+    colores.push_back(colorR);
+    colores.push_back(color);
+
+    return colores;
+}
+
+vector<Color*> traza_aux(Rayo* rayo, list<Objeto*> objetos){
+
+    float coefT = 0;
+    float coefR = 0;
+    Color* colorT = new Color(250,250,250);
+    Color* colorR = new Color(250,250,250);
+    rayo->getDireccion()->normalizar();
+    Objeto* masCercano = nullptr;
+    float distancia = FLT_MAX;
+
+    for (Objeto* objeto : objetos) {
+        float distObj = (*objeto).intersectar(rayo);
+        if (distObj < distancia + 0.001){
+            distancia = distObj;
+            masCercano = objeto;
+
+            coefT = (*objeto).getCoefTransmision();
+            coefR = (*objeto).getCoefEspecular();
+
+        }
+    }
+
+    colorT = colorT->escalar(coefT);
+    colorR = colorR->escalar(coefR);
+
+    vector <Color*> colores;
+    colores.push_back(colorT);
+    colores.push_back(colorR);
+
+    return colores;
 }
 
 list<Objeto*> inicializarObjetos(){
@@ -496,7 +543,7 @@ list<Objeto*> inicializarObjetos(){
 
      Objeto* esfera1 = new Esfera(new Point(-0.5, -1, 6), 0.8, new Color(100, 100, 0), 0 , 1, 0, 1.6);
      Objeto* esfera2 = new Esfera(new Point(-0.3, -0.3, 7), 0.7, new Color(100, 0, 0), 0.9, 0 , 0.1, 1.6);
-     Objeto* esfera3 = new Esfera(new Point(1.2, -0.7, 7), 0.4, new Color(50, 0, 50), 0, 1 , 0, 1.3);
+     Objeto* esfera3 = new Esfera(new Point(1.2, -0.7, 7), 0.4, new Color(50, 0, 50), 0.5, 1 , 0, 1.3);
 
      Objeto* cilindro = new Cilindro(new Point(0.3,-1,7), new Point(0,1,0), 0.4, 0.9, new Color(0,50,0), 0, 0, 1, 1.6);
     objetos.push_back(cilindro);
@@ -556,6 +603,17 @@ int main() {
     string date = getDate();
     string path = "fotos/" + date + ".bmp";
 
+//img aux
+    FIBITMAP *bitmapT = FreeImage_Allocate(Width, Height, 32);
+    string t = "transmision";
+    string pathT = "fotos/" + t  + ".bmp";
+
+    FIBITMAP *bitmapR = FreeImage_Allocate(Width, Height, 32);
+    string r = "reflexion";
+    string pathR = "fotos/" + r  + ".bmp";
+
+// img aux
+
     list<Luz*> luces = inicializarLuces();
     list<Objeto*> objetos = inicializarObjetos();
     vector<Objeto*> objetosAtravezados;
@@ -575,17 +633,52 @@ int main() {
         direccionRayo->normalizar();
         Rayo* rayo = new Rayo(camaraPos, direccionRayo);
 
-        Color* color = traza_RR(rayo, objetos, luces, objetosAtravezados, 0);
+        vector<Color*> colores = traza_RR(rayo, objetos, luces, objetosAtravezados, 0);
+        Color* color = colores.back();
+        //Color* color = (traza_RR(rayo, objetos, luces, objetosAtravezados, 0)).back();
 
         RGBQUAD colorQuad;
         colorQuad.rgbRed = (int)color->getR();
         colorQuad.rgbGreen = (int)color->getG();
         colorQuad.rgbBlue = (int)color->getB();
         FreeImage_SetPixelColor(bitmap, i, j, &colorQuad);
+
+// para imagenes aux
+
+        colores.pop_back();
+        Color* colorT = colores.back();
+
+        RGBQUAD colorQuadT;
+        colorQuadT.rgbRed = (int)colorT->getR();
+        colorQuadT.rgbGreen = (int)colorT->getG();
+        colorQuadT.rgbBlue = (int)colorT->getB();
+        FreeImage_SetPixelColor(bitmapT, i, j, &colorQuadT);
+
+        colores.pop_back();
+        Color* colorR = colores.back();
+
+        RGBQUAD colorQuadR;
+        colorQuadR.rgbRed = (int)colorR->getR();
+        colorQuadR.rgbGreen = (int)colorR->getG();
+        colorQuadR.rgbBlue = (int)colorR->getB();
+        FreeImage_SetPixelColor(bitmapR, i, j, &colorQuadR);
+
+
+
+
+// para imagenes aux
+
+
+
         }
     }
 
+
     FreeImage_Save(FIF_BMP, bitmap, path.c_str(), 0);
+
+    FreeImage_Save(FIF_BMP, bitmapT, pathT.c_str(), 0);
+
+    FreeImage_Save(FIF_BMP, bitmapR, pathR.c_str(), 0);
 
     return 0;
 }
