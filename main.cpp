@@ -92,16 +92,24 @@ Color sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point normal, l
             float distanciaLuz = vectorLuzObjeto.magnitude();
 
             // Si el factor es 1 llega toda la luz, si es 0 no llega nada (hay otro objeto opaco en el medio)
-            float factorDifuso = masCercano->getCoefDifuso();
-            float factorEspecular = masCercano->getCoefEspecular();
+            float factorDifusoR = masCercano->getCoefDifuso();
+            float factorDifusoG = masCercano->getCoefDifuso();
+            float factorDifusoB = masCercano->getCoefDifuso();
+            float factorEspecularR = masCercano->getCoefEspecular();
+            float factorEspecularG = masCercano->getCoefEspecular();
+            float factorEspecularB = masCercano->getCoefEspecular();
 
             // Chequear si hay objetos en el medio
             for (Objeto* objeto : objetos) {
                 if (objeto != masCercano){
                     float dist = objeto->intersectar(rayoLuzObjeto);
                     if (dist + 0.001 < distanciaLuz){
-                        factorDifuso *= objeto->getCoefTransmision(); //no es 1 - ... ?? xq ahora cuando la transmision = 1 no se escala el factor
-                        factorEspecular *= objeto->getCoefEspecular();
+                        factorDifusoR *= objeto->getCoefTransmision() * (objeto->getColor().getR() / 255);
+                        factorDifusoG *= objeto->getCoefTransmision() * (objeto->getColor().getG() / 255);
+                        factorDifusoB *= objeto->getCoefTransmision() * (objeto->getColor().getB() / 255);
+                        factorEspecularR *= objeto->getCoefEspecular() * (objeto->getColor().getR() / 255);
+                        factorEspecularG *= objeto->getCoefEspecular() * (objeto->getColor().getG() / 255);
+                        factorEspecularB *= objeto->getCoefEspecular() * (objeto->getColor().getB() / 255);
                     }
                 }
             }
@@ -109,18 +117,18 @@ Color sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point normal, l
             // VER SI ESTA BIEN MULTIPLICAR POR factorR,G,B Y VER SI NO HAY QUE MULTIPLICAR POR masCercano->getOpacidadR()
 
             // Luz difusa
-            Color colorDifusoEstaLuz = Color(luz->getColor().getR() * masCercano->getColor().getR() * factorDifuso * prodInterno / (pow(distanciaLuz,2)),
-                                            luz->getColor().getG() * masCercano->getColor().getG() * factorDifuso * prodInterno / (pow(distanciaLuz,2)),
-                                            luz->getColor().getB() * masCercano->getColor().getB() * factorDifuso * prodInterno / (pow(distanciaLuz,2)));
+            Color colorDifusoEstaLuz = Color(luz->getColor().getR() * masCercano->getColor().getR() * factorDifusoR * prodInterno / (pow(distanciaLuz,2)),
+                                            luz->getColor().getG() * masCercano->getColor().getG() * factorDifusoG * prodInterno / (pow(distanciaLuz,2)),
+                                            luz->getColor().getB() * masCercano->getColor().getB() * factorDifusoB * prodInterno / (pow(distanciaLuz,2)));
 
             // Luz especular
             Point luzReflejada = reflejar(direccionLuz * -1, normal);
             float prodInternoReflejado = pow(luzReflejada.dotProduct(rayo->getDireccion() * -1)  , factorN);
             Color colorEspecularEstaLuz = Color(0,0,0);
             if (prodInternoReflejado > 0){
-                colorEspecularEstaLuz = Color(luz->getColor().getR() * prodInternoReflejado * factorEspecular,
-                                                  luz->getColor().getG() * prodInternoReflejado * factorEspecular,
-                                                  luz->getColor().getB() * prodInternoReflejado* factorEspecular);
+                colorEspecularEstaLuz = Color(luz->getColor().getR() * prodInternoReflejado * factorEspecularR,
+                                                  luz->getColor().getG() * prodInternoReflejado * factorEspecularG,
+                                                  luz->getColor().getB() * prodInternoReflejado* factorEspecularB);
             }
 
             colorDifuso = colorDifuso + colorDifusoEstaLuz;

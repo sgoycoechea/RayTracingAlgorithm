@@ -4,7 +4,7 @@
   <resolucion x="500" y="500"></resolucion>
   
   <camara>
-    <posicion x="0" y="0" z="0"></posicion>
+    <posicion x="0" y="0" z="-0.5"></posicion>
     <direccion x="0" y="0" z="1"></direccion>
     <up x="0" y="1" z="0"></up>
   </camara>
@@ -12,12 +12,12 @@
   <luces>
     <luz>
       <posicion x="0" y="1.5" z="5"></posicion>
-      <color r="50" g="50" b="50"></color>
+      <color r="30" g="30" b="30"></color>
     </luz>
     
     <luz>
       <posicion x="0" y="1.5" z="8"></posicion>
-      <color r="50" g="50" b="50"></color>
+      <color r="30" g="30" b="30"></color>
     </luz>
   </luces>
   
@@ -25,7 +25,7 @@
   
     <esferas>
         <esfera centroX="1.4" centroY="-0.9" centroZ="8" radio="0.6" colorR="0" colorG="0" colorB="0" coefTransmision="0" coefEspecular="1" coefDifuso="0" coefAmbiente="0.1" indiceRefraccion="0"> </esfera>
-        <esfera centroX="-1" centroY="-0.5" centroZ="8" radio="1" colorR="150" colorG="0" colorB="0" coefTransmision="0.9" coefEspecular="0" coefDifuso="0" coefAmbiente="0.1" indiceRefraccion="1.4"> </esfera>
+        <esfera centroX="-1" centroY="-0.5" centroZ="8" radio="1" colorR="100" colorG="50" colorB="50" coefTransmision="0.7" coefEspecular="0" coefDifuso="0" coefAmbiente="0.3" indiceRefraccion="1.4"> </esfera>
         
     </esferas>
     
@@ -71,11 +71,11 @@
     
     <planos>
     
-        <plano puntoX="0" puntoY="0" puntoZ="12" normalX="0" normalY="0" normalZ="-1" colorR="30" colorG="30" colorB="30" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="1"> </plano>
-        <plano puntoX="0" puntoY="4" puntoZ="0" normalX="0" normalY="-1" normalZ="0" colorR="30" colorG="30" colorB="30" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="1"> </plano>
-        <plano puntoX="-3" puntoY="0" puntoZ="0" normalX="1" normalY="0" normalZ="0" colorR="30" colorG="0" colorB="0" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="1"> </plano>
-        <plano puntoX="3" puntoY="0" puntoZ="0" normalX="-1" normalY="0" normalZ="0" colorR="0" colorG="30" colorB="0" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="1"> </plano>
-        <plano puntoX="0" puntoY="-3" puntoZ="0" normalX="0" normalY="1" normalZ="0" colorR="30" colorG="30" colorB="30" coefTransmision="0" coefEspecular="0" coefDifuso="1" coefAmbiente="0.1" indiceRefraccion="1"> </plano>
+        <plano puntoX="0" puntoY="0" puntoZ="11" normalX="0" normalY="0" normalZ="-1" colorR="200" colorG="200" colorB="200" coefTransmision="0" coefEspecular="0" coefDifuso="0.3" coefAmbiente="0.1" indiceRefraccion="1"> </plano>
+        <plano puntoX="0" puntoY="4" puntoZ="0" normalX="0" normalY="-1" normalZ="0" colorR="130" colorG="130" colorB="130" coefTransmision="0" coefEspecular="0" coefDifuso="0.3" coefAmbiente="0.1" indiceRefraccion="1"> </plano>
+        <plano puntoX="-3" puntoY="0" puntoZ="0" normalX="1" normalY="0" normalZ="0" colorR="130" colorG="0" colorB="0" coefTransmision="0" coefEspecular="0" coefDifuso="0.3" coefAmbiente="0.1" indiceRefraccion="1"> </plano>
+        <plano puntoX="3" puntoY="0" puntoZ="0" normalX="-1" normalY="0" normalZ="0" colorR="0" colorG="130" colorB="0" coefTransmision="0" coefEspecular="0" coefDifuso="0.3" coefAmbiente="0.1" indiceRefraccion="1"> </plano>
+        <plano puntoX="0" puntoY="-3" puntoZ="0" normalX="0" normalY="1" normalZ="0" colorR="230" colorG="230" colorB="230" coefTransmision="0" coefEspecular="0" coefDifuso="0.3" coefAmbiente="0.1" indiceRefraccion="1"> </plano>
         
     </planos>
     
