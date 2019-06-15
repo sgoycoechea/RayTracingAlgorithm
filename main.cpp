@@ -76,7 +76,7 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
     Color* colorEspecular = new Color(0,0,0);
     Color* colorRefraccion = new Color(0,0,0);
     Color* colorReflexion = new Color(0,0,0);
-    const float factorN = 25;
+    const float factorN = 1000;
 
     for (Luz* luz : luces) {
         Point* direccionLuz = (*interseccion) - luz->getPosicion();
@@ -127,7 +127,7 @@ Color* sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point* normal,
         }
     }
 
-    if (profundidad < 3){
+    if (profundidad < 2){
 
         if (masCercano->getCoefEspecular() > 0){
 
@@ -478,9 +478,9 @@ int main() {
     tinyxml2::XMLElement* posElement = child->FirstChildElement("posicion");
     tinyxml2::XMLElement* dirElement = child->FirstChildElement("direccion");
     tinyxml2::XMLElement* upElement = child->FirstChildElement("up");
-    Point* camaraPos = new Point(stoi(posElement->ToElement()->Attribute("x")), stoi(posElement->ToElement()->Attribute("y")), stoi(posElement->ToElement()->Attribute("z")));
-    Point* camaraDir = new Point(stoi(dirElement->ToElement()->Attribute("x")), stoi(dirElement->ToElement()->Attribute("y")), stoi(dirElement->ToElement()->Attribute("z")));
-    Point* camaraUp = new Point(stoi(upElement->ToElement()->Attribute("x")), stoi(upElement->ToElement()->Attribute("y")), stoi(upElement->ToElement()->Attribute("z")));
+    Point* camaraPos = new Point(stof(posElement->ToElement()->Attribute("x")), stof(posElement->ToElement()->Attribute("y")), stof(posElement->ToElement()->Attribute("z")));
+    Point* camaraDir = new Point(stof(dirElement->ToElement()->Attribute("x")), stof(dirElement->ToElement()->Attribute("y")), stof(dirElement->ToElement()->Attribute("z")));
+    Point* camaraUp = new Point(stof(upElement->ToElement()->Attribute("x")), stof(upElement->ToElement()->Attribute("y")), stof(upElement->ToElement()->Attribute("z")));
 
     FIBITMAP *bitmap = FreeImage_Allocate(Width, Height, 32);
     string date = getDate();
