@@ -8,7 +8,6 @@ Plano::Plano(Point punto, Point normal, Color color, float coefTransmision, floa
     this->punto = punto;
     normal.normalizar();
     this->normal = normal;
-
 }
 
 Point Plano::getNormal(Point punto){

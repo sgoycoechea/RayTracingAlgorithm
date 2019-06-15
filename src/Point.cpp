@@ -14,7 +14,6 @@ Point::Point(){
     this->z = 0;
 }
 
-
 float Point::getX() {
   return x;
 }

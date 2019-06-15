@@ -7,8 +7,6 @@
 #include <math.h>
 #include <cfloat>
 
-#define M_PI 3.1415926
-
 using namespace std;
 
 class Triangulo: public Objeto{
