@@ -4,29 +4,29 @@
 
 using namespace std;
 
-Esfera::Esfera(Point* centro, double rad, Color* color, float coefTransmision, float coefEspecular, float coefDifuso, float indiceRefraccion):Objeto(color, coefTransmision, coefEspecular, coefDifuso, indiceRefraccion){
+Esfera::Esfera(Point centro, double rad, Color color, float coefTransmision, float coefEspecular, float coefDifuso, float indiceRefraccion):Objeto(color, coefTransmision, coefEspecular, coefDifuso, indiceRefraccion){
     this->centro = centro;
     this->rad = rad;
 
 
 }
 
-Point* Esfera::getNormal(Point* punto){
-    return (*centro) - (punto);
+Point Esfera::getNormal(Point punto){
+    return centro - (punto);
 }
 
 double Esfera::intersectar(Rayo* rayo) {
-    double dirX = rayo->getDireccion()->getX();
-    double dirY = rayo->getDireccion()->getY();
-    double dirZ = rayo->getDireccion()->getZ();
-    double oriX = rayo->getOrigen()->getX();
-    double oriY = rayo->getOrigen()->getY();
-    double oriZ = rayo->getOrigen()->getZ();
+    double dirX = rayo->getDireccion().getX();
+    double dirY = rayo->getDireccion().getY();
+    double dirZ = rayo->getDireccion().getZ();
+    double oriX = rayo->getOrigen().getX();
+    double oriY = rayo->getOrigen().getY();
+    double oriZ = rayo->getOrigen().getZ();
 
     //Bhaskaras
     double a = pow(dirX,2) + pow(dirY,2) + pow(dirZ,2);
-    double b = 2 * ( dirX * (oriX - centro->getX()) + dirY * (oriY - centro->getY()) + dirZ * (oriZ - centro->getZ()) );
-    double c = pow(oriX - centro->getX(), 2) + pow(oriY - centro->getY(), 2) + pow(oriZ - centro->getZ(), 2) - pow(rad, 2);
+    double b = 2 * ( dirX * (oriX - centro.getX()) + dirY * (oriY - centro.getY()) + dirZ * (oriZ - centro.getZ()) );
+    double c = pow(oriX - centro.getX(), 2) + pow(oriY - centro.getY(), 2) + pow(oriZ - centro.getZ(), 2) - pow(rad, 2);
     double delta = b*b - 4 * a * c;
 
 

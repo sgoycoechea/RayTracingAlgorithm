@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Objeto::Objeto(Color* color, float coefTransmision, float coefEspecular, float coefDifuso, float indiceRefraccion){
+Objeto::Objeto(Color color, float coefTransmision, float coefEspecular, float coefDifuso, float indiceRefraccion){
     this->color = color;
     this->coefDifuso = coefDifuso;
     this->coefEspecular = coefEspecular;
@@ -13,8 +13,8 @@ Objeto::Objeto(Color* color, float coefTransmision, float coefEspecular, float c
 
 }
 
-Color* Objeto::getColor(){
-    return new Color(color->getR(), color->getG(), color->getB());
+Color Objeto::getColor(){
+    return Color(color.getR(), color.getG(), color.getB());
 }
 
 float Objeto::getCoefDifuso(){

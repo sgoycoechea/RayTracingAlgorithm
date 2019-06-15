@@ -13,16 +13,16 @@ using namespace std;
 
 class Cilindro: public Objeto{
     private:
-        Point* centroBase;
-        Point* direccion;
+        Point centroBase;
+        Point direccion;
         double rad;
         double altura;
         double intersectarCuerpo(Rayo*);
-        double intersectarTapa(Rayo*, Point*);
+        double intersectarTapa(Rayo*, Point);
     public:
-        Cilindro(Point*, Point*, double, double, Color*, float, float, float, float);
+        Cilindro(Point, Point, double, double, Color, float, float, float, float);
         double intersectar(Rayo*);
-        Point* getNormal(Point* punto);
+        Point getNormal(Point punto);
 };
 
 #endif

@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <file>
 
-  <resolucion x="200" y="200"></resolucion>
+  <resolucion x="500" y="500"></resolucion>
   
   <camara>
     <posicion x="0" y="0" z="0"></posicion>

@@ -13,12 +13,12 @@ using namespace std;
 
 class Esfera: public Objeto{
     private:
-        Point* centro;
+        Point centro;
         double rad;
     public:
-        Esfera(Point*, double, Color*, float, float, float, float);
+        Esfera(Point, double, Color, float, float, float, float);
         double intersectar(Rayo*);
-        Point* getNormal(Point* punto);
+        Point getNormal(Point punto);
 };
 
 #endif

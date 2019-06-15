@@ -7,14 +7,14 @@ using namespace std;
 
 class Luz{
     private:
-        Point* posicion;
-        Color* color;
+        Point posicion;
+        Color color;
         float intensidad;
 
     public:
-        Luz(Point*, Color*);
-        Color* getColor();
-        Point* getPosicion();
+        Luz(Point, Color);
+        Color getColor();
+        Point getPosicion();
 };
 
 #endif

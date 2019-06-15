@@ -12,16 +12,17 @@ class Point{
         float z;
     public:
         Point(float, float, float);
+        Point();
         float getX();
         float getY();
         float getZ();
-        float dotProduct(Point*);
-        Point* productoVectorial(Point*);
+        float dotProduct(Point);
+        Point productoVectorial(Point);
         double magnitude();
-        Point* operator-(Point*);
-        Point* operator+(Point*);
-        Point* operator/(double);
-        Point* operator*(double);
+        Point operator-(Point);
+        Point operator+(Point);
+        Point operator/(double);
+        Point operator*(double);
         void normalizar();
 };
 

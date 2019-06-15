@@ -13,12 +13,12 @@ using namespace std;
 
 class Plano: public Objeto{
     private:
-        Point* punto;
-        Point* normal;
+        Point punto;
+        Point normal;
     public:
-        Plano(Point*, Point*, Color*,float, float, float, float);
+        Plano(Point, Point, Color,float, float, float, float);
         double intersectar(Rayo*);
-        Point* getNormal(Point* punto);
+        Point getNormal(Point punto);
 };
 
 #endif

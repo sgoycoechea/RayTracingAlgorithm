@@ -2181,18 +2181,18 @@
 
 1557268651 c:\users\pepes\desktop\compgraf\oblig 2\raytracing\include\color.h
 
-1559826229 source:c:\users\santiago\desktop\compgraf\src\color.cpp
+1560618895 source:c:\users\santiago\desktop\compgraf\src\color.cpp
 	"../include/Color.h"
 
-1559826229 c:\users\santiago\desktop\compgraf\include\color.h
+1560618873 c:\users\santiago\desktop\compgraf\include\color.h
 	<math.h>
 
-1560381954 source:c:\users\santiago\desktop\compgraf\src\esfera.cpp
+1560619246 source:c:\users\santiago\desktop\compgraf\src\esfera.cpp
 	"../include/Esfera.h"
 	<iostream>
 	<fstream>
 
-1560381954 c:\users\santiago\desktop\compgraf\include\esfera.h
+1560618974 c:\users\santiago\desktop\compgraf\include\esfera.h
 	"Point.h"
 	"Color.h"
 	"Rayo.h"
@@ -2200,26 +2200,26 @@
 	<math.h>
 	<cfloat>
 
-1560045997 c:\users\santiago\desktop\compgraf\include\point.h
+1560619041 c:\users\santiago\desktop\compgraf\include\point.h
 	<math.h>
 
-1559687564 c:\users\santiago\desktop\compgraf\include\rayo.h
+1560618974 c:\users\santiago\desktop\compgraf\include\rayo.h
 	"Point.h"
 
-1559826229 source:c:\users\santiago\desktop\compgraf\src\luz.cpp
+1560618980 source:c:\users\santiago\desktop\compgraf\src\luz.cpp
 	"../include/Luz.h"
 
-1559826229 c:\users\santiago\desktop\compgraf\include\luz.h
+1560618982 c:\users\santiago\desktop\compgraf\include\luz.h
 	"Point.h"
 	"Color.h"
 
-1560051578 source:c:\users\santiago\desktop\compgraf\src\point.cpp
+1560619053 source:c:\users\santiago\desktop\compgraf\src\point.cpp
 	"../include/Point.h"
 
-1559687564 source:c:\users\santiago\desktop\compgraf\src\rayo.cpp
+1560618967 source:c:\users\santiago\desktop\compgraf\src\rayo.cpp
 	"../include/Rayo.h"
 
-1560564453 source:c:\users\santiago\desktop\compgraf\main.cpp
+1560619391 source:c:\users\santiago\desktop\compgraf\main.cpp
 	"FreeImage.h"
 	"include/Esfera.h"
 	"include/Cilindro.h"
@@ -2244,22 +2244,22 @@
 	<wchar.h>
 	<inttypes.h>
 
-1560381954 c:\users\santiago\desktop\compgraf\include\objeto.h
+1560618976 c:\users\santiago\desktop\compgraf\include\objeto.h
 	"Point.h"
 	"Color.h"
 	"Rayo.h"
 
-1560381954 source:c:\users\santiago\desktop\compgraf\src\objeto.cpp
+1560618732 source:c:\users\santiago\desktop\compgraf\src\objeto.cpp
 	"../include/Esfera.h"
 	<iostream>
 	<fstream>
 
-1560381954 source:c:\users\santiago\desktop\compgraf\src\cilindro.cpp
+1560619222 source:c:\users\santiago\desktop\compgraf\src\cilindro.cpp
 	"../include/Cilindro.h"
 	<iostream>
 	<fstream>
 
-1560381954 c:\users\santiago\desktop\compgraf\include\cilindro.h
+1560618966 c:\users\santiago\desktop\compgraf\include\cilindro.h
 	"Point.h"
 	"Color.h"
 	"Rayo.h"
@@ -2267,12 +2267,12 @@
 	<math.h>
 	<cfloat>
 
-1560381954 source:c:\users\santiago\desktop\compgraf\src\plano.cpp
+1560619254 source:c:\users\santiago\desktop\compgraf\src\plano.cpp
 	"../include/Plano.h"
 	<iostream>
 	<fstream>
 
-1560381954 c:\users\santiago\desktop\compgraf\include\plano.h
+1560618975 c:\users\santiago\desktop\compgraf\include\plano.h
 	"Point.h"
 	"Color.h"
 	"Rayo.h"
@@ -2280,12 +2280,12 @@
 	<math.h>
 	<cfloat>
 
-1560564386 source:c:\users\santiago\desktop\compgraf\src\triangulo.cpp
+1560619241 source:c:\users\santiago\desktop\compgraf\src\triangulo.cpp
 	"../include/Triangulo.h"
 	<iostream>
 	<fstream>
 
-1560381954 c:\users\santiago\desktop\compgraf\include\triangulo.h
+1560618965 c:\users\santiago\desktop\compgraf\include\triangulo.h
 	"Point.h"
 	"Color.h"
 	"Rayo.h"

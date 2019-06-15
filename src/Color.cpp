@@ -8,6 +8,12 @@ Color::Color(float r, float g, float b){
     this->b = b;
 }
 
+Color::Color(){
+    this->r = 0;
+    this->g = 0;
+    this->b = 0;
+}
+
 float Color::getR() {
   return r;
 }
@@ -35,7 +41,7 @@ void Color::truncar() {
   }
 }
 
-Color* Color::escalar(float factor) {
+Color Color::escalar(float factor) {
   float newR = r * factor;
   if (newR > 255)
     newR = 255;
@@ -46,13 +52,13 @@ Color* Color::escalar(float factor) {
   if (newB > 255)
     newB = 255;
 
-    return new Color(newR, newG, newB);
+    return Color(newR, newG, newB);
 }
 
-Color* Color::operator+(Color* color2){
-    return new Color(r + color2->getR(), g + color2->getG(), b + color2->getB());
+Color Color::operator+(Color color2){
+    return Color(r + color2.getR(), g + color2.getG(), b + color2.getB());
 }
 
-Color* Color::mezclar(Color* color2) {
-  return new Color(r * color2->getR(), g * color2->getG(), b * color2->getB());
+Color Color::mezclar(Color color2) {
+  return Color(r * color2.getR(), g * color2.getG(), b * color2.getB());
 }

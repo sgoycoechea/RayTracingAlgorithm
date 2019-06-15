@@ -8,6 +8,13 @@ Point::Point(float x, float y, float z){
     this->z = z;
 }
 
+Point::Point(){
+    this->x = 0;
+    this->y = 0;
+    this->z = 0;
+}
+
+
 float Point::getX() {
   return x;
 }
@@ -31,34 +38,34 @@ void Point::normalizar(){
     z = z / mag;
 }
 
-Point* Point::productoVectorial(Point* vector2){
-    double resX = y * vector2->getZ() - z * vector2->getY();
-    double resY = - (x * vector2->getZ() - z * vector2->getX());
-    double resZ = x * vector2->getY() - y * vector2->getX();
+Point Point::productoVectorial(Point vector2){
+    double resX = y * vector2.getZ() - z * vector2.getY();
+    double resY = - (x * vector2.getZ() - z * vector2.getX());
+    double resZ = x * vector2.getY() - y * vector2.getX();
 
-    return new Point(resX,resY,resZ);
+    return Point(resX,resY,resZ);
 }
 
-float Point::dotProduct(Point* vector2){
-    return (x * vector2->getX()) + (y * vector2->getY()) + (z * vector2->getZ());
+float Point::dotProduct(Point vector2){
+    return (x * vector2.getX()) + (y * vector2.getY()) + (z * vector2.getZ());
 }
 
-Point* Point::operator-(Point* vector2){
-    Point* res = new Point(x - vector2->getX(), y - vector2->getY(), z - vector2->getZ());
+Point Point::operator-(Point vector2){
+    Point res = Point(x - vector2.getX(), y - vector2.getY(), z - vector2.getZ());
     return res;
 }
 
-Point* Point::operator+(Point* vector2){
-    Point* res = new Point(x + vector2->getX(), y + vector2->getY(), z + vector2->getZ());
+Point Point::operator+(Point vector2){
+    Point res = Point(x + vector2.getX(), y + vector2.getY(), z + vector2.getZ());
     return res;
 }
 
-Point* Point::operator/(double divisor){
-    Point* res = new Point(x / divisor, y / divisor, z / divisor);
+Point Point::operator/(double divisor){
+    Point res = Point(x / divisor, y / divisor, z / divisor);
     return res;
 }
 
-Point* Point::operator*(double divisor){
-    Point* res = new Point(x * divisor, y * divisor, z * divisor);
+Point Point::operator*(double divisor){
+    Point res = Point(x * divisor, y * divisor, z * divisor);
     return res;
 }

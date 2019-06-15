@@ -11,12 +11,13 @@ class Color{
         float b;
     public:
         Color(float, float, float);
+        Color();
         float getR();
         float getG();
         float getB();
-        Color* escalar(float);
-        Color* mezclar(Color*);
-        Color* operator+(Color*);
+        Color escalar(float);
+        Color mezclar(Color);
+        Color operator+(Color);
         void truncar();
 };
 
