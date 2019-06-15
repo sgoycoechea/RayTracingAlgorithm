@@ -77,7 +77,7 @@ Color sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point normal, l
     Color colorEspecular = Color(0,0,0);
     Color colorRefraccion = Color(0,0,0);
     Color colorReflexion = Color(0,0,0);
-    const float factorN = 1000;
+    const float factorN = 25;
 
     for (Luz* luz : luces) {
         Point direccionLuz = interseccion - luz->getPosicion();
