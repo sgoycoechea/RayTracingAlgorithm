@@ -133,6 +133,7 @@ Color sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point normal, l
         if (masCercano->getCoefEspecular() > 0){
 
             Point direcReflejada = reflejar(rayo->getDireccion() * -1, normal);
+            direcReflejada.normalizar();
             Point interseccion = (rayo->getOrigen()) + (rayo->getDireccion() * (distancia - 0.0001));
 
             Rayo* rayo_r = new Rayo(interseccion, direcReflejada);
@@ -216,7 +217,7 @@ Color sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point normal, l
                 //inmensia.com
                 float n = n1 / n2;
                 Point direcRefractada = I /n + N * ( (ang1/n) - sqrt(1 + (pow(ang1,2) - 1) / pow(n, 2) ));
-
+                direcRefractada.normalizar();
              //ECUACIONES VIEJAS
 /*
                 float ang1 = acos(normal.dotProduct(rayo->getDireccion()) );
@@ -238,7 +239,7 @@ Color sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point normal, l
 
             }else{
                 Point direcReflejado = reflejar(rayo->getDireccion() * -1, normal);
-
+                direcReflejado.normalizar();
                 Rayo* rayo_Reflejado = new Rayo(interseccion, direcReflejado); //es interseccion lo que hay q poner?
                 Color color_t = (traza_RR (rayo_Reflejado, objetos, luces, objetosAtravezados, profundidad + 1)).back();
                 colorRefraccion = color_t.escalar(masCercano->getCoefTransmision()) ;
