@@ -248,7 +248,7 @@ vector<Color> traza_RR(Rayo* rayo, list<Objeto*> objetos, list<Luz*> luces, vect
 
     for (Objeto* objeto : objetos) {
         float distObj = (*objeto).intersectar(rayo);
-        if (distObj < distancia - 0.001){
+        if (distObj < distancia){
             distancia = distObj;
             masCercano = objeto;
             color = (*objeto).getColor();
@@ -262,7 +262,7 @@ vector<Color> traza_RR(Rayo* rayo, list<Objeto*> objetos, list<Luz*> luces, vect
     colorR = colorR.escalar(coefR);
 
     if (masCercano != nullptr){
-        Point interseccion = rayo->getOrigen() + rayo->getDireccion() * (distancia + 0.0001);
+        Point interseccion = rayo->getOrigen() + rayo->getDireccion() * distancia;
         Point normal = masCercano->getNormal(interseccion);
         normal.normalizar();
         color = sombra_RR(masCercano, rayo, distancia, normal, objetos, luces, objetosAtravezados, profundidad);
