@@ -2219,7 +2219,7 @@
 1559687564 source:c:\users\santiago\desktop\compgraf\src\rayo.cpp
 	"../include/Rayo.h"
 
-1560478752 source:c:\users\santiago\desktop\compgraf\main.cpp
+1560564453 source:c:\users\santiago\desktop\compgraf\main.cpp
 	"FreeImage.h"
 	"include/Esfera.h"
 	"include/Cilindro.h"
@@ -2280,7 +2280,7 @@
 	<math.h>
 	<cfloat>
 
-1560381954 source:c:\users\santiago\desktop\compgraf\src\triangulo.cpp
+1560564386 source:c:\users\santiago\desktop\compgraf\src\triangulo.cpp
 	"../include/Triangulo.h"
 	<iostream>
 	<fstream>
