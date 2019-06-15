@@ -127,7 +127,7 @@ Color sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point normal, l
         }
     }
 
-    if (profundidad < 5){
+    if (profundidad < 2){
 
         if (masCercano->getCoefEspecular() > 0){
 
@@ -534,6 +534,15 @@ int main() {
 // para imagenes aux
 
         colores.pop_back();
+        Color colorR = colores.back();
+
+        RGBQUAD colorQuadR;
+        colorQuadR.rgbRed = (int)colorR.getR();
+        colorQuadR.rgbGreen = (int)colorR.getG();
+        colorQuadR.rgbBlue = (int)colorR.getB();
+        FreeImage_SetPixelColor(bitmapR, i, j, &colorQuadR);
+
+        colores.pop_back();
         Color colorT = colores.back();
 
         RGBQUAD colorQuadT;
@@ -542,14 +551,7 @@ int main() {
         colorQuadT.rgbBlue = (int)colorT.getB();
         FreeImage_SetPixelColor(bitmapT, i, j, &colorQuadT);
 
-        colores.pop_back();
-        Color colorR = colores.back();
 
-        RGBQUAD colorQuadR;
-        colorQuadR.rgbRed = (int)colorR.getR();
-        colorQuadR.rgbGreen = (int)colorR.getG();
-        colorQuadR.rgbBlue = (int)colorR.getB();
-        FreeImage_SetPixelColor(bitmapR, i, j, &colorQuadR);
 
 
 
