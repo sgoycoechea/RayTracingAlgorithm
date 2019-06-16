@@ -58,7 +58,3 @@ Color Color::escalar(float factor) {
 Color Color::operator+(Color color2){
     return Color(r + color2.getR(), g + color2.getG(), b + color2.getB());
 }
-
-Color Color::mezclar(Color color2) {
-  return Color(r * color2.getR(), g * color2.getG(), b * color2.getB());
-}
