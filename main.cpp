@@ -81,12 +81,22 @@ Color sombra_RR(Objeto* masCercano, Rayo* rayo, float distancia, Point normal, l
                 if (objeto != masCercano){
                     float dist = objeto->intersectar(rayoLuzObjeto);
                     if (dist + 0.001 < distanciaLuz){
-                        factorDifusoR *= objeto->getCoefTransmision() * (objeto->getColor().getR() / 255);
-                        factorDifusoG *= objeto->getCoefTransmision() * (objeto->getColor().getG() / 255);
-                        factorDifusoB *= objeto->getCoefTransmision() * (objeto->getColor().getB() / 255);
-                        factorEspecularR *= objeto->getCoefEspecular() * (objeto->getColor().getR() / 255);
-                        factorEspecularG *= objeto->getCoefEspecular() * (objeto->getColor().getG() / 255);
-                        factorEspecularB *= objeto->getCoefEspecular() * (objeto->getColor().getB() / 255);
+
+                        int maxColor = objeto->getColor().getR() > objeto->getColor().getB() ? objeto->getColor().getR() : objeto->getColor().getG();
+                        maxColor = maxColor > objeto->getColor().getB() ? maxColor : objeto->getColor().getB();
+                        factorDifusoR *= objeto->getCoefTransmision() * (objeto->getColor().getR() / maxColor);
+                        factorDifusoG *= objeto->getCoefTransmision() * (objeto->getColor().getG() / maxColor);
+                        factorDifusoB *= objeto->getCoefTransmision() * (objeto->getColor().getB() / maxColor);
+                        factorEspecularR *= objeto->getCoefTransmision() * (objeto->getColor().getR() / maxColor);
+                        factorEspecularG *= objeto->getCoefTransmision() * (objeto->getColor().getG() / maxColor);
+                        factorEspecularB *= objeto->getCoefTransmision() * (objeto->getColor().getB() / maxColor);
+
+                        if (objeto->getCoefTransmision() > 0){
+                            factorDifusoR *= 0.5;
+                            factorDifusoG *= 0.5;
+                            factorDifusoB *= 0.5;
+                        }
+
                     }
                 }
             }
