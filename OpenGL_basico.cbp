@@ -44,7 +44,6 @@
 			<Add directory="FreeImage" />
 		</Linker>
 		<Unit filename="FreeImage.dll" />
-		<Unit filename="SDL.dll" />
 		<Unit filename="include/Cilindro.h" />
 		<Unit filename="include/Color.h" />
 		<Unit filename="include/Esfera.h" />

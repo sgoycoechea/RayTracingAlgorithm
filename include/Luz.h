@@ -9,7 +9,6 @@ class Luz{
     private:
         Point posicion;
         Color color;
-        float intensidad;
 
     public:
         Luz(Point, Color);
