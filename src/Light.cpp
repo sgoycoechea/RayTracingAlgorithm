@@ -2,15 +2,15 @@
 
 using namespace std;
 
-Luz::Luz(Point posicion, Color color){
+Light::Light(Point position, Color color){
     this->color = color;
-    this->posicion = posicion;
+    this->position = position;
 }
 
-Point Luz::getPosicion(){
-    return posicion;
+Point Light::getPosicion(){
+    return position;
 }
 
-Color Luz::getColor(){
+Color Light::getColor(){
     return color;
 }

@@ -1,18 +1,18 @@
-#ifndef RAYO_H
-#define RAYO_H
+#ifndef RAY_H
+#define RAY_H
 #include "Point.h"
 
 using namespace std;
 
-class Rayo{
+class Ray{
     private:
-        Point direccion;
+        Point direction;
         Point origen;
 
     public:
-        Rayo(Point, Point);
-        Point getDireccion();
-        Point getOrigen();
+        Ray(Point, Point);
+        Point getDirection();
+        Point getOrigin();
 };
 
 #endif

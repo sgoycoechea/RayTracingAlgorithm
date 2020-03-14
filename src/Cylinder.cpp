@@ -4,113 +4,113 @@
 
 using namespace std;
 
-Cilindro::Cilindro(Point centroBase, Point direccion, double rad, double altura, Color color, float coefTransmision, float coefEspecular, float coefDifuso, float coefAmbiente, float indiceRefraccion):Objeto(color, coefTransmision, coefEspecular, coefDifuso, coefAmbiente, indiceRefraccion){
-    this->centroBase = centroBase;
-    direccion.normalizar();
-    this->direccion = direccion;
-    this->altura = altura;
-    this->rad = rad;
+Cylinder::Cylinder(Point baseCenter, Point direction, double radius, double height, Color color, float transmissionCoefficient, float specularCoefficient, float diffusionCoefficient, float ambientCoefficient, float refractiveIndex):Object(color, transmissionCoefficient, specularCoefficient, diffusionCoefficient, ambientCoefficient, refractiveIndex){
+    this->baseCenter = baseCenter;
+    direction.normalize();
+    this->direction = direction;
+    this->height = height;
+    this->radius = radius;
 }
 
-Point Cilindro::getNormal(Point punto){
+Point Cylinder::getNormal(Point point){
 
-    // Ver si está en las tapas
-    Point centroTapa2 = centroBase + (direccion * altura);
-    Point vec1 = punto - centroBase;
-    Point vec2 = punto - centroTapa2;
+    // Check if point is in one of the bases
+    Point baseCenter2 = baseCenter + (direction * height);
+    Point vec1 = point - baseCenter;
+    Point vec2 = point - baseCenter2;
 
-    if (vec1.dotProduct(direccion) < 0.001 && vec1.dotProduct(direccion) > -0.001){
-        return direccion;
+    if (vec1.dotProduct(direction) < 0.001 && vec1.dotProduct(direction) > -0.001){
+        return direction;
     }
 
-    if (vec2.dotProduct(direccion) < 0.001 && vec2.dotProduct(direccion) > -0.001){
-        return direccion * -1;
+    if (vec2.dotProduct(direction) < 0.001 && vec2.dotProduct(direction) > -0.001){
+        return direction * -1;
     }
 
 
-    Point centroPunto =  centroBase - punto;
-    // Restar altura del punto con respecto al cilindro
-    Point ret = centroPunto - direccion * centroPunto.dotProduct(direccion);
+    Point centerPoint =  baseCenter - point;
+    // Subtract height of the point within the cylinder
+    Point ret = centerPoint - direction * centerPoint.dotProduct(direction);
 
-    ret.normalizar();
+    ret.normalize();
     return ret;
 }
 
-double Cilindro::intersectarCuerpo(Rayo* rayo){
-    Point oriMenosCentro = rayo->getOrigen() - centroBase;
-    double direccionesDot = rayo->getDireccion().dotProduct(direccion);
+double Cylinder::intersectBody(Ray* ray){
+    Point originCenterDifference = ray->getOrigin() - baseCenter;
+    double directionesDot = ray->getDirection().dotProduct(direction);
 
     //Bhaskaras
-    double a = 1 - direccionesDot * direccionesDot;
-    double b = 2 * (oriMenosCentro.dotProduct(rayo->getDireccion()) - direccionesDot * oriMenosCentro.dotProduct(direccion));
-    double c = oriMenosCentro.dotProduct(oriMenosCentro) - oriMenosCentro.dotProduct(direccion) * oriMenosCentro.dotProduct(direccion) - rad * rad;
+    double a = 1 - directionesDot * directionesDot;
+    double b = 2 * (originCenterDifference.dotProduct(ray->getDirection()) - directionesDot * originCenterDifference.dotProduct(direction));
+    double c = originCenterDifference.dotProduct(originCenterDifference) - originCenterDifference.dotProduct(direction) * originCenterDifference.dotProduct(direction) - radius * radius;
     double delta = b*b - 4 * a * c;
 
     if (delta < 0){
-        return FLT_MAX; // No hay interseccion
+        return FLT_MAX; // No intersection
     }
 
-    double raiz1 = (-b - sqrt(delta)) / (2 * a);
-    double raiz2 = (-b + sqrt(delta)) / (2 * a);
+    double root1 = (-b - sqrt(delta)) / (2 * a);
+    double root2 = (-b + sqrt(delta)) / (2 * a);
 
-    if (raiz2 < 0.01) {
-        return FLT_MAX; // El cilindro esta todo atras de la camara
+    if (root2 < 0.01) {
+        return FLT_MAX; // The cylinder is completely behind the camera
     }
 
-    // Hay interseccion con el cilindro infinito, falta chequear la altura del cilindro
+    // There is an intersection with the infinite cylinder, we still need to check if it's within its height
 
-    double proyeccionCentro = centroBase.dotProduct(direccion);
+    double centerProjection = baseCenter.dotProduct(direction);
 
-    Point interseccion1 = rayo->getOrigen() + (rayo->getDireccion() * raiz1);
-    double proyeccionInter1 = interseccion1.dotProduct(direccion);
-    if (raiz1 >= 0.01 && proyeccionInter1 > proyeccionCentro && proyeccionInter1 < proyeccionCentro + altura) {
-        return raiz1;
+    Point intersection1 = ray->getOrigin() + (ray->getDirection() * root1);
+    double intersectionProjection1 = intersection1.dotProduct(direction);
+    if (root1 >= 0.01 && intersectionProjection1 > centerProjection && intersectionProjection1 < centerProjection + height) {
+        return root1;
     }
 
-    Point interseccion2 = rayo->getOrigen() + (rayo->getDireccion() * raiz2);
-    double proyeccionInter2 = interseccion2.dotProduct(direccion);
-    if (raiz2 >= 0.01 && proyeccionInter2 > proyeccionCentro && proyeccionInter2 < proyeccionCentro + altura) {
-        return raiz2;
+    Point intersection2 = ray->getOrigin() + (ray->getDirection() * root2);
+    double intersectionProjection2 = intersection2.dotProduct(direction);
+    if (root2 >= 0.01 && intersectionProjection2 > centerProjection && intersectionProjection2 < centerProjection + height) {
+        return root2;
     }
 
-    return FLT_MAX; // No hay interseccion (habia interseccion con el cilindro infinito, pero no con el acotado por la altura)
+    return FLT_MAX; // No intersection
 
 }
 
-double Cilindro::intersectarTapa(Rayo* rayo, Point centroTapa){
-    double prodInterno = direccion.dotProduct(rayo->getDireccion());
+double Cylinder::intersectBase(Ray* ray, Point baseCenter){
+    double dotProduct = direction.dotProduct(ray->getDirection());
 
-    if (prodInterno == 0) {
-        return FLT_MAX; // No hay interseccion, el plano del circulo y el rayo son paralelos
+    if (dotProduct == 0) {
+        return FLT_MAX; // No intersection, the base plain and the ray are parallel
     }
 
-    double ret = direccion.dotProduct(centroTapa - rayo->getOrigen()) / prodInterno;
+    double ret = direction.dotProduct(baseCenter - ray->getOrigin()) / dotProduct;
 
-    if (ret < 0.01) { // Plano esta atras del rayo
+    if (ret < 0.01) { // The plain is behind the ray
         return FLT_MAX;
     }
 
-    Point interseccion = rayo->getOrigen() + (rayo->getDireccion() * ret);
+    Point intersection = ray->getOrigin() + (ray->getDirection() * ret);
 
-    Point centroInterseccion = interseccion - centroTapa;
-    double distAlCentro = sqrt(centroInterseccion.dotProduct(centroInterseccion));
+    Point centerIntersection = intersection - baseCenter;
+    double centerDistance = sqrt(centerIntersection.dotProduct(centerIntersection));
 
 
-    if (distAlCentro < rad)
+    if (centerDistance < radius)
         return ret;
 
-    // Intersecta con el plano pero no con el circulo
+    // It intersects the plain of the base but not the base itself
     return FLT_MAX;
 }
 
-double Cilindro::intersectar(Rayo* rayo) {
+double Cylinder::intersect(Ray* ray) {
 
-    Point centroTapa2 = centroBase + (direccion * altura);
+    Point baseCenter2 = baseCenter + (direction * height);
 
-    double cuerpo = intersectarCuerpo(rayo);
-    double tapa1 = intersectarTapa(rayo, centroBase);
-    double tapa2 = intersectarTapa(rayo, centroTapa2) ;
-    double tapaMasCerca = tapa1 < tapa2 ? tapa1 : tapa2;
+    double body = intersectBody(ray);
+    double base1 = intersectBase(ray, baseCenter);
+    double base2 = intersectBase(ray, baseCenter2) ;
+    double closestBase = base1 < base2 ? base1 : base2;
 
-    return cuerpo < tapaMasCerca ? cuerpo : tapaMasCerca;
+    return body < closestBase ? body : closestBase;
 };

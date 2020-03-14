@@ -1,17 +1,17 @@
-#ifndef LUZ_H
-#define LUZ_H
+#ifndef LIGHT_H
+#define LIGHT_H
 #include "Point.h"
 #include "Color.h"
 
 using namespace std;
 
-class Luz{
+class Light{
     private:
-        Point posicion;
+        Point position;
         Color color;
 
     public:
-        Luz(Point, Color);
+        Light(Point, Color);
         Color getColor();
         Point getPosicion();
 };

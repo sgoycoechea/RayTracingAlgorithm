@@ -4,27 +4,27 @@
 
 using namespace std;
 
-Plano::Plano(Point punto, Point normal, Color color, float coefTransmision, float coefEspecular, float coefDifuso, float coefAmbiente, float indiceRefraccion):Objeto(color, coefTransmision, coefEspecular, coefDifuso, coefAmbiente, indiceRefraccion){
-    this->punto = punto;
-    normal.normalizar();
+Plain::Plain(Point point, Point normal, Color color, float transmissionCoefficient, float specularCoefficient, float diffusionCoefficient, float ambientCoefficient, float refractiveIndex):Object(color, transmissionCoefficient, specularCoefficient, diffusionCoefficient, ambientCoefficient, refractiveIndex){
+    this->point = point;
+    normal.normalize();
     this->normal = normal;
 }
 
-Point Plano::getNormal(Point punto){
+Point Plain::getNormal(Point point){
     return normal * -1;
 }
 
-double Plano::intersectar(Rayo* rayo) {
-    double prodInterno = normal.dotProduct(rayo->getDireccion());
+double Plain::intersect(Ray* ray) {
+    double dotProduct = normal.dotProduct(ray->getDirection());
 
-    if (prodInterno < 0.0001 && prodInterno > 0.0001) {
-        // No hay interseccion, plano y rayo son paralelos
+    if (dotProduct < 0.0001 && dotProduct > 0.0001) {
+        // No intersection, plain and ray are parallel
         return FLT_MAX;
     }
 
-    double ret = normal.dotProduct(punto - rayo->getOrigen()) / prodInterno;
+    double ret = normal.dotProduct(point - ray->getOrigin()) / dotProduct;
     if (ret < 0.001) {
-        // El plano esta atras de la camara
+        // The plain is behind the camera
         return FLT_MAX;
     }
 

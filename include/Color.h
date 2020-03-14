@@ -15,9 +15,9 @@ class Color{
         float getR();
         float getG();
         float getB();
-        Color escalar(float);
+        Color scale(float);
         Color operator+(Color);
-        void truncar();
+        void truncate();
 };
 
 #endif

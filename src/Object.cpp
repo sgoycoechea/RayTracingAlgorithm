@@ -4,35 +4,35 @@
 
 using namespace std;
 
-Objeto::Objeto(Color color, float coefTransmision, float coefEspecular, float coefDifuso, float coefAmbiente, float indiceRefraccion){
+Object::Object(Color color, float transmissionCoefficient, float specularCoefficient, float diffusionCoefficient, float ambientCoefficient, float refractiveIndex){
     this->color = color;
-    this->coefDifuso = coefDifuso;
-    this->coefEspecular = coefEspecular;
-    this->coefTransmision = coefTransmision;
-    this->indiceRefraccion = indiceRefraccion;
-    this->coefAmbiente = coefAmbiente;
+    this->diffusionCoefficient = diffusionCoefficient;
+    this->specularCoefficient = specularCoefficient;
+    this->transmissionCoefficient = transmissionCoefficient;
+    this->refractiveIndex = refractiveIndex;
+    this->ambientCoefficient = ambientCoefficient;
 }
 
-Color Objeto::getColor(){
+Color Object::getColor(){
     return Color(color.getR(), color.getG(), color.getB());
 }
 
-float Objeto::getCoefDifuso(){
-    return coefDifuso;
+float Object::getDiffusionCoefficient(){
+    return diffusionCoefficient;
 }
 
-float Objeto::getCoefAmbiente(){
-    return coefAmbiente;
+float Object::getAmbientCoefficient(){
+    return ambientCoefficient;
 }
 
-float Objeto::getCoefEspecular(){
-    return coefEspecular;
+float Object::getSpecularCoefficient(){
+    return specularCoefficient;
 }
 
-float Objeto::getCoefTransmision(){
-    return coefTransmision;
+float Object::getTransmissionCoefficient(){
+    return transmissionCoefficient;
 }
 
-float Objeto::getIndiceRefraccion(){
-    return indiceRefraccion;
+float Object::getRefractiveIndex(){
+    return refractiveIndex;
 }

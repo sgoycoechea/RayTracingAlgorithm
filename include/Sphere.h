@@ -1,5 +1,5 @@
-#ifndef ESFERA_H
-#define ESFERA_H
+#ifndef SPHERE_H
+#define SPHERE_H
 #include "Point.h"
 #include "Color.h"
 #include "Ray.h"
@@ -9,14 +9,14 @@
 
 using namespace std;
 
-class Esfera: public Objeto{
+class Sphere: public Object{
     private:
-        Point centro;
-        double rad;
+        Point center;
+        double radius;
     public:
-        Esfera(Point, double, Color, float, float, float, float, float);
-        double intersectar(Rayo*);
-        Point getNormal(Point punto);
+        Sphere(Point, double, Color, float, float, float, float, float);
+        double intersect(Ray*);
+        Point getNormal(Point point);
 };
 
 #endif

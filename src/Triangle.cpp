@@ -4,68 +4,68 @@
 
 using namespace std;
 
-Triangulo::Triangulo(Point punto1, Point punto2, Point punto3, Color color, float coefTransmision, float coefEspecular, float coefDifuso, float coefAmbiente, float indiceRefraccion):Objeto(color, coefTransmision, coefEspecular, coefDifuso, coefAmbiente, indiceRefraccion){
-    this->punto1 = punto1;
-    this->punto2 = punto2;
-    this->punto3 = punto3;
+Triangle::Triangle(Point point1, Point point2, Point point3, Color color, float transmissionCoefficient, float specularCoefficient, float diffusionCoefficient, float ambientCoefficient, float refractiveIndex):Object(color, transmissionCoefficient, specularCoefficient, diffusionCoefficient, ambientCoefficient, refractiveIndex){
+    this->point1 = point1;
+    this->point2 = point2;
+    this->point3 = point3;
 }
 
-Point Triangulo::getNormal(Point punto){
-    Point vector12 = punto1 - punto2;
-    Point vector13 = punto1 - punto3;
-    Point normal = vector12.productoVectorial(vector13);
-    normal.normalizar();
+Point Triangle::getNormal(Point point){
+    Point vector12 = point1 - point2;
+    Point vector13 = point1 - point3;
+    Point normal = vector12.crossProduct(vector13);
+    normal.normalize();
 
     return normal;
 }
 
-double Triangulo::intersectar(Rayo* rayo) {
-    Point normal = getNormal(punto1);
-    double prodInterno = normal.dotProduct(rayo->getDireccion());
+double Triangle::intersect(Ray* ray) {
+    Point normal = getNormal(point1);
+    double dotProduct = normal.dotProduct(ray->getDirection());
 
-    if (prodInterno < 0.0001 && prodInterno > 0.0001) {
-        return FLT_MAX; // No hay interseccion, el plano que contiene al triangulo y el rayo son paralelos
+    if (dotProduct < 0.0001 && dotProduct > 0.0001) {
+        return FLT_MAX; // No intersection, the plain that contains the triangle is parallel to the ray
     }
 
-    double ret = normal.dotProduct(punto1 - rayo->getOrigen()) / prodInterno;
+    double ret = normal.dotProduct(point1 - ray->getOrigin()) / dotProduct;
     if (ret < 0.001) {
-        return FLT_MAX; // El plano que contiene al triangulo esta atras de la camara
+        return FLT_MAX; // The plain that contains the triangle is behind the camera
     }
 
-    Point interseccion = rayo->getOrigen() + (rayo->getDireccion() * ret);
+    Point intersection = ray->getOrigin() + (ray->getDirection() * ret);
 
-    // Chequear que la interseccion este dentro del triangulo
-    if (puntoEnTriangulo(interseccion, punto1, punto2, punto3))
+    // Check that the intersection of the ray with the plain is inside the triangle
+    if (isPointInTriangle(intersection, point1, point2, point3))
         return ret;
 
     return FLT_MAX;
 };
 
-float Triangulo::areaTriangulo(Point p1, Point p2, Point p3)
+float Triangle::triangleArea(Point p1, Point p2, Point p3)
 {
-    Point normal = getNormal(punto1);
+    Point normal = getNormal(point1);
     Point vector13 = p1 - p3;
     Point vector23 = p2 - p3;
-    Point prodVectorial = vector13.productoVectorial(vector23);
+    Point crossProduct = vector13.crossProduct(vector23);
 
-    float res = sqrt(prodVectorial.dotProduct(prodVectorial)) / 2;
-    if (prodVectorial.dotProduct(normal) < 0)
+    float res = sqrt(crossProduct.dotProduct(crossProduct)) / 2;
+    if (crossProduct.dotProduct(normal) < 0)
         res *= -1;
 
     return res;
 }
 
-// Fuente:   https://math.stackexchange.com/questions/4322/check-whether-a-point-is-within-a-3d-triangle
-bool Triangulo::puntoEnTriangulo(Point pt, Point v1, Point v2, Point v3)
+// Source:   https://math.stackexchange.com/questions/4322/check-whether-a-point-is-within-a-3d-triangle
+bool Triangle::isPointInTriangle(Point pt, Point v1, Point v2, Point v3)
 {
-    float areaABC = areaTriangulo(v1, v2, v3);
-    float areaPBC = areaTriangulo(pt, v2, v3);
-    float areaPCA = areaTriangulo(pt, v3, v1);
+    float areaABC = triangleArea(v1, v2, v3);
+    float areaPBC = triangleArea(pt, v2, v3);
+    float areaPCA = triangleArea(pt, v3, v1);
 
-    float alfa = areaPBC / areaABC;
+    float alpha = areaPBC / areaABC;
     float beta = areaPCA / areaABC;
-    float gama = 1 - alfa - beta;
+    float gamma = 1 - alpha - beta;
 
-    return alfa >= 0 && alfa <= 1 && beta >= 0 && beta <= 1 && gama >= 0 && gama <= 1;
+    return alpha >= 0 && alpha <= 1 && beta >= 0 && beta <= 1 && gamma >= 0 && gamma <= 1;
 }
 

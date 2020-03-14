@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<file>
+
+  <resolucion x="500" y="500"></resolucion>
+  
+  <camera>
+    <position x="0" y="0" z="-0.5"></position>
+    <direction x="0" y="0" z="1"></direction>
+    <up x="0" y="1" z="0"></up>
+  </camera>
+  
+  <lights>
+    <light>
+      <position x="0" y="1.5" z="5"></position>
+      <color r="80" g="80" b="80"></color>
+    </light>
+  </lights>
+  
+  <objects>
+  
+    <spheres>
+        <sphere centerX="-1" centerY="-1" centerZ="8" radius="0.7" colorR="0" colorG="0" colorB="0" transmissionCoefficient="0" specularCoefficient="1" diffusionCoefficient="0" ambientCoefficient="0.1" refractiveIndex="0"> </sphere>
+        <sphere centerX="0.5" centerY="-1" centerZ="8" radius="0.6" colorR="0" colorG="0" colorB="0" transmissionCoefficient="0" specularCoefficient="1" diffusionCoefficient="0" ambientCoefficient="0.1" refractiveIndex="0"> </sphere>
+    
+    </spheres>
+    
+    <cilindros>
+    </cilindros>
+    
+    <triangles>
+       <triangles pointA1="1" pointA2="-1" pointA3="7" pointB1="3" pointB2="-1" pointB3="7" pointC1="1" pointC2="1.5" pointC3="7" colorR="50" colorG="50" colorB="50" transmissionCoefficient="0.9" specularCoefficient="0" diffusionCoefficient="0.1" ambientCoefficient="0.1" refractiveIndex="1.3"></triangles>
+       
+    </triangles>
+    
+    <plains>
+    
+        <plain pointX="0" pointY="0" pointZ="11" normalX="0" normalY="0" normalZ="-1" colorR="200" colorG="200" colorB="200" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="0.3" ambientCoefficient="0.1" refractiveIndex="1"> </plain>
+        <plain pointX="0" pointY="4" pointZ="0" normalX="0" normalY="-1" normalZ="0" colorR="130" colorG="130" colorB="130" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="0.3" ambientCoefficient="0.1" refractiveIndex="1"> </plain>
+        <plain pointX="-3" pointY="0" pointZ="0" normalX="1" normalY="0" normalZ="0" colorR="130" colorG="0" colorB="0" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="0.3" ambientCoefficient="0.1" refractiveIndex="1"> </plain>
+        <plain pointX="3" pointY="0" pointZ="0" normalX="-1" normalY="0" normalZ="0" colorR="0" colorG="130" colorB="0" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="0.3" ambientCoefficient="0.1" refractiveIndex="1"> </plain>
+        <plain pointX="0" pointY="-3" pointZ="0" normalX="0" normalY="1" normalZ="0" colorR="230" colorG="230" colorB="230" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="0.3" ambientCoefficient="0.1" refractiveIndex="1"> </plain>
+        
+    </plains>
+    
+    
+  </objects>
+  
+</file>

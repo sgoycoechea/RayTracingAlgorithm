@@ -26,22 +26,22 @@ float Color::getB() {
   return b;
 }
 
-void Color::truncar() {
-  float maximo = r;
-  if (g > maximo)
-    maximo = g;
-  if (b > maximo)
-    maximo = b;
+void Color::truncate() {
+  float maximum = r;
+  if (g > maximum)
+    maximum = g;
+  if (b > maximum)
+    maximum = b;
 
-  if (maximo > 255){
-    float factor = 255 / maximo;
+  if (maximum > 255){
+    float factor = 255 / maximum;
     r *= factor;
     g *= factor;
     b *= factor;
   }
 }
 
-Color Color::escalar(float factor) {
+Color Color::scale(float factor) {
   float newR = r * factor;
   if (newR > 255)
     newR = 255;

@@ -1,5 +1,5 @@
-#ifndef PLANO_H
-#define PLANO_H
+#ifndef PLAIN_H
+#define PLAIN_H
 #include "Point.h"
 #include "Color.h"
 #include "Ray.h"
@@ -9,14 +9,14 @@
 
 using namespace std;
 
-class Plano: public Objeto{
+class Plain: public Object{
     private:
-        Point punto;
+        Point point;
         Point normal;
     public:
-        Plano(Point, Point, Color,float, float, float, float, float);
-        double intersectar(Rayo*);
-        Point getNormal(Point punto);
+        Plain(Point, Point, Color,float, float, float, float, float);
+        double intersect(Ray*);
+        Point getNormal(Point point);
 };
 
 #endif

@@ -17,13 +17,13 @@ class Point{
         float getY();
         float getZ();
         float dotProduct(Point);
-        Point productoVectorial(Point);
+        Point crossProduct(Point);
         double magnitude();
         Point operator-(Point);
         Point operator+(Point);
         Point operator/(double);
         Point operator*(double);
-        void normalizar();
+        void normalize();
 };
 
 #endif

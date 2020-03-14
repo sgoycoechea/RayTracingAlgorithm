@@ -2,17 +2,17 @@
 
 using namespace std;
 
-Rayo::Rayo(Point origen, Point direccion){
+Ray::Ray(Point origen, Point direction){
     this->origen = origen;
-    this->direccion = direccion;
+    this->direction = direction;
 }
 
-Point Rayo::getOrigen(){
+Point Ray::getOrigin(){
     return origen;
 }
 
-Point Rayo::getDireccion(){
-    return direccion;
+Point Ray::getDirection(){
+    return direction;
 }
 
 

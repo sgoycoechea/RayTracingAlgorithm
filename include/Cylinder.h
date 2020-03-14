@@ -1,5 +1,5 @@
-#ifndef CILINDRO_H
-#define CILINDRO_H
+#ifndef CYLINDER_H
+#define CYLINDER_H
 #include "Point.h"
 #include "Color.h"
 #include "Ray.h"
@@ -9,18 +9,18 @@
 
 using namespace std;
 
-class Cilindro: public Objeto{
+class Cylinder: public Object{
     private:
-        Point centroBase;
-        Point direccion;
-        double rad;
-        double altura;
-        double intersectarCuerpo(Rayo*);
-        double intersectarTapa(Rayo*, Point);
+        Point baseCenter;
+        Point direction;
+        double radius;
+        double height;
+        double intersectBody(Ray*);
+        double intersectBase(Ray*, Point);
     public:
-        Cilindro(Point, Point, double, double, Color, float, float, float, float, float);
-        double intersectar(Rayo*);
-        Point getNormal(Point punto);
+        Cylinder(Point, Point, double, double, Color, float, float, float, float, float);
+        double intersect(Ray*);
+        Point getNormal(Point point);
 };
 
 #endif

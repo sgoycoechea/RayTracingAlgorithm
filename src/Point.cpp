@@ -30,14 +30,14 @@ double Point::magnitude(){
     return sqrt(pow(x,2) + pow(y,2) + pow(z,2));
 }
 
-void Point::normalizar(){
+void Point::normalize(){
     double mag = magnitude();
     x = x / mag;
     y = y / mag;
     z = z / mag;
 }
 
-Point Point::productoVectorial(Point vector2){
+Point Point::crossProduct(Point vector2){
     double resX = y * vector2.getZ() - z * vector2.getY();
     double resY = - (x * vector2.getZ() - z * vector2.getX());
     double resZ = x * vector2.getY() - y * vector2.getX();

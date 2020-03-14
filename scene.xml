@@ -1,0 +1,84 @@
+<?xml version="1.0" ?>
+<file>
+
+  <resolution x="500" y="500"></resolution>
+  
+  <camera>
+    <position x="0" y="0" z="-0.5"></position>
+    <direction x="0" y="0" z="1"></direction>
+    <up x="0" y="1" z="0"></up>
+  </camera>
+  
+  <lights>
+    <light>
+      <position x="0" y="1.5" z="5"></position>
+      <color r="30" g="30" b="30"></color>
+    </light>
+    
+    <light>
+      <position x="0" y="1.5" z="8"></position>
+      <color r="30" g="30" b="30"></color>
+    </light>
+  </lights>
+  
+  <objects>
+  
+    <spheres>
+        <sphere centerX="1.4" centerY="-0.9" centerZ="8" radius="0.6" colorR="0" colorG="0" colorB="0" transmissionCoefficient="0" specularCoefficient="1" diffusionCoefficient="0" ambientCoefficient="0.1" refractiveIndex="0"> </sphere>
+        <sphere centerX="-1" centerY="-0.5" centerZ="8" radius="1" colorR="100" colorG="50" colorB="50" transmissionCoefficient="0.7" specularCoefficient="0" diffusionCoefficient="0" ambientCoefficient="0.3" refractiveIndex="1.3"> </sphere>
+    </spheres>
+    
+    <cylinders>
+       <cylinder baseCenterX="-0.3" baseCenterY="-1.5" baseCenterZ="8" directionX="0" directionY="1" directionZ="0" radius="0.6" height="1.2" colorR="0" colorG="60" colorB="0" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="1" ambientCoefficient="0.1" refractiveIndex="0"></cylinder>
+    </cylinders>
+    
+    <triangles>
+    
+       <!-- Front face -->
+       <triangle pointA1="-2.2" pointA2="-3" pointA3="7" pointB1="0" pointB2="-3" pointB3="7" pointC1="-2.2" pointC2="-1.5" pointC3="7" colorR="50" colorG="50" colorB="50" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="1" ambientCoefficient="0.1" refractiveIndex="0"></triangle>
+       <triangle pointA1="0" pointA2="-3" pointA3="7" pointB1="0" pointB2="-1.5" pointB3="7" pointC1="-2.2" pointC2="-1.5" pointC3="7" colorR="50" colorG="50" colorB="50" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="1" ambientCoefficient="0.1" refractiveIndex="0"></triangle>
+       <triangle pointA1="0" pointA2="-3" pointA3="7" pointB1="2" pointB2="-3" pointB3="7" pointC1="0" pointC2="-1.5" pointC3="7" colorR="50" colorG="50" colorB="50" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="1" ambientCoefficient="0.1" refractiveIndex="0"></triangle>
+       <triangle pointA1="2" pointA2="-3" pointA3="7" pointB1="2" pointB2="-1.5" pointB3="7" pointC1="0" pointC2="-1.5" pointC3="7" colorR="50" colorG="50" colorB="50" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="1" ambientCoefficient="0.1" refractiveIndex="0"></triangle>
+       
+       <!-- Back face -->
+       <triangle pointA1="-2.2" pointA2="-1.5" pointA3="9" pointB1="0" pointB2="-3" pointB3="9" pointC1="-2.2" pointC2="-3" pointC3="9" colorR="50" colorG="50" colorB="50" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="1" ambientCoefficient="0.1" refractiveIndex="0"></triangle>
+       <triangle pointA1="-2.2" pointA2="-1.5" pointA3="9" pointB1="0" pointB2="-1.5" pointB3="9" pointC1="0" pointC2="-3" pointC3="9" colorR="50" colorG="50" colorB="50" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="1" ambientCoefficient="0.1" refractiveIndex="0"></triangle>
+       <triangle pointA1="0" pointA2="-1.5" pointA3="9" pointB1="2" pointB2="-3" pointB3="9" pointC1="0" pointC2="-3" pointC3="9" colorR="50" colorG="50" colorB="50" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="1" ambientCoefficient="0.1" refractiveIndex="0"></triangle>
+       <triangle pointA1="0" pointA2="-1.5" pointA3="9" pointB1="2" pointB2="-1.5" pointB3="9" pointC1="2" pointC2="-3" pointC3="9" colorR="50" colorG="50" colorB="50" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="1" ambientCoefficient="0.1" refractiveIndex="0"></triangle>
+       
+       <!-- Right face -->
+       <triangle pointA1="2" pointA2="-3" pointA3="7" pointB1="2" pointB2="-3" pointB3="9" pointC1="2" pointC2="-1.5" pointC3="7" colorR="50" colorG="50" colorB="50" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="1" ambientCoefficient="0.1" refractiveIndex="0"></triangle>
+       <triangle pointA1="2" pointA2="-3" pointA3="9" pointB1="2" pointB2="-1.5" pointB3="9" pointC1="2" pointC2="-1.5" pointC3="7" colorR="50" colorG="50" colorB="50" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="1" ambientCoefficient="0.1" refractiveIndex="0"></triangle>
+       
+       <!-- Left face -->
+       <triangle pointA1="-2.2" pointA2="-1.5" pointA3="7" pointB1="-2.2" pointB2="-3" pointB3="9" pointC1="-2.2" pointC2="-3" pointC3="7" colorR="50" colorG="50" colorB="50" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="1" ambientCoefficient="0.1" refractiveIndex="0"></triangle>
+       <triangle pointA1="-2.2" pointA2="-1.5" pointA3="7" pointB1="-2.2" pointB2="-1.5" pointB3="9" pointC1="-2.2" pointC2="-3" pointC3="9" colorR="50" colorG="50" colorB="50" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="1" ambientCoefficient="0.1" refractiveIndex="0"></triangle>
+       
+       <!-- Up face -->
+       <triangle pointA1="-2.2" pointA2="-1.5" pointA3="7" pointB1="0" pointB2="-1.5" pointB3="9" pointC1="-2.2" pointC2="-1.5" pointC3="9" colorR="50" colorG="50" colorB="50" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="1" ambientCoefficient="0.1" refractiveIndex="0"></triangle>
+       <triangle pointA1="-2.2" pointA2="-1.5" pointA3="7" pointB1="0" pointB2="-1.5" pointB3="7" pointC1="0" pointC2="-1.5" pointC3="9" colorR="50" colorG="50" colorB="50" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="1" ambientCoefficient="0.1" refractiveIndex="0"></triangle>
+       <triangle pointA1="0" pointA2="-1.5" pointA3="7" pointB1="2" pointB2="-1.5" pointB3="9" pointC1="0" pointC2="-1.5" pointC3="9" colorR="50" colorG="50" colorB="50" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="1" ambientCoefficient="0.1" refractiveIndex="0"></triangle>
+       <triangle pointA1="0" pointA2="-1.5" pointA3="7" pointB1="2" pointB2="-1.5" pointB3="7" pointC1="2" pointC2="-1.5" pointC3="9" colorR="50" colorG="50" colorB="50" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="1" ambientCoefficient="0.1" refractiveIndex="0"></triangle>
+       
+       <!-- Down face -->
+       <triangle pointA1="-2.2" pointA2="-3" pointA3="9" pointB1="0" pointB2="-3" pointB3="9" pointC1="-2.2" pointC2="-3" pointC3="7" colorR="50" colorG="50" colorB="50" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="1" ambientCoefficient="0.1" refractiveIndex="0"></triangle>
+       <triangle pointA1="0" pointA2="-3" pointA3="9" pointB1="0" pointB2="-3" pointB3="7" pointC1="-2.2" pointC2="-3" pointC3="7" colorR="50" colorG="50" colorB="50" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="1" ambientCoefficient="0.1" refractiveIndex="0"></triangle>
+       <triangle pointA1="0" pointA2="-3" pointA3="9" pointB1="2" pointB2="-3" pointB3="9" pointC1="0" pointC2="-3" pointC3="7" colorR="50" colorG="50" colorB="50" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="1" ambientCoefficient="0.1" refractiveIndex="0"></triangle>
+       <triangle pointA1="2" pointA2="-3" pointA3="9" pointB1="2" pointB2="-3" pointB3="7" pointC1="0" pointC2="-3" pointC3="7" colorR="50" colorG="50" colorB="50" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="1" ambientCoefficient="0.1" refractiveIndex="0"></triangle>
+       
+    </triangles>
+    
+    <plains>
+    
+        <plain pointX="0" pointY="0" pointZ="11" normalX="0" normalY="0" normalZ="-1" colorR="200" colorG="200" colorB="200" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="0.3" ambientCoefficient="0.1" refractiveIndex="1"> </plain>
+        <plain pointX="0" pointY="4" pointZ="0" normalX="0" normalY="-1" normalZ="0" colorR="130" colorG="130" colorB="130" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="0.3" ambientCoefficient="0.1" refractiveIndex="1"> </plain>
+        <plain pointX="-3" pointY="0" pointZ="0" normalX="1" normalY="0" normalZ="0" colorR="130" colorG="0" colorB="0" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="0.3" ambientCoefficient="0.1" refractiveIndex="1"> </plain>
+        <plain pointX="3" pointY="0" pointZ="0" normalX="-1" normalY="0" normalZ="0" colorR="0" colorG="130" colorB="0" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="0.3" ambientCoefficient="0.1" refractiveIndex="1"> </plain>
+        <plain pointX="0" pointY="-3" pointZ="0" normalX="0" normalY="1" normalZ="0" colorR="230" colorG="230" colorB="230" transmissionCoefficient="0" specularCoefficient="0" diffusionCoefficient="0.3" ambientCoefficient="0.1" refractiveIndex="1"> </plain>
+        
+    </plains>
+    
+    
+  </objects>
+  
+</file>

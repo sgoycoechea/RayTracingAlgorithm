@@ -4,44 +4,44 @@
 
 using namespace std;
 
-Esfera::Esfera(Point centro, double rad, Color color, float coefTransmision, float coefEspecular, float coefDifuso, float coefAmbiente, float indiceRefraccion):Objeto(color, coefTransmision, coefEspecular, coefDifuso, coefAmbiente, indiceRefraccion){
-    this->centro = centro;
-    this->rad = rad;
+Sphere::Sphere(Point center, double radius, Color color, float transmissionCoefficient, float specularCoefficient, float diffusionCoefficient, float ambientCoefficient, float refractiveIndex):Object(color, transmissionCoefficient, specularCoefficient, diffusionCoefficient, ambientCoefficient, refractiveIndex){
+    this->center = center;
+    this->radius = radius;
 }
 
-Point Esfera::getNormal(Point punto){
-    return centro - (punto);
+Point Sphere::getNormal(Point point){
+    return center - (point);
 }
 
-double Esfera::intersectar(Rayo* rayo) {
-    double dirX = rayo->getDireccion().getX();
-    double dirY = rayo->getDireccion().getY();
-    double dirZ = rayo->getDireccion().getZ();
-    double oriX = rayo->getOrigen().getX();
-    double oriY = rayo->getOrigen().getY();
-    double oriZ = rayo->getOrigen().getZ();
+double Sphere::intersect(Ray* ray) {
+    double directionX = ray->getDirection().getX();
+    double directionY = ray->getDirection().getY();
+    double directionZ = ray->getDirection().getZ();
+    double originX = ray->getOrigin().getX();
+    double originY = ray->getOrigin().getY();
+    double originZ = ray->getOrigin().getZ();
 
     //Bhaskaras
-    double a = pow(dirX,2) + pow(dirY,2) + pow(dirZ,2);
-    double b = 2 * ( dirX * (oriX - centro.getX()) + dirY * (oriY - centro.getY()) + dirZ * (oriZ - centro.getZ()) );
-    double c = pow(oriX - centro.getX(), 2) + pow(oriY - centro.getY(), 2) + pow(oriZ - centro.getZ(), 2) - pow(rad, 2);
+    double a = pow(directionX,2) + pow(directionY,2) + pow(directionZ,2);
+    double b = 2 * ( directionX * (originX - center.getX()) + directionY * (originY - center.getY()) + directionZ * (originZ - center.getZ()) );
+    double c = pow(originX - center.getX(), 2) + pow(originY - center.getY(), 2) + pow(originZ - center.getZ(), 2) - pow(radius, 2);
     double delta = b*b - 4 * a * c;
 
 
     if (delta < 0){
-        return FLT_MAX; // No hay interseccion
+        return FLT_MAX; // No intersection
     }
 
-    double raiz1 = (-b - sqrt(delta)) / (2 * a);
-    double raiz2 = (-b + sqrt(delta)) / (2 * a);
+    double root1 = (-b - sqrt(delta)) / (2 * a);
+    double root2 = (-b + sqrt(delta)) / (2 * a);
 
-    if (raiz2 < 0.01)
-        return FLT_MAX; // La esfera esta toda atras de la camara
+    if (root2 < 0.01)
+        return FLT_MAX; // The sphere is behind the camera
 
-    if (raiz1 > 0.01)
-        return raiz1; // La esfera esta toda adelante de la camara
+    if (root1 > 0.01)
+        return root1; // The sphere is in front of the camera
     else
-        return raiz2; // La camara esta adentro de la esfera
+        return root2; // The camera is inside the sphere
 };
 
 
