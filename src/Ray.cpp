@@ -1,4 +1,4 @@
-#include "../include/Rayo.h"
+#include "../include/Ray.h"
 
 using namespace std;
 

@@ -1,4 +1,4 @@
-#include "../include/Triangulo.h"
+#include "../include/Triangle.h"
 #include <iostream>
 #include <fstream>
 

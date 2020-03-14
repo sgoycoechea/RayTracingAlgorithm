@@ -3,7 +3,7 @@
 
 #include "Point.h"
 #include "Color.h"
-#include "Rayo.h"
+#include "Ray.h"
 
 using namespace std;
 

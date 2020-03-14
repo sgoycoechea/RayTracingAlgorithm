@@ -1,4 +1,4 @@
-#include "../include/Luz.h"
+#include "../include/Light.h"
 
 using namespace std;
 

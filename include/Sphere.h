@@ -2,8 +2,8 @@
 #define ESFERA_H
 #include "Point.h"
 #include "Color.h"
-#include "Rayo.h"
-#include "Objeto.h"
+#include "Ray.h"
+#include "Object.h"
 #include <math.h>
 #include <cfloat>
 

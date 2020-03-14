@@ -1,4 +1,4 @@
-#include "../include/Esfera.h"
+#include "../include/Sphere.h"
 #include <iostream>
 #include <fstream>
 
